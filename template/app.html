@@ -133,16 +133,57 @@ details.dt .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px
 .age{display:inline-block;margin-top:4px;font-size:12px;font-weight:600;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.3);border-radius:99px;padding:2px 10px}.age.old{background:#fbbf24;border-color:#fbbf24;color:#111}
 .hero .logo{background:none!important;box-shadow:none!important;border-radius:0!important;width:auto!important;height:auto!important}.hero .logo img{height:58px!important;width:auto!important;filter:drop-shadow(0 2px 6px rgba(0,0,0,.35))}@media (max-width:760px){.hero .logo img{height:46px!important}}
 .tbtn{margin-top:4px;font:inherit;font-size:12px;font-weight:700;border-radius:99px;padding:3px 12px;cursor:pointer;border:1px solid rgba(255,255,255,.6);background:#fff;color:#c8102e}.tbtn.on{background:#15803d;border-color:#15803d;color:#fff}.lockx{color:var(--muted);font-size:12px}
+/* ---------- fixierter Kopf mit Menü ---------- */
+.hero{position:sticky;top:0;z-index:30;padding:calc(6px + env(safe-area-inset-top)) 0 6px!important;box-shadow:0 2px 10px rgba(0,0,0,.18)}
+.hero .in{gap:10px!important;align-items:center}
+.hero .logo img{height:40px!important}
+.hero .ht{flex:1;min-width:0}
+.hero h1{font-size:17px!important;margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hero .hsub{font-size:11.5px;opacity:.92;display:flex;align-items:center;gap:6px;white-space:nowrap;overflow:hidden}
+.adot{width:8px;height:8px;border-radius:50%;background:#4ade80;flex:0 0 auto;box-shadow:0 0 0 2px rgba(255,255,255,.35)}.adot.old{background:#fbbf24}
+.mbtn,.tbadge{flex:0 0 auto;border:1px solid rgba(255,255,255,.45);background:rgba(255,255,255,.14);color:#fff;border-radius:10px;font:inherit;font-size:18px;line-height:1;padding:8px 11px;cursor:pointer}
+.tbadge{font-size:14px;padding:8px 9px;background:#15803d;border-color:#15803d}
+.menu{max-width:1200px;margin:6px auto 0;padding:4px 16px 10px;color:#fff;display:grid;gap:8px}
+.menu[hidden]{display:none}
+.menu .mi{background:rgba(0,0,0,.18);border-radius:12px;padding:8px 12px;font-size:13px;display:flex;flex-wrap:wrap;gap:4px 10px;align-items:center}
+.menu .mi b{flex-basis:100%;font-size:12px;opacity:.85;text-transform:uppercase;letter-spacing:.04em}
+.menu a{color:#fff;text-decoration:underline}
+.menu .tot{display:flex;flex-wrap:wrap;gap:6px}
+.menu .tot span{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);border-radius:99px;padding:2px 10px;font-size:12px;font-weight:600}
+.hero .age{display:none}
+.sticky{top:var(--heroH,56px)!important}
+@media (min-width:761px){.menu{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}}
+/* Filter als Sheet, Schnellfilter beim Scrollen ausblenden, Mein Team */
+.fbox{margin:0!important}
+.fbox:not([open]){display:none}
+.fbox[open]{position:fixed;left:0;right:0;bottom:0;z-index:50;max-height:80vh;overflow:auto;border-radius:18px 18px 0 0;box-shadow:0 -10px 40px rgba(0,0,0,.3);padding-bottom:env(safe-area-inset-bottom)}
+.fbox[open]>summary{pointer-events:none;font-size:16px}.fbox[open]>summary::before{content:"⚙︎"}
+.fshade{position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:45;display:none}.fshade.on{display:block}
+.fdone{border:0;border-radius:10px;background:var(--accent);color:#fff;font:inherit;font-weight:700;padding:8px 18px;cursor:pointer;margin-left:auto}
+@media (min-width:761px){.fbox[open]{left:50%;right:auto;width:720px;transform:translateX(-50%)}}
+.qf{transition:max-height .2s,opacity .2s,padding .2s;max-height:60px}
+.qf.hid{max-height:0;opacity:0;padding:0;overflow:hidden}
+.menu select{font:inherit;font-size:13px;border-radius:8px;padding:4px 8px;border:0}
+.menu .kpis{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;width:100%;margin:0}
+.menu .kpi{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.2);color:#fff;padding:8px 10px}.menu .kpi span{color:rgba(255,255,255,.85)}.menu .kpi b{font-size:16px}
+.tabs button .my,.tabs button span.my{display:inline!important;font-size:10px;margin-left:2px}
 </style>
 </head>
 <body>
-<header class="hero"><div class="in">
+<header class="hero" id="hero"><div class="in">
   <div class="logo"><img src="__LOGO__" alt="FC Frauenfeld"></div>
-  <div>
-    <h1>Turniere FC Frauenfeld</h1><div class="age" id="age"></div> <button class="tbtn" id="tbtn" hidden></button>
-    <p>Saison 2026/27 · Halle &amp; Aussen · Ostschweiz &amp; ZH · aktualisiert __UPDATED__</p>
-    <div class="tot" id="tot"></div>
-  </div>
+  <div class="ht"><h1>Turniere FC Frauenfeld</h1><div class="hsub"><span class="adot" id="adot"></span><span id="age"></span></div></div>
+  <button class="tbadge" id="tbadge" hidden title="Trainer-Modus aktiv">🔓</button>
+  <button class="mbtn" id="mbtn" aria-label="Menü" aria-expanded="false">☰</button>
+</div>
+<div class="menu" id="menu" hidden>
+  <div class="mi"><b>🔄 Datenstand</b><span id="ageFull"></span></div>
+  <div class="mi"><b>👤 Trainer</b><span id="tinfo"></span><button class="tbtn" id="tbtn" hidden></button></div>
+  <div class="mi"><b>⭐ Mein Team</b><span>Beim Öffnen direkt anzeigen:</span><select id="mysel"></select></div>
+  <div class="mi"><b id="mkt">📈 Team-Kennzahlen</b><div id="mkbox" style="width:100%"></div></div>
+  <div class="mi"><b>📊 Saison gesamt</b><div class="tot" id="tot"></div></div>
+  <div class="mi"><b>ℹ️ Info</b><span>Saison 2026/27 · Halle &amp; Aussen · Ostschweiz &amp; Kanton Zürich (Mädchen zusätzlich Swiss Girls Cup Bern) · Fahrzeiten ab Bahnhof Frauenfeld · Quelle <a href="https://www.turnieragenda.ch" target="_blank">turnieragenda.ch</a>, täglich um 05:00 abgeglichen.</span></div>
+  <div class="mi"><b>📱 Als App</b><span>Auf dem Handy: <i>Teilen → Zum Home-Bildschirm</i></span></div>
 </div></header>
 <div class="wrap">
   <div class="sticky">
@@ -150,6 +191,7 @@ details.dt .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px
     <div class="qf" id="qf"></div>
   </div>
   <div id="teamhead"></div>
+  <div class="fshade" id="fshade"></div>
   <details class="fbox" id="fbox">
     <summary>Mehr Filter <span class="fa" id="fa"></span><span class="count" id="count"></span></summary>
     <div class="filters">
@@ -165,6 +207,7 @@ details.dt .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px
       <label>Besonderheit <select id="fTag"></select></label>
       <input type="search" id="fQ" placeholder="Suche Ort, Turnier, Verein …">
       <button class="reset" id="reset">Filter zurücksetzen</button>
+      <button class="fdone" id="fdone">Fertig</button>
     </div>
   </details>
   <div id="sections"></div>
@@ -248,7 +291,8 @@ const picks = (()=>{ const p = ls("fcfAppPicks", null) || Object.assign({}, ls("
 const viewState = (()=>{ const v = ls("fcfAppView", null) || Object.assign({"FF-11":"kal","FF-09":"kal",G:"kal",F:"kal",E:"kal"}, ls("ffView",{}), ls("jgfeView",{})); return (v && typeof v==="object" && !Array.isArray(v)) ? v : {}; })();
 const sortState = Object.fromEntries(TEAMS.map(t=>[t.kat,{k:"datum",d:1}]));
 let active = (location.hash||"").slice(1);
-if (!teamOf(active)) active = ls("fcfAppTab","FF-11"); if (!teamOf(active)) active = "FF-11";
+const MYKEY = "fcfMyTeam"; let MY = ls(MYKEY, ""); if (!teamOf(MY)) MY = "";
+if (!teamOf(active)) active = MY || ls("fcfAppTab","FF-11"); if (!teamOf(active)) active = "FF-11";
 function savePicks(){ try { localStorage.setItem("fcfAppPicks", JSON.stringify(picks)); localStorage.setItem("fcfAppView", JSON.stringify(viewState)); localStorage.setItem("fcfAppTab", JSON.stringify(active)); } catch(e){} }
 const stkSel = () => [...document.querySelectorAll(".stkc input:checked")].map(c=>c.value);
 
@@ -267,7 +311,7 @@ function filtered(t){
 const inPlan = r => picks[r.kat+"|"+wkKey(r.datum)]===rid(r);
 function togglePlan(r){ const k=r.kat+"|"+wkKey(r.datum); if(picks[k]===rid(r)) delete picks[k]; else picks[k]=rid(r); savePicks(); }
 const NOWWK = (()=>{ const d=new Date(); d.setHours(12,0,0,0); if(d.getDay()===0) d.setDate(d.getDate()-1); while(d.getDay()!==6) d.setDate(d.getDate()+1); return d.toISOString().slice(0,10); })();
-const stickyH = () => (document.querySelector(".sticky")||{offsetHeight:0}).offsetHeight;
+const stickyH = () => (document.querySelector(".sticky")||{offsetHeight:0}).offsetHeight + ((document.querySelector("#hero .in")||{offsetHeight:0}).offsetHeight + 12);
 function detailHtml(r){
   const E = ev(r), pct = (r.spielzeit && r.hallenzeit) ? Math.round(100*r.spielzeit/r.hallenzeit) : null;
   const regl = r.fmt ? `<br>${r.fmt}` : ((E.kern||[]).length ? "<ul style='margin:4px 0 0;padding-left:18px'>"+E.kern.map(k=>"<li>"+esc(k)+"</li>").join("")+"</ul>" : "<br><span class='small'>Kein Reglement-PDF publiziert – siehe Ausschreibung.</span>");
@@ -385,7 +429,7 @@ function kpis(t){
 }
 
 function renderTabs(){
-  $("tabs").innerHTML = TEAMS.map(t=>{ const off=DATA.filter(r=>r.kat===t.kat&&r.status==="offen").length, np=planRows(t).length; return `<button data-k="${t.kat}" class="${t.kat===active?'on':''}" style="--tc:${t.color}"><b>${t.kat}</b><span>${t.short}</span><i>${np?"✓ "+np+" im Plan":off+" offen"}</i></button>`; }).join("");
+  $("tabs").innerHTML = TEAMS.map(t=>{ const off=DATA.filter(r=>r.kat===t.kat&&r.status==="offen").length, np=planRows(t).length; return `<button data-k="${t.kat}" class="${t.kat===active?'on':''}" style="--tc:${t.color}"><b>${t.kat}${t.kat===MY?'<span class="my">⭐</span>':""}</b><span>${t.short}</span><i>${np?"✓ "+np+" im Plan":off+" offen"}</i></button>`; }).join("");
   $("tabs").querySelectorAll("button").forEach(b=>b.onclick=()=>{ active=b.dataset.k; try { history.replaceState(null,"","#"+active); } catch(e){} /* in Vorschau-Fenstern (sandbox) nicht erlaubt */ savePicks(); renderTabs(); render(); window.scrollTo({top:Math.min(scrollY,$("teamhead").offsetTop-stickyH()),behavior:"instant"}); });
 }
 function renderTotals(){
@@ -404,7 +448,7 @@ function renderQF(t, n){
     if(q==="fz") $("fFz").value=fz30?110:45;
     if(q==="fcf") $("fFcf").checked=!$("fFcf").checked;
     if(q==="ew") $("fEw").checked=!$("fEw").checked;
-    if(q==="more"){ $("fbox").open=!$("fbox").open; if($("fbox").open) window.scrollTo({top:$("fbox").getBoundingClientRect().top+scrollY-stickyH()-6,behavior:"smooth"}); renderQF(t,n); return; }
+    if(q==="more"){ openFilter(true); return; }
     render(); });
 }
 function renderPbar(t){
@@ -437,6 +481,7 @@ function render(){
   const rows = filtered(t).sort((a,b)=>{ let x=a[st.k], y=b[st.k]; if(x==null) return 1; if(y==null) return -1; return (x>y?1:x<y?-1:0)*st.d || a.datum.localeCompare(b.datum); });
   $("teamhead").innerHTML = `<div class="thead"><h2><span class="dot" style="background:${t.color}"></span>${t.title}</h2><p class="sub">${t.desc}</p></div>${kpis(t)}`;
   $("teamhead").querySelector("[data-fcf]").onclick = () => { $("fFcf").checked = !$("fFcf").checked; render(); };
+  const mkd = $("teamhead").querySelector(".morek"); if (mkd) { $("mkbox").innerHTML = mkd.querySelector(".kpis").outerHTML; $("mkt").textContent = "📈 Kennzahlen "+t.title; mkd.remove(); }
   const kew = $("teamhead").querySelector("[data-ew]"); if (kew) kew.onclick = () => { $("fEw").checked = !$("fEw").checked; render(); };
   renderQF(t, rows.length);
   const sec = document.createElement("section"); sec.className="team"; sec.id="sec-"+t.kat;
@@ -544,9 +589,9 @@ document.addEventListener("click", e => {
 function showErr(msg){ let b=$("errbox"); if(!b){ b=document.createElement("div"); b.id="errbox"; b.style.cssText="position:fixed;top:0;left:0;right:0;z-index:99;background:#b91c1c;color:#fff;padding:10px 16px;font-size:14px"; document.body.append(b); } b.textContent="⚠️ Fehler in der App: "+msg+" – bitte Seite neu laden. (Filter zurücksetzen hilft oft.)"; }
 window.addEventListener("error", e => showErr(e.message||"unbekannt"));
 const _render = render; render = function(){ try { _render(); } catch(e){ console.error(e); showErr(e.message); } };
-function showAge(){ const el=$("age"); if(!el) return; const t=new Date(UPDATED.replace(" ","T")); if(isNaN(t)){ el.style.display="none"; return; } const h=(Date.now()-t)/36e5; const txt = h<1 ? "vor "+Math.max(1,Math.round(h*60))+" Min." : h<48 ? "vor "+Math.round(h)+" Std." : "vor "+Math.round(h/24)+" Tagen"; el.textContent="🔄 Daten "+txt+" aus turnieragenda geladen"; el.title="Letzter Abgleich: "+t.toLocaleString("de-CH",{weekday:"short",day:"2-digit",month:"2-digit",year:"numeric",hour:"2-digit",minute:"2-digit"}); el.classList.toggle("old", h>36); }
+function showAge(){ const el=$("age"); if(!el) return; const t=new Date(UPDATED.replace(" ","T")); if(isNaN(t)){ el.style.display="none"; return; } const h=(Date.now()-t)/36e5; const txt = h<1 ? "vor "+Math.max(1,Math.round(h*60))+" Min." : h<48 ? "vor "+Math.round(h)+" Std." : "vor "+Math.round(h/24)+" Tagen"; el.textContent="Daten "+txt; const fl=$("ageFull"); if(fl) fl.textContent="Turniere vor "+txt.replace("vor ","")+" aus turnieragenda geladen ("+t.toLocaleString("de-CH",{weekday:"short",day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit"})+")"+(h>36?" – Abgleich überfällig, Plätze auf turnieragenda prüfen":""); const dot=$("adot"); if(dot) dot.classList.toggle("old", h>36); el.title="Letzter Abgleich: "+t.toLocaleString("de-CH",{weekday:"short",day:"2-digit",month:"2-digit",year:"numeric",hour:"2-digit",minute:"2-digit"}); }
 showAge(); setInterval(showAge, 60000);
-if (STAND_AGE > 7) document.querySelector(".hero .in > div").insertAdjacentHTML("beforeend", `<p style="background:rgba(0,0,0,.25);border-radius:8px;padding:4px 8px;display:block!important">⚠️ Daten vom ${new Date(STAND+"T12:00:00").toLocaleDateString("de-CH")} (vor ${STAND_AGE} Tagen) – freie Plätze bitte auf turnieragenda.ch prüfen.</p>`);
+if (STAND_AGE > 7) document.querySelector(".hero .ht").insertAdjacentHTML("beforeend", `<p style="background:rgba(0,0,0,.25);border-radius:8px;padding:4px 8px;display:block!important">⚠️ Daten vom ${new Date(STAND+"T12:00:00").toLocaleDateString("de-CH")} (vor ${STAND_AGE} Tagen) – freie Plätze bitte auf turnieragenda.ch prüfen.</p>`);
 try { load(); } catch(e){ console.error(e); }
 if ("serviceWorker" in navigator && location.protocol==="https:") { try { navigator.serviceWorker.register("sw.js").catch(()=>{}); } catch(e){} }
 // ---------- Trainer-Modus (Passwort -> Schlüssel, Daten AES-verschlüsselt; 24 Std. gültig) ----------
@@ -568,9 +613,19 @@ async function login(){
   } catch(e){ alert("Passwort falsch."); }
 }
 function logout(){ try { localStorage.removeItem(TKEY); } catch(e){} location.reload(); }
-function renderTrainer(){ const b = $("tbtn"); if (!b) return; if (!INTERN) { b.hidden = true; return; } b.hidden = false; b.classList.toggle("on", TRAINER);
+function renderTrainer(){ const b = $("tbtn"); if (!b) return; const tb=$("tbadge"), ti=$("tinfo"); if (tb) { tb.hidden = !TRAINER; tb.onclick = () => toggleMenu(true); } if (ti) ti.textContent = !INTERN ? "nicht verfügbar" : TRAINER ? "Budgets, Startgelder und Exporte freigeschaltet." : "Budgets, Startgelder und Exporte nach Login."; if (!INTERN) { b.hidden = true; return; } b.hidden = false; b.classList.toggle("on", TRAINER);
   if (TRAINER) { let exp = 0; try { exp = (JSON.parse(localStorage.getItem(TKEY)||"{}").exp)||0; } catch(e){} const h = exp ? Math.max(0, Math.round((exp-Date.now())/36e5)) : 24; b.textContent = "🔓 Trainer-Modus (noch "+h+" Std.) · beenden"; b.onclick = logout; }
   else { b.textContent = "🔒 Trainer-Login"; b.onclick = login; } }
+function openFilter(open){ const fb=$("fbox"); fb.open = open; $("fshade").classList.toggle("on", open); const t=teamOf(active); renderQF(t, filtered(t).length); }
+$("fshade").onclick = () => openFilter(false); $("fdone").onclick = () => openFilter(false);
+$("mysel").innerHTML = `<option value="">– keins –</option>` + TEAMS.map(t=>`<option value="${t.kat}">${t.title}</option>`).join("");
+$("mysel").value = MY; $("mysel").onchange = e => { MY = e.target.value; try { localStorage.setItem(MYKEY, JSON.stringify(MY)); } catch(x){} if (MY) { active = MY; savePicks(); } render(); };
+let _lastY = scrollY; window.addEventListener("scroll", () => { const y = scrollY, q = $("qf"); if (y > _lastY + 8 && y > 220) q.classList.add("hid"); else if (y < _lastY - 8 || y < 120) q.classList.remove("hid"); _lastY = y; }, {passive:true});
+function toggleMenu(force){ const m=$("menu"), b=$("mbtn"); const open = force!==undefined ? force : m.hidden; m.hidden = !open; b.textContent = open ? "✕" : "☰"; b.setAttribute("aria-expanded", open); setHeroH(); }
+$("mbtn").onclick = () => toggleMenu();
+document.addEventListener("click", e => { const m=$("menu"); if (!m.hidden && !e.target.closest("#hero")) toggleMenu(false); });
+function setHeroH(){ const h=$("hero"); if (h) document.documentElement.style.setProperty("--heroH", (h.querySelector(".in").offsetHeight + 12) + "px"); }
+window.addEventListener("resize", setHeroH); setHeroH();
 renderTrainer(); renderTotals(); renderTabs(); render();
 tryStored().then(ok => { if (ok) { renderTrainer(); renderTotals(); render(); } });
 </script>
