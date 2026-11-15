@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="FCF Turniere">
 <link rel="icon" href="__LOGO__">
-<link rel="apple-touch-icon" href="icon.gif">
+<link rel="apple-touch-icon" href="icon-180.png">
 <link rel="manifest" href="manifest.webmanifest">
 <title>FCF Turniere</title>
 <style>
@@ -130,13 +130,16 @@ details.dt .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px
   .kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
   .pbar button{padding:10px 12px}
 }
+.age{display:inline-block;margin-top:4px;font-size:12px;font-weight:600;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.3);border-radius:99px;padding:2px 10px}.age.old{background:#fbbf24;border-color:#fbbf24;color:#111}
+.hero .logo{background:none!important;box-shadow:none!important;border-radius:0!important;width:auto!important;height:auto!important}.hero .logo img{height:58px!important;width:auto!important;filter:drop-shadow(0 2px 6px rgba(0,0,0,.35))}@media (max-width:760px){.hero .logo img{height:46px!important}}
+.tbtn{margin-top:4px;font:inherit;font-size:12px;font-weight:700;border-radius:99px;padding:3px 12px;cursor:pointer;border:1px solid rgba(255,255,255,.6);background:#fff;color:#c8102e}.tbtn.on{background:#15803d;border-color:#15803d;color:#fff}.lockx{color:var(--muted);font-size:12px}
 </style>
 </head>
 <body>
 <header class="hero"><div class="in">
   <div class="logo"><img src="__LOGO__" alt="FC Frauenfeld"></div>
   <div>
-    <h1>Turniere FC Frauenfeld</h1>
+    <h1>Turniere FC Frauenfeld</h1><div class="age" id="age"></div> <button class="tbtn" id="tbtn" hidden></button>
     <p>Saison 2026/27 · Halle &amp; Aussen · Ostschweiz &amp; ZH · aktualisiert __UPDATED__</p>
     <div class="tot" id="tot"></div>
   </div>
@@ -173,6 +176,7 @@ const LOGO = "__LOGO__";
 const LOGO_EW = "__LOGO_EW__";
 const D_ALL = __DATA_ALL__; // alle Teams, ganze Saison (Halle + Aussen)
 const EV = __EV_ALL__;
+const UPDATED = "__UPDATED__";                              // Zeitpunkt des letzten Abgleichs mit turnieragenda (Ortszeit CH)
 const STAND = "__TODAY__";                                   // Datenstand
 const TODAY = new Date(new Date().toDateString());           // echtes Heute (lokal, 00:00)
 const TODAYS = (()=>{ const d=TODAY; return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0"); })();
@@ -188,7 +192,7 @@ const OWN = [8734]; // eigenes Turnier FC Frauenfeld = gratis
 const FEAT = {FF:[9148], J:[9091,9044,9045,9199,8786,8846,8832,9207,9213]}; // ★-Highlights pro Gruppe (FF: 30. Frauenfussballfestival Bazenheid)
 const isFeat = r => false; // Highlights auf Wunsch entfernt (15.11.2026)
 const HL = ["3-fach-Halle","Kunstrasen","Jubiläum","Special Guests","Tombola","Mädchenturnier"];
-const SHOW_BUDGET = false; // öffentliche Web-Version: keine Budgets anzeigen
+let TRAINER = false; // Trainer-Modus: Budgets, Startgelder und Exporte erst nach Passwort (verschlüsselte Daten)
 const TEAMS = [
   {kat:"FF-14", grp:"J", title:"Team FF-14", short:"Mädchen", desc:"Juniorinnen D / FF-14 (Jg. ca. 2013–2015)", color:"#be185d", from:"2026-11-14", to:"2027-08-28", period:"Nov 2026 – Aug 2027", budget:null},
   {kat:"FF-11", grp:"FF", title:"Team FF-11", short:"Mädchen", desc:"Juniorinnen E (Jg. ca. 2016–2018)", color:"#0b6bcb", from:"2026-11-14", to:"2027-08-28", period:"Nov 2026 – Aug 2027", budget:null},
@@ -219,7 +223,7 @@ const DATA = D_ALL.filter(r=>r && r.datum && r.kat).map(r=>{
   return o;
 });
 DATA.forEach((r,i)=>r._i=i);
-const icsA = r => `<a href="#" data-ics="${r._i}" title="Dieses Turnier als Kalenderdatei (.ics)">📅 .ics</a>`;
+const icsA = r => !TRAINER ? "" : `<a href="#" data-ics="${r._i}" title="Dieses Turnier als Kalenderdatei (.ics)">📅 .ics</a>`;
 const fcfN = r => r.namen.filter(isFCF).length;
 const isHome = r => OWN.includes(r.id) || /frauenfeld/i.test(r.ort);
 const fcfCost = r => isHome(r) ? 0 : fcfN(r) * (r.kosten||0);
@@ -361,13 +365,13 @@ function kpis(t){
   const nextAnm = off.filter(r=>r.anm && new Date(r.anm)>=TODAY).sort((a,b)=>a.anm.localeCompare(b.anm))[0];
   const ist = fc.reduce((a,r)=>a+fcfCost(r),0), nFc = fc.reduce((a,r)=>a+fcfN(r),0);
   const orte = [...new Set(fc.map(r=>r.ort))];
-  const partHtml = (SHOW_BUDGET && t.parts) ? (()=>{ const ist2={}; fc.forEach(r=>r.namen.filter(isFCF).forEach(n=>{ const p=t.parts.find(([,,f])=>f(r,n)); ist2[p[0]]=(ist2[p[0]]||0)+(isHome(r)?0:(r.kosten||0)); })); return `<div class="bud">${t.parts.map(([n,b])=>{ const i=ist2[n]||0, d=b-i; return `${n}: CHF ${chf(i)} / ${chf(b)} <b class="${d<0?"over":"rest"}">${d<0?"−":"+"}${chf(Math.abs(d))}</b>`; }).join("<br>")}<div style="font-size:11px;margin-top:3px">${t.partNote}</div></div>`; })() : "";
-  const bud = (SHOW_BUDGET && t.budget) ? (()=>{ const d=t.budget-ist; return `<div class="bud">Budget CHF ${chf(t.budget)} · <b class="${d<0?"over":"rest"}">${d<0?"−":"+"}CHF ${chf(Math.abs(d))} ${d<0?"über Budget":"Rest"}</b></div>`; })() : "";
+  const partHtml = (TRAINER && t.parts) ? (()=>{ const ist2={}; fc.forEach(r=>r.namen.filter(isFCF).forEach(n=>{ const p=t.parts.find(([,,f])=>f(r,n)); ist2[p[0]]=(ist2[p[0]]||0)+(isHome(r)?0:(r.kosten||0)); })); return `<div class="bud">${t.parts.map(([n,b])=>{ const i=ist2[n]||0, d=b-i; return `${n}: CHF ${chf(i)} / ${chf(b)} <b class="${d<0?"over":"rest"}">${d<0?"−":"+"}${chf(Math.abs(d))}</b>`; }).join("<br>")}<div style="font-size:11px;margin-top:3px">${t.partNote}</div></div>`; })() : "";
+  const bud = (TRAINER && t.budget) ? (()=>{ const d=t.budget-ist; return `<div class="bud">Budget CHF ${chf(t.budget)} · <b class="${d<0?"over":"rest"}">${d<0?"−":"+"}CHF ${chf(Math.abs(d))} ${d<0?"über Budget":"Rest"}</b></div>`; })() : "";
   const brk = fc.length ? `<details><summary>Aufstellung (${fc.length})</summary>${fc.slice().sort((a,b)=>a.datum.localeCompare(b.datum)).map(r=>`${fmtD(r.datum)} ${r.ort}${r.sub&&r.sub!==r.kat?" "+r.sub:""}: ${fcfN(r)} Team${fcfN(r)>1?"s":""} · ${isHome(r)?"gratis (Heimturnier)":"CHF "+chf(fcfCost(r))}`).join("<br>")}</details>` : "";
   const ew = all.filter(r=>r.ew);
   return `<div class="kpis">
     <div class="kpi kfcf" title="Antippen: nur Turniere mit FCF" data-fcf><b class="fcf">${lg()}${nFc}</b><span>FCF-Anmeldungen in ${new Set(fc.map(r=>r.id)).size} Turnieren${orte.length&&orte.length<=4?" ("+orte.join(", ")+")":""}</span></div>
-    <div class="kpi kfcfc"><b class="fcf">CHF ${chf(ist)}</b><span>Startgeld FCF (Heimturnier gratis)</span>${bud}${partHtml?`<details><summary>Aufteilung pro Team</summary>${partHtml}</details>`:""}${brk}</div>
+    ${TRAINER?`<div class="kpi kfcfc"><b class="fcf">CHF ${chf(ist)}</b><span>Startgeld FCF (Heimturnier gratis)</span>${bud}${partHtml?`<details><summary>Aufteilung pro Team</summary>${partHtml}</details>`:""}${brk}</div>`:(INTERN?`<div class="kpi" style="cursor:pointer" onclick="login()"><b>🔒</b><span>Budget &amp; Startgelder im Trainer-Modus</span></div>`:"")}
     ${girl(t.kat)?`<div class="kpi kew" title="Antippen: nur Turniere mit Elgg-Wiesendangen" data-ew><b>${lgEw()}${ew.length}</b><span>Elgg-Wiesendangen angemeldet${ew.length?": "+ew.map(r=>`${fmtD(r.datum).slice(3,8)} ${r.ort}`).join(", "):""}</span></div>`:""}
   </div>
   <details class="morek"><summary>▸ Mehr Kennzahlen</summary><div class="kpis">
@@ -386,7 +390,7 @@ function renderTabs(){
 }
 function renderTotals(){
   const fc = DATA.filter(r=>r.fcf);
-  $("tot").innerHTML = `<span>${fc.reduce((a,r)=>a+fcfN(r),0)} FCF-Anmeldungen</span><span>Startgeld CHF ${chf(fc.reduce((a,r)=>a+fcfCost(r),0))}</span><span>${DATA.filter(r=>r.status==="offen").length} Ausschreibungen mit freien Plätzen</span>`;
+  $("tot").innerHTML = `<span>${fc.reduce((a,r)=>a+fcfN(r),0)} FCF-Anmeldungen</span>${TRAINER?`<span>Startgeld CHF ${chf(fc.reduce((a,r)=>a+fcfCost(r),0))}</span>`:""}<span>${DATA.filter(r=>r.status==="offen").length} Ausschreibungen mit freien Plätzen</span>`;
 }
 function renderQF(t, n){
   const fz30 = +$("fFz").value<=45;
@@ -409,12 +413,14 @@ function renderPbar(t){
   const pb = $("pbar"); pb.style.setProperty("--tc", t.color);
   const open = pb.classList.contains("open");
   pb.innerHTML = `<div class="ppanel">${plan.map(r=>`<div class="pi"><div class="x"><b>${fmtD(r.datum)} · ${r.name}</b><span class="small">${r.ort} · ${r.zeit} · ${r.fz} Min · ${isHome(r)?"gratis":"CHF "+r.kosten}${r.status!=="offen"?" · "+r.status:""}${r.anm&&r.status==="offen"?" · Anm. bis "+fmtD(r.anm):""}</span></div><button data-plan="${r._i}" title="Aus dem Plan entfernen">✕</button></div>`).join("")||`<p class="small">Noch leer – im Kalender ein Turnier antippen.</p>`}
-    <div class="acts"><button class="sec" data-x="all" ${all.length?"":"disabled"}>📅 Alle Teams exportieren (${all.length})</button><button class="sec" data-x="clear" ${plan.length?"":"disabled"}>Plan ${t.title} leeren</button></div>
-    <div class="acts" style="border-top:1px solid var(--line);margin-top:8px"><span class="small" style="flex-basis:100%">🔗 <b>Kalender-Abo</b> (SpielerPlus/SportMember, Handy-Kalender): alle Turniere mit FCF-Anmeldung, täglich aktualisiert</span>${[t.kat].concat(t.parts?t.parts.map(p=>p[0]):[]).map(k=>`<button class="sec" data-cal="${k}">Link ${k} kopieren</button>`).join("")}</div></div>
-    <div class="in"><div class="txt" data-x="tog"><b>${open?"▾":"▴"} Plan ${t.title}: ${plan.length} Turnier${plan.length===1?"":"e"}</b><span>${plan.length?`CHF ${chf(sum)}${SHOW_BUDGET&&t.budget?" · Budget "+chf(t.budget):""} · ${km} km`:"Turnier antippen, um es einzuplanen"}</span></div><button data-x="exp" ${plan.length?"":"disabled"}>📅 Export</button></div>`;
+    <div class="acts">${TRAINER?`<button class="sec" data-x="all" ${all.length?"":"disabled"}>📅 Alle Teams exportieren (${all.length})</button>`:""}<button class="sec" data-x="clear" ${plan.length?"":"disabled"}>Plan ${t.title} leeren</button></div>
+    ${!TRAINER?(INTERN?`<div class="acts" style="border-top:1px solid var(--line);margin-top:8px"><span class="lockx">🔒 Kalender-Export und Kalender-Abo-Links im Trainer-Modus.</span> <button class="sec" onclick="login()">Trainer-Modus</button></div>`:""):`<div class="acts" style="border-top:1px solid var(--line);margin-top:8px"><span class="small" style="flex-basis:100%">🔗 <b>Kalender-Abo</b> (SpielerPlus/SportMember, Handy-Kalender): alle Turniere mit FCF-Anmeldung, täglich aktualisiert</span>${[t.kat].concat(t.parts?t.parts.map(p=>p[0]):[]).map(k=>`<button class="sec" data-cal="${k}">Link ${k} kopieren</button>`).join("")}</div>`}</div>
+    <div class="in"><div class="txt" data-x="tog"><b>${open?"▾":"▴"} Plan ${t.title}: ${plan.length} Turnier${plan.length===1?"":"e"}</b><span>${plan.length?`CHF ${chf(sum)}${TRAINER&&t.budget?" · Budget "+chf(t.budget):""} · ${km} km`:"Turnier antippen, um es einzuplanen"}</span></div>${TRAINER?`<button data-x="exp" ${plan.length?"":"disabled"}>📅 Export</button>`:`<button class="sec" data-x="lock" title="Export im Trainer-Modus">🔒 Export</button>`}</div>`;
   pb.querySelector('[data-x="tog"]').onclick = () => { pb.classList.toggle("open"); renderPbar(t); };
-  pb.querySelector('[data-x="exp"]').onclick = () => download(plan, `FCF Turniere ${t.title}`);
-  pb.querySelector('[data-x="all"]').onclick = () => download(all, "FCF Turniere alle Teams");
+  const qx = k => pb.querySelector('[data-x="'+k+'"]');
+  if (qx("exp")) qx("exp").onclick = () => download(plan, `FCF Turniere ${t.title}`);
+  if (qx("all")) qx("all").onclick = () => download(all, "FCF Turniere alle Teams");
+  if (qx("lock")) qx("lock").onclick = () => { if (INTERN) login(); else alert("Export ist nur im Trainer-Modus verfügbar."); };
   pb.querySelectorAll("[data-cal]").forEach(b=>b.onclick=()=>{ const u=new URL("kalender/"+encodeURIComponent(b.dataset.cal)+".ics", location.href).href; const done=()=>{ b.textContent="✓ kopiert"; setTimeout(()=>b.textContent="Link "+b.dataset.cal+" kopieren",2000); }; if(location.protocol!=="https:"){ alert("Der Kalender-Link funktioniert erst auf der veröffentlichten Webseite."); return; } (navigator.clipboard?navigator.clipboard.writeText(u).then(done).catch(()=>prompt("Link kopieren:",u)):prompt("Link kopieren:",u)); });
   pb.querySelector('[data-x="clear"]').onclick = () => { Object.keys(picks).filter(k=>k.startsWith(t.kat+"|")).forEach(k=>delete picks[k]); savePicks(); render(); };
 }
@@ -538,10 +544,35 @@ document.addEventListener("click", e => {
 function showErr(msg){ let b=$("errbox"); if(!b){ b=document.createElement("div"); b.id="errbox"; b.style.cssText="position:fixed;top:0;left:0;right:0;z-index:99;background:#b91c1c;color:#fff;padding:10px 16px;font-size:14px"; document.body.append(b); } b.textContent="⚠️ Fehler in der App: "+msg+" – bitte Seite neu laden. (Filter zurücksetzen hilft oft.)"; }
 window.addEventListener("error", e => showErr(e.message||"unbekannt"));
 const _render = render; render = function(){ try { _render(); } catch(e){ console.error(e); showErr(e.message); } };
+function showAge(){ const el=$("age"); if(!el) return; const t=new Date(UPDATED.replace(" ","T")); if(isNaN(t)){ el.style.display="none"; return; } const h=(Date.now()-t)/36e5; const txt = h<1 ? "vor "+Math.max(1,Math.round(h*60))+" Min." : h<48 ? "vor "+Math.round(h)+" Std." : "vor "+Math.round(h/24)+" Tagen"; el.textContent="🔄 Daten "+txt+" aus turnieragenda geladen"; el.title="Letzter Abgleich: "+t.toLocaleString("de-CH",{weekday:"short",day:"2-digit",month:"2-digit",year:"numeric",hour:"2-digit",minute:"2-digit"}); el.classList.toggle("old", h>36); }
+showAge(); setInterval(showAge, 60000);
 if (STAND_AGE > 7) document.querySelector(".hero .in > div").insertAdjacentHTML("beforeend", `<p style="background:rgba(0,0,0,.25);border-radius:8px;padding:4px 8px;display:block!important">⚠️ Daten vom ${new Date(STAND+"T12:00:00").toLocaleDateString("de-CH")} (vor ${STAND_AGE} Tagen) – freie Plätze bitte auf turnieragenda.ch prüfen.</p>`);
 try { load(); } catch(e){ console.error(e); }
 if ("serviceWorker" in navigator && location.protocol==="https:") { try { navigator.serviceWorker.register("sw.js").catch(()=>{}); } catch(e){} }
-renderTotals(); renderTabs(); render();
+// ---------- Trainer-Modus (Passwort -> Schlüssel, Daten AES-verschlüsselt; 24 Std. gültig) ----------
+const INTERN = __INTERN__;
+const TKEY = "fcfTrainer";
+const b64d = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
+const b64e = u => btoa(String.fromCharCode(...u));
+async function deriveKey(pw){ const base = await crypto.subtle.importKey("raw", new TextEncoder().encode(pw), "PBKDF2", false, ["deriveBits"]); return new Uint8Array(await crypto.subtle.deriveBits({name:"PBKDF2", salt:b64d(INTERN.salt), iterations:INTERN.iter, hash:"SHA-256"}, base, 256)); }
+async function decryptWith(raw){ const k = await crypto.subtle.importKey("raw", raw, {name:"AES-CBC"}, false, ["decrypt"]); const pt = await crypto.subtle.decrypt({name:"AES-CBC", iv:b64d(INTERN.iv)}, k, b64d(INTERN.ct)); const o = JSON.parse(new TextDecoder().decode(pt)); if (o.check !== "FCF") throw new Error("falsch"); return o; }
+function applyIntern(o){ TEAMS.forEach(t => { t.budget = (o.budgets||{})[t.kat] ?? null; const ps = (o.parts||{})[t.kat]; if (t.parts && ps) t.parts.forEach(p => { const f = ps.find(x => x[0]===p[0]); if (f) p[1] = f[1]; }); }); TRAINER = true; }
+async function tryStored(){ try { const s = JSON.parse(localStorage.getItem(TKEY)||"null"); if (s && s.exp > Date.now() && s.k) { applyIntern(await decryptWith(b64d(s.k))); return true; } if (s) localStorage.removeItem(TKEY); } catch(e){} return false; }
+async function login(){
+  if (!INTERN) return;
+  if (!(window.crypto && crypto.subtle)) { alert("Der Trainer-Modus braucht die veröffentlichte Webseite (https)."); return; }
+  const pw = prompt("Passwort für den Trainer-Modus:"); if (!pw) return;
+  try { const raw = await deriveKey(pw); const o = await decryptWith(raw); applyIntern(o);
+    try { localStorage.setItem(TKEY, JSON.stringify({k:b64e(raw), exp:Date.now()+24*3600*1000})); } catch(e){}
+    renderTrainer(); renderTotals(); render();
+  } catch(e){ alert("Passwort falsch."); }
+}
+function logout(){ try { localStorage.removeItem(TKEY); } catch(e){} location.reload(); }
+function renderTrainer(){ const b = $("tbtn"); if (!b) return; if (!INTERN) { b.hidden = true; return; } b.hidden = false; b.classList.toggle("on", TRAINER);
+  if (TRAINER) { let exp = 0; try { exp = (JSON.parse(localStorage.getItem(TKEY)||"{}").exp)||0; } catch(e){} const h = exp ? Math.max(0, Math.round((exp-Date.now())/36e5)) : 24; b.textContent = "🔓 Trainer-Modus (noch "+h+" Std.) · beenden"; b.onclick = logout; }
+  else { b.textContent = "🔒 Trainer-Login"; b.onclick = login; } }
+renderTrainer(); renderTotals(); renderTabs(); render();
+tryStored().then(ok => { if (ok) { renderTrainer(); renderTotals(); render(); } });
 </script>
 </body>
 </html>
