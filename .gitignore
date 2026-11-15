@@ -1,0 +1,5 @@
+cache/ev/
+cache/*.json
+cache/*.txt
+cache/tmp.pdf
+.DS_Store

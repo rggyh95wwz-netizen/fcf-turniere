@@ -1,0 +1,360 @@
+{
+  "rows": {
+    "8845|FF-11": {
+      "fmt": "Hallenturnier auf Kunstrasen, Banden rundum. E/D: 1 TH + 5 Feldspielerinnen, 9 Min/Spiel, 1 Min Pause. Kosten Kunstrasen CHF 180.",
+      "bem": "Ausgebucht (0 freie Plätze) – evtl. Warteliste anfragen.",
+      "dauer": 9
+    },
+    "8618|FF-11": {
+      "fmt": "6er-Turnier, Mädchen-Turnier. Futsal-Ball Gr. 3 (E). E: 5 Feldspielerinnen + TH, max. 5 Ersatz. Spiel mit Outlinien (keine Banden), Handballkreis = Strafraum. Trainer 15 Min vor 1. Spiel bei Jury.",
+      "bem": "Anmeldung geschlossen. FF-09 fand am 22.11. statt (ausserhalb Zeitraum)."
+    },
+    "9045|FF-11": {
+      "fmt": "FF-11 2. Stärkeklasse. Mind. 6 Spiele à 10–12 Min, Futsal-Ball.",
+      "bem": "Ausgebucht. Kein Reglement-PDF publiziert.",
+      "dauer": 10
+    },
+    "8996|FF-11": {
+      "fmt": "Play More Football: 3 gegen 3 nach SFV-Philosophie, max. 8 Kinder pro Team (viel Einsatzzeit).",
+      "bem": "Viele freie Plätze (12). Spieldauer nicht publiziert."
+    },
+    "8937|FF-11": {
+      "fmt": "1./2. Stärkeklasse, Jg. 2016/17. 1 TH + 5 Feldspielerinnen, Futsal-Ball, Seitenaus ohne Banden, 10 Min ohne Seitenwechsel. Beitrag im Voraus aufs Vereinskonto.",
+      "bem": "Anmeldung geschlossen.",
+      "dauer": 10
+    },
+    "8896|FF-09": {
+      "fmt": "Reines Juniorinnen-Turnier. F/G: 1 TH + 3, max. 3 Ersatz. E: 1 TH + 5, max. 5 Ersatz.",
+      "bem": "Beide Kategorien ausgebucht."
+    },
+    "8896|FF-11": {
+      "fmt": "Reines Juniorinnen-Turnier. F/G: 1 TH + 3, max. 3 Ersatz. E: 1 TH + 5, max. 5 Ersatz.",
+      "bem": "Beide Kategorien ausgebucht."
+    },
+    "8753|FF-11": {
+      "fmt": "Mind. 5 Spiele à 10 Min, Futsal-Ball, 1 TH + 5 auf ganzer 3-fach Halle (Unihockey-Banden einseitig). Jg. 2016–2019. Nichterscheinen CHF 200.",
+      "bem": "Ausgebucht, Anmeldeschluss heute.",
+      "dauer": 10
+    },
+    "9058|FF-09": {
+      "fmt": "Reglement: 9 Min/Spiel, 1 Min Pause (Ausschreibung nennt 10 Min für E). F: 1 TH + 4 auf zwei Feldern, E: 1 TH + 5. Max. 10 Medaillen/Team. Parkhaus Messe Zürich.",
+      "bem": "FF-09 offen (4 frei), FF-11 ausgebucht. Storno <10 Tage: CHF 200.",
+      "dauer": 7
+    },
+    "9058|FF-11": {
+      "fmt": "Reglement: 9 Min/Spiel, 1 Min Pause (Ausschreibung nennt 10 Min für E). F: 1 TH + 4 auf zwei Feldern, E: 1 TH + 5. Max. 10 Medaillen/Team. Parkhaus Messe Zürich.",
+      "bem": "FF-09 offen (4 frei), FF-11 ausgebucht. Storno <10 Tage: CHF 200.",
+      "dauer": 7
+    },
+    "8914|FF-11": {
+      "fmt": "5:5 + Torspielerin auf Handballtore, keine Rangierungsspiele, Erinnerungsmedaille. 9 Min/Spiel, ohne Seitenbanden.",
+      "bem": "Ausgebucht.",
+      "dauer": 9
+    },
+    "9258|FF-11": {
+      "fmt": "Zwei 4er-Gruppen + Final-/Platzierungsspiele = 5 Spiele à 10 Min, Turnier max. 3,5 h. 4 Feldspielerinnen + TH (enge Halle). Jede Spielerin erhält einen Preis.",
+      "bem": "Gut verfügbar (5 frei), nah. Teams 5 Min vor Abpfiff des vorherigen Spiels bereit.",
+      "dauer": 10
+    },
+    "8480|FF-11": {
+      "fmt": "Futsal-Richtlinien. FF-11 in quer aufgeteilter Halle mit Banden. Jg. 2016–2019.",
+      "bem": "Ausgebucht."
+    },
+    "8529|FF-11": {
+      "fmt": "Juniorinnen E, Jg. 2016/2017. Details im Spielplan.",
+      "bem": "Offen (2 frei)."
+    },
+    "8669|FF-09": {
+      "fmt": "10 Min/Spiel, 1 Min Pause. E: 1 TH + 5. F: 1 TH + 3 auf 2 Feldern, Handballtore, ohne Banden. Mannschaftsliste 30 Min vor 1. Spiel. Medaille für alle.",
+      "bem": "FF-09 offen (6 frei), FF-11 ausgebucht. Nichterscheinen: Beitrag + CHF 250.",
+      "dauer": 10
+    },
+    "8633|FF-09": {
+      "fmt": "10 Min/Spiel in allen Kategorien, max. 8 Spielerinnen/Team, unbegrenzt fliegende Wechsel. Trainer 20 Min vor 1. Spiel bei Jury. Erinnerungspreis für alle.",
+      "bem": "FF-09: letzter Platz (1 frei).",
+      "dauer": 10
+    },
+    "8669|FF-11": {
+      "fmt": "10 Min/Spiel, 1 Min Pause. E: 1 TH + 5. F: 1 TH + 3 auf 2 Feldern, Handballtore, ohne Banden. Mannschaftsliste 30 Min vor 1. Spiel. Medaille für alle.",
+      "bem": "FF-09 offen (6 frei), FF-11 ausgebucht. Nichterscheinen: Beitrag + CHF 250.",
+      "dauer": 10
+    },
+    "9094|FF-11": {
+      "fmt": "6:6 auf Grossfeld mit 5m-Toren, Banden. Garantierte 54 Min Spielzeit. Vorrunde jeder gegen jeden. Einsatz im Voraus überweisen. Passkontrolle.",
+      "bem": "Offen (5 frei), aber weit.",
+      "dauer": 9
+    },
+    "8194|FF-09": {
+      "fmt": "FF-09 inkl. FF-11 (gemischt). Spieldauer gemäss Spielplan. Trainer 15 Min vor 1. Spiel. Einsatz bis 30.11.2026 vorab überweisen.",
+      "bem": "Offen (5 frei). Abmeldung ab 30.11.: 100 % + CHF 100."
+    },
+    "8557|FF-11": {
+      "fmt": "2. Stärkeklasse. 10 Min/Spiel, 1 TH + 5, max. 5 Ersatz. Einsatz + Mannschaftsliste 30 Min vor 1. Gruppenspiel (bar/Twint). Pokal Top 3, Medaillen.",
+      "bem": "Ausgebucht. Langer Tag (12 Teams).",
+      "dauer": 10
+    },
+    "9046|FF-11": {
+      "fmt": "Reines Juniorinnen-Turnier. Keine Details publiziert.",
+      "bem": "Offen (5 frei), günstig."
+    },
+    "8642|FF-11": {
+      "fmt": "1.–2. Stärkeklasse, 5 Spielerinnen + TH. Preis für alle.",
+      "bem": "Letzter freier Platz (1)."
+    },
+    "8934|FF-11": {
+      "fmt": "Keine Details publiziert.",
+      "bem": "Ausgebucht."
+    },
+    "8786|FF-09": {
+      "fmt": "F/E: 5 Feldspielerinnen + TH auf 5m-Tore, unbegrenzt Spielerinnen einsetzbar (11 preisberechtigt). 10 Min. Gruppenphase, dann Halbfinal/Platzierung.",
+      "bem": "FF-09 offen (2 frei), FF-11 ausgebucht.",
+      "dauer": 10
+    },
+    "8730|FF-11": {
+      "fmt": "Spielfeld mit Banden. E: 1 TH + 5. Wechsel hinter dem eigenen Tor.",
+      "bem": "Ausgebucht, sehr nah."
+    },
+    "8786|FF-11": {
+      "fmt": "F/E: 5 Feldspielerinnen + TH auf 5m-Tore, unbegrenzt Spielerinnen einsetzbar (11 preisberechtigt). 10 Min. Gruppenphase, dann Halbfinal/Platzierung.",
+      "bem": "FF-09 offen (2 frei), FF-11 ausgebucht.",
+      "dauer": 10
+    },
+    "8833|FF-11": {
+      "fmt": "PMF-Turnier: 4+1 in 2/3-Halle (Handballtore) und 3:3 in 1/3-Halle (Mini-Tore). 7 Teams, je 6 Spiele à 9 Min = 2h-Turnier, keine Resultate/Rangliste, Preis für alle (max. 9).",
+      "bem": "Ausgebucht. Sehr gutes Verhältnis Spielzeit/Hallenzeit.",
+      "dauer": 10
+    },
+    "8792|FF-11": {
+      "fmt": "E-Juniorinnen 1 TH + 5, 10 Min, ganze 3-fach Halle, Futsal-Ball, fliegende Wechsel. Abmeldung <2 Wochen: voller Beitrag + CHF 200.",
+      "bem": "Ausgebucht.",
+      "dauer": 8
+    },
+    "8854|FF-09": {
+      "fmt": "Juniorinnen E und F: 4 Feldspielerinnen + Torfrau. Futsal-Ball. Spielzeiten gemäss Spielplan. Keine Fussballschulen.",
+      "bem": "FF-09 offen (4 frei), FF-11 ausgebucht."
+    },
+    "9086|FF-11": {
+      "fmt": "1./2. Stärkeklasse. Mind. 10 Min/Spiel, 1 TH + 5, Seitenlinien (keine Banden). Medaille für alle, Best Player/Keeper.",
+      "bem": "Offen (5 frei).",
+      "dauer": 10
+    },
+    "8854|FF-11": {
+      "fmt": "Juniorinnen E und F: 4 Feldspielerinnen + Torfrau. Futsal-Ball. Spielzeiten gemäss Spielplan. Keine Fussballschulen.",
+      "bem": "FF-09 offen (4 frei), FF-11 ausgebucht."
+    },
+    "8794|FF-09": {
+      "fmt": "Quer gespielt auf Kleintore, 4 Feldspielerinnen + TH. Trainer 30 Min vor Spiel bei Jury. Eigene Turnier-App mit Spielplan/Live-Resultaten.",
+      "bem": "Beide ausgebucht."
+    },
+    "9207|FF-11": {
+      "fmt": "Futsal-Regeln FIFA, Futsal-Ball. E: 1 TH + 5, bis 4 Ersatz. Betreuer ca. 20 Min vor 1. Spiel am Turniertisch, Einsatz bar/Twint.",
+      "bem": "Offen (7 frei), nah."
+    },
+    "8794|FF-11": {
+      "fmt": "Quer gespielt auf Kleintore, 4 Feldspielerinnen + TH. Trainer 30 Min vor Spiel bei Jury. Eigene Turnier-App mit Spielplan/Live-Resultaten.",
+      "bem": "Beide ausgebucht."
+    },
+    "8295|FF-11": {
+      "fmt": "Jg. 2016 und jünger. Spielplan/Reglement vor dem Turnier.",
+      "bem": "Ausgebucht."
+    },
+    "8409|FF-09": {
+      "fmt": "2 Spielfelder quer über Halle. 10 Min Gruppen- und Finalspiele, 2 Min Pause. E: 5 + TH. Futsal-Ball, fliegende Wechsel. Briefing 10 Min vor Turnierbeginn.",
+      "bem": "FF-09: letzter Platz (1 frei), FF-11 ausgebucht.",
+      "dauer": 10
+    },
+    "8409|FF-11": {
+      "fmt": "2 Spielfelder quer über Halle. 10 Min Gruppen- und Finalspiele, 2 Min Pause. E: 5 + TH. Futsal-Ball, fliegende Wechsel. Briefing 10 Min vor Turnierbeginn.",
+      "bem": "FF-09: letzter Platz (1 frei), FF-11 ausgebucht.",
+      "dauer": 10
+    },
+    "8734|FF-11": {
+      "fmt": "Spiele à 10 Min, Modus 4 + 1, drei Spielfelder.",
+      "bem": "Heimturnier, nur noch 1 Platz frei – rasch anmelden.",
+      "dauer": 10
+    },
+    "9137|FF-09": {
+      "fmt": "4–5 Spiele à 10 Min pro Team. FF-09 und FF-11 auf zwei kleineren Feldern. Festwirtschaft.",
+      "bem": "Top-Kandidat: nah, günstig (CHF 80), viele Plätze frei, beide Kategorien am selben Tag.",
+      "dauer": 10
+    },
+    "9137|FF-11": {
+      "fmt": "4–5 Spiele à 10 Min pro Team. FF-09 und FF-11 auf zwei kleineren Feldern. Festwirtschaft.",
+      "bem": "Top-Kandidat: nah, günstig (CHF 80), viele Plätze frei, beide Kategorien am selben Tag.",
+      "dauer": 10
+    },
+    "9148|FF-11": {
+      "fmt": "Jubiläum: in der Halle wird auf Kunstrasen gespielt, Special Guests, Tombola. FF-09 erstmals dabei (Play More Football).",
+      "bem": "Beide offen (FF-11: 3 frei, FF-09: 7 frei). Nah, Event-Charakter."
+    },
+    "9148|FF-09": {
+      "fmt": "Jubiläum: in der Halle wird auf Kunstrasen gespielt, Special Guests, Tombola. FF-09 erstmals dabei (Play More Football).",
+      "bem": "Beide offen (FF-11: 3 frei, FF-09: 7 frei). Nah, Event-Charakter."
+    },
+    "8663|FF-11": {
+      "fmt": "Moderne WIN4-Halle. Keine Spieldetails publiziert.",
+      "bem": "Ausgebucht."
+    },
+    "9169|FF-11": {
+      "fmt": "Reine Mädchenturniere, 10 Teams, 5 Feldspielerinnen + TH, 10 Min ohne Seitenwechsel, Bandenspiel erlaubt. Pokale 1–3, Medaillen (max. 10), All-Star-Team. Trainer 30 Min vor 1. Spiel bei Jury.",
+      "bem": "Offen (7 frei). 2./3. Stärkeklasse. Sportferien beachten. Teuer (CHF 160).",
+      "dauer": 10
+    },
+    "9122|FF-09": {
+      "fmt": "Ranglistenturnier 1 + 4. Mädchen F quer in der Halle (kleines Feld), Mädchen E auf ganzem Handballfeld. 9 Min/Spiel. Pokal für Top 4.",
+      "bem": "Beide offen (je 2 frei), FF-09 und FF-11 am selben Tag.",
+      "dauer": 9
+    },
+    "9122|FF-11": {
+      "fmt": "Ranglistenturnier 1 + 4. Mädchen F quer in der Halle (kleines Feld), Mädchen E auf ganzem Handballfeld. 9 Min/Spiel. Pokal für Top 4.",
+      "bem": "Beide offen (je 2 frei), FF-09 und FF-11 am selben Tag.",
+      "dauer": 9
+    }
+  },
+  "hd": {
+    "9058": {
+      "t": "Schul- und Sportanlage an der Thurgauerstrasse (Leutschenbach), vermutlich die neue Schulanlage mit Doppelsporthalle (nicht bestätigt). Parkieren im Parkhaus Messe Zürich, 5 Min zu Fuss. Festwirtschaft mit Grill. G/F auf zwei Feldern.",
+      "l": [
+        [
+          "Gigon/Guyer: Schulanlage Thurgauerstrasse",
+          "https://www.gigon-guyer.ch/en/project/thurgauerstrasse-school-complex/"
+        ]
+      ]
+    },
+    "9147": {
+      "t": "Dreifachsporthalle Waldegg beim Oberstufenschulhaus, im kantonalen Sportanlagenkonzept als regionale Dreifachhalle geführt. FF-09 und FF-11 spielen auf zwei kleineren Feldern (Halle geteilt), FF-14 und älter über die ganze Halle.",
+      "l": [
+        [
+          "Sportamt TG: Katalog der Sportanlagen (PDF)",
+          "https://sportamt.tg.ch/public/upload/assets/107004/20201231_KASAK_def_Version_GS_Katalog_der_Sportanlagen.pdf?fp=1"
+        ]
+      ]
+    },
+    "9199": {
+      "t": "Grosshalle Tösstal: grösste Sport- und Mehrzweckhalle im Tösstal, eröffnet Januar 2012 (umgebaute Fabrikhalle), auch für Konzerte und Bankette genutzt. Mit ÖV im Halbstundentakt erreichbar. Achtung: Parkieren beim Fabrikladen verboten (Abschleppdienst).",
+      "img": "https://www.grosshalle.ch/typo3temp/_processed_/0/9/csm_halle_01_362bc275f7.jpg",
+      "l": [
+        [
+          "grosshalle.ch",
+          "https://www.grosshalle.ch"
+        ]
+      ]
+    },
+    "9258": {
+      "t": "Mehrzweckhalle im Oberstufenzentrum Mosnang. Laut Veranstalter enge Platzverhältnisse (darum 4+1 statt 5+1), gestuhlte Tribüne und Galerie für Zuschauer, Festwirtschaft. Online keine weiteren Hallen-Infos gefunden."
+    },
+    "8669": {
+      "t": "Sporthalle Unterrohr an der Rohrstrasse. Laut Reglement normaler Hallenboden ohne Banden; Juniorinnen F auf 2 Feldern mit Handballtoren. Zuschauer sollen die Spiele von der Tribüne aus verfolgen. Online keine weiteren Hallen-Infos gefunden."
+    },
+    "8217": {
+      "t": "Mehrzweckgebäude Ifang, Dreifach-Sporthalle (teilbar, als Saal bis 990 Personen). Zum 30-Jahr-Jubiläum wird in der Halle auf Kunstrasen gespielt, dazu Special Guests und Tombola. FF-09 erstmals dabei (Play More Football).",
+      "img": "https://www.fckirchberg.ch/files/webmaster/bilder/verein/frauenfussballfestival/2027/FFF_Flyer_2027.png",
+      "imgcap": "Flyer 2027",
+      "l": [
+        [
+          "FC Kirchberg: Frauenfussballfestival",
+          "https://www.fckirchberg.ch/frauenfussballfestival-fc-kirchberg.html"
+        ],
+        [
+          "Gemeinde Kirchberg: Sporthalle Ifang",
+          "https://www.kirchberg.ch/services/reservationen/bazenheid-mehrzweckgebaeude-ifang/sporthalle.html/402"
+        ]
+      ]
+    },
+    "8541": {
+      "t": "Grosshalle Tösstal: grösste Sport- und Mehrzweckhalle im Tösstal, eröffnet Januar 2012 (umgebaute Fabrikhalle), auch für Konzerte und Bankette genutzt. Mit ÖV im Halbstundentakt erreichbar. Achtung: Parkieren beim Fabrikladen verboten (Abschleppdienst).",
+      "img": "https://www.grosshalle.ch/typo3temp/_processed_/0/9/csm_halle_01_362bc275f7.jpg",
+      "l": [
+        [
+          "grosshalle.ch",
+          "https://www.grosshalle.ch"
+        ]
+      ]
+    },
+    "8194": {
+      "t": "Sportanlage Buechenwald, Teil der im September 2026 neu eröffneten «Sportwelt Gossau». 3-fach-Turnhalle. FF-09 inkl. FF-11 in einem Turnier. Einsatz bis 30.11.2026 vorab überweisen."
+    },
+    "8786": {
+      "t": "Zentrumshalle Urdorf: Sport- und Hallenbadgebäude von 1971–73 (Architekten Menghetti/Schwarz), im kantonalen Inventar als überkommunales Schutzobjekt. Zuschauertribüne; auf der Tribünenseite zählt die Wand als Bande. Hallenbad im selben Gebäude.",
+      "l": [
+        [
+          "Kt. ZH: Inventarblatt Urdorf (PDF)",
+          "https://odb.zh.ch/odbwiki/mediawiki/files/pdfs/Urdorf-Inventar_1666_1-festgesetzt_2019.pdf"
+        ]
+      ]
+    },
+    "9046": {
+      "t": "Sportanlage Buchwiesen (Zürich-Seebach), Heimanlage des FC Oerlikon/Polizei. Online keine Angaben zur Halle oder zum Modus gefunden – beim Veranstalter nachfragen."
+    },
+    "9086": {
+      "t": "Sportzentrum Hirslen Bülach: neue Dreifachhalle (Holzbau, 2016) im selben Zentrum wie Hallenbad und Sauna. Die Stadt plant eine Gesamtsanierung des Sportzentrums. Medaille für alle, Best Player/Keeper.",
+      "l": [
+        [
+          "Stadt Bülach: Sportanlagen-Bericht (Titelbild Dreifachhalle)",
+          "https://buelach.ch/_doc/5032915"
+        ]
+      ]
+    },
+    "9152": {
+      "t": "Dreifachsporthalle Waldegg beim Oberstufenschulhaus, im kantonalen Sportanlagenkonzept als regionale Dreifachhalle geführt. FF-09 und FF-11 spielen auf zwei kleineren Feldern (Halle geteilt), FF-14 und älter über die ganze Halle.",
+      "l": [
+        [
+          "Sportamt TG: Katalog der Sportanlagen (PDF)",
+          "https://sportamt.tg.ch/public/upload/assets/107004/20201231_KASAK_def_Version_GS_Katalog_der_Sportanlagen.pdf?fp=1"
+        ]
+      ]
+    },
+    "9207": {
+      "t": "Grosshalle Tösstal: grösste Sport- und Mehrzweckhalle im Tösstal, eröffnet Januar 2012 (umgebaute Fabrikhalle), auch für Konzerte und Bankette genutzt. Mit ÖV im Halbstundentakt erreichbar. Achtung: Parkieren beim Fabrikladen verboten (Abschleppdienst).",
+      "img": "https://www.grosshalle.ch/typo3temp/_processed_/0/9/csm_halle_01_362bc275f7.jpg",
+      "l": [
+        [
+          "grosshalle.ch",
+          "https://www.grosshalle.ch"
+        ]
+      ]
+    },
+    "8734": {
+      "t": "Dreifachturnhalle der Kantonsschule Frauenfeld (Neubau 2003). Gespielt wird auf drei Feldern parallel, Modus 4 + 1, 10 Min pro Spiel. Kleine Festwirtschaft den ganzen Tag. Auf der Vereinsseite fcf.ch noch keine Ausschreibung."
+    },
+    "9137": {
+      "t": "Dreifachsporthalle Waldegg beim Oberstufenschulhaus, im kantonalen Sportanlagenkonzept als regionale Dreifachhalle geführt. FF-09 und FF-11 spielen auf zwei kleineren Feldern (Halle geteilt), FF-14 und älter über die ganze Halle.",
+      "l": [
+        [
+          "Sportamt TG: Katalog der Sportanlagen (PDF)",
+          "https://sportamt.tg.ch/public/upload/assets/107004/20201231_KASAK_def_Version_GS_Katalog_der_Sportanlagen.pdf?fp=1"
+        ]
+      ]
+    },
+    "9148": {
+      "t": "Mehrzweckgebäude Ifang, Dreifach-Sporthalle (teilbar, als Saal bis 990 Personen). Zum 30-Jahr-Jubiläum wird in der Halle auf Kunstrasen gespielt, dazu Special Guests und Tombola. FF-09 erstmals dabei (Play More Football).",
+      "img": "https://www.fckirchberg.ch/files/webmaster/bilder/verein/frauenfussballfestival/2027/FFF_Flyer_2027.png",
+      "imgcap": "Flyer 2027",
+      "l": [
+        [
+          "FC Kirchberg: Frauenfussballfestival",
+          "https://www.fckirchberg.ch/frauenfussballfestival-fc-kirchberg.html"
+        ],
+        [
+          "Gemeinde Kirchberg: Sporthalle Ifang",
+          "https://www.kirchberg.ch/services/reservationen/bazenheid-mehrzweckgebaeude-ifang/sporthalle.html/402"
+        ]
+      ]
+    },
+    "9153": {
+      "t": "Dreifachsporthalle Waldegg beim Oberstufenschulhaus, im kantonalen Sportanlagenkonzept als regionale Dreifachhalle geführt. FF-09 und FF-11 spielen auf zwei kleineren Feldern (Halle geteilt), FF-14 und älter über die ganze Halle.",
+      "l": [
+        [
+          "Sportamt TG: Katalog der Sportanlagen (PDF)",
+          "https://sportamt.tg.ch/public/upload/assets/107004/20201231_KASAK_def_Version_GS_Katalog_der_Sportanlagen.pdf?fp=1"
+        ]
+      ]
+    },
+    "9169": {
+      "t": "Schulhaus Hüenerweid Dietlikon. Online keine Hallen-Infos gefunden. Laut Reglement: Bandenspiel erlaubt (Wand), Handballkreis = Strafraum, 10 Teams, Spielplan ca. 10 Tage vorher per Mail."
+    },
+    "9122": {
+      "t": "Sportzentrum Zürich-Dürrbach (Dübendorfstrasse 48). Mädchen F spielen quer (kleines Feld), Mädchen E auf ganzem Handballfeld. Online keine weiteren Hallen-Infos gefunden (Suche limitiert)."
+    }
+  }
+}

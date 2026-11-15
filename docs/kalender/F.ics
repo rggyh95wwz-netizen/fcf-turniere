@@ -1,0 +1,376 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//FC Frauenfeld//Turniere//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:FCF Turniere Team F
+X-WR-TIMEZONE:Europe/Zurich
+REFRESH-INTERVAL;VALUE=DURATION:PT12H
+X-PUBLISHED-TTL:PT12H
+BEGIN:VTIMEZONE
+TZID:Europe/Zurich
+BEGIN:DAYLIGHT
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+TZNAME:CEST
+DTSTART:19700329T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+TZNAME:CET
+DTSTART:19701025T030000
+RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:8654-F-F2-2026-11-15-11001400@fcf-turniere
+DTSTAMP:20261115T092145Z
+DTSTART;TZID=Europe/Zurich:20261115T110000
+DTEND;TZID=Europe/Zurich:20261115T140000
+SUMMARY:Hallenturnier F2: 6. Tobi-Öpfel-Cup 2026 (Neukirch-Egnach)
+LOCATION:Seesichthalle (Neue 3-fach-Turnhalle)\, Rietzelgweg 4\, 9315 Neuk
+ irch-Egnach
+DESCRIPTION:Team F | Kategorie F2 | 2. Stkl.\n4 Feldspieler + 1 Torwart\n\
+ nZeit: So 15.11.2026\, 11:00-14:00\nTreffpunkt: ca. 30 Min vor Spielbegin
+ n\n\nHalle: Seesichthalle (Neue 3-fach-Turnhalle)\nAdresse: Rietzelgweg 4
+ \, 9315 Neukirch-Egnach\nAnfahrt: 43 Min / 40 km ab Frauenfeld\n\nAngemel
+ det für FCF: FC Frauenfeld a\, FC Frauenfeld b\nStatus: geschlossen\n\nA
+ ngemeldete Teams (10):\n- FC Neukirch-Egnach Fe\n- FC Gossau SG Fc\n- FC 
+ Heiden\n- FC Neukirch-Egnach Fd\n- FC Frauenfeld a\n- FC Frauenfeld b\n- 
+ FC Urnäsch\n- FC Neukirch-Egnach Fc\n- FC Winkeln SG Fb\n- FC Wittenbach
+ \n\nAusschreibung: https://www.turnieragenda.ch/de/event/detail/8654\nReg
+ lement: https://www.turnieragenda.ch/ressources/rules/reglement_8654.pdf
+URL:https://www.turnieragenda.ch/de/event/detail/8654
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:8654-F-F1-2026-11-15-08001100@fcf-turniere
+DTSTAMP:20261115T092145Z
+DTSTART;TZID=Europe/Zurich:20261115T080000
+DTEND;TZID=Europe/Zurich:20261115T110000
+SUMMARY:Hallenturnier F1: 6. Tobi-Öpfel-Cup 2026 (Neukirch-Egnach)
+LOCATION:Seesichthalle (Neue 3-fach-Turnhalle)\, Rietzelgweg 4\, 9315 Neuk
+ irch-Egnach
+DESCRIPTION:Team F | Kategorie F1 | 1. Stkl.\n4 Feldspieler + 1 Torwart\n\
+ nZeit: So 15.11.2026\, 08:00-11:00\nTreffpunkt: ca. 30 Min vor Spielbegin
+ n\n\nHalle: Seesichthalle (Neue 3-fach-Turnhalle)\nAdresse: Rietzelgweg 4
+ \, 9315 Neukirch-Egnach\nAnfahrt: 43 Min / 40 km ab Frauenfeld\n\nAngemel
+ det für FCF: FC Frauenfeld a\nStatus: geschlossen\n\nAngemeldete Teams (
+ 10):\n- FC Neukirch-Egnach Fa\n- FC Steinach Fb\n- FC Rorschach-Goldach 1
+ 7 Fa LSA\n- FC Frauenfeld a\n- FC Staad\n- FC St. Otmar F1\n- FC Heiden\n
+ - FC Gossau SG\n- FC Neukirch-Egnach Fb\n- FC Viktoria Bregenz (AT)\n\nAu
+ sschreibung: https://www.turnieragenda.ch/de/event/detail/8654\nReglement
+ : https://www.turnieragenda.ch/ressources/rules/reglement_8654.pdf
+URL:https://www.turnieragenda.ch/de/event/detail/8654
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:8706-F-F2-2026-11-28-@fcf-turniere
+DTSTAMP:20261115T092145Z
+DTSTART;TZID=Europe/Zurich:20261128T130000
+DTEND;TZID=Europe/Zurich:20261128T170000
+SUMMARY:Hallenturnier F2: FCA Chlausturnier (Amriswil)
+LOCATION:Sporthalle Tellenfeld (Mehrzweckanlage)\, untere Grenzstrasse 10\
+ , 8580 Amriswil
+DESCRIPTION:Team F | Kategorie F2 | 2. Stkl.\nüber eine Hallenlänge (Jah
+ rgang: 2018-2020)\n\nZeit: Sa 28.11.2026\, 13:00-17:00 (Nachmittag\, gena
+ ue Zeit gemäss Spielplan)\nTreffpunkt: ca. 30 Min vor Spielbeginn\n\nHal
+ le: Sporthalle Tellenfeld (Mehrzweckanlage)\nAdresse: untere Grenzstrasse
+  10\, 8580 Amriswil\nAnfahrt: 36 Min / 34 km ab Frauenfeld\n\nAngemeldet 
+ für FCF: FC Frauenfeld b\, FC Frauenfeld c\nStatus: geschlossen\n\nAngem
+ eldete Teams (10):\n- FC Amriswil Weiss 2\n- FC KS-Sulgen Team a\n- FC T
+ ägerwilen Fa \n- FC Münsterlingen Fb1\n- FC Frauenfeld b\n- FC Amriswil
+  Weiss 1\n- FC Frauenfeld c\n- FC KS-Sulgen Team b\n- FC Tägerwilen Fb \
+ n- FC Sirnach Fb\n\nAusschreibung: https://www.turnieragenda.ch/de/event/
+ detail/8706
+URL:https://www.turnieragenda.ch/de/event/detail/8706
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:8706-F-F1-2026-11-28-@fcf-turniere
+DTSTAMP:20261115T092145Z
+DTSTART;TZID=Europe/Zurich:20261128T080000
+DTEND;TZID=Europe/Zurich:20261128T120000
+SUMMARY:Hallenturnier F1: FCA Chlausturnier (Amriswil)
+LOCATION:Sporthalle Tellenfeld (Mehrzweckanlage)\, untere Grenzstrasse 10\
+ , 8580 Amriswil
+DESCRIPTION:Team F | Kategorie F1 | 1. Stkl.\nüber eine Hallenlänge (Jah
+ rgang: 2018-2020)\n\nZeit: Sa 28.11.2026\, 08:00-12:00 (Vormittag\, genau
+ e Zeit gemäss Spielplan)\nTreffpunkt: ca. 30 Min vor Spielbeginn\n\nHall
+ e: Sporthalle Tellenfeld (Mehrzweckanlage)\nAdresse: untere Grenzstrasse 
+ 10\, 8580 Amriswil\nAnfahrt: 36 Min / 34 km ab Frauenfeld\n\nAngemeldet f
+ ür FCF: FC Frauenfeld a\nStatus: geschlossen\n\nAngemeldete Teams (10):\
+ n- FC Amriswil Team Rot 1\n- FC Neukirch-Egnach\n- FC Münsterlingen\n- F
+ C Sirnach Fa\n- FC Wil 1900 Fa\n- FC Amriswil Team Rot 2\n- FC Neukirch-E
+ gnach Fa2\n- FC Tägerwilen\n- FC Frauenfeld a\n- FC Rickenbach\n\nAussch
+ reibung: https://www.turnieragenda.ch/de/event/detail/8706
+URL:https://www.turnieragenda.ch/de/event/detail/8706
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:8644-F-F1-2026-12-05-13001700@fcf-turniere
+DTSTAMP:20261115T092145Z
+DTSTART;TZID=Europe/Zurich:20261205T130000
+DTEND;TZID=Europe/Zurich:20261205T170000
+SUMMARY:Hallenturnier F1: FC Wängi - 19. Chlausturnier 2026 (Wängi)
+LOCATION:Dammbühlhalle Wängi\, Steinlerstrasse 22\, 9545 Wängi
+DESCRIPTION:Team F | Kategorie F1 | 1. Stkl.\nJunioren F 1. Stärkeklasse\
+ n\nZeit: Sa 05.12.2026\, 13:00-17:00\nTreffpunkt: ca. 30 Min vor Spielbeg
+ inn\n\nHalle: Dammbühlhalle Wängi\nAdresse: Steinlerstrasse 22\, 9545 W
+ ängi\nAnfahrt: 12 Min / 10 km ab Frauenfeld\n\nAngemeldet für FCF: FC F
+ rauenfeld a\, FC Frauenfeld b\nStatus: ausgebucht\n\nAngemeldete Teams (8
+ ):\n- FC Wängi a\n- FC Münchwilen\n- FC Tobel-Affeltrangen\n- FC Frauen
+ feld a\n- FC Wängi b\n- FC Frauenfeld b\n- SC Aadorf\n- SC Brühl\n\nAus
+ schreibung: https://www.turnieragenda.ch/de/event/detail/8644\nReglement:
+  https://www.turnieragenda.ch/ressources/rules/reglement_86442.pdf
+URL:https://www.turnieragenda.ch/de/event/detail/8644
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:8258-F-F2-2026-12-05-@fcf-turniere
+DTSTAMP:20261115T092145Z
+DTSTART;TZID=Europe/Zurich:20261205T130000
+DTEND;TZID=Europe/Zurich:20261205T170000
+SUMMARY:Hallenturnier F2: 2. FC Märstetten -LIGNOX 2026 (Märstetten)
+LOCATION:Weitsicht MZH Märstetten\, Bahnhofstrasse 41\, 8560 Märstetten
+DESCRIPTION:Team F | Kategorie F2 | 2. Stkl.\n2. Stkl. [Jg 19/18]\n\nZeit:
+  Sa 05.12.2026\, 13:00-17:00 (Nachmittag\, genaue Zeit gemäss Spielplan)
+ \nTreffpunkt: ca. 30 Min vor Spielbeginn\n\nHalle: Weitsicht MZH Märstet
+ ten\nAdresse: Bahnhofstrasse 41\, 8560 Märstetten\nAnfahrt: 14 Min / 16 
+ km ab Frauenfeld\n\nAngemeldet für FCF: FC Frauenfeld a\, FC Frauenfeld 
+ b\nStatus: ausgebucht\n\nAngemeldete Teams (10):\n- FC Märstetten F1\n- 
+ FC Weinfelden-Bürglen Fc\n- FC Frauenfeld a\n- FC Pfyn Fa\n- FC Tägerwi
+ len\n- FC Märstetten F2\n- FC Frauenfeld b\n- FC Pfyn Fb\n- FC Münsterl
+ ingen Fb1\n- FC Pfyn Fc\n\nAusschreibung: https://www.turnieragenda.ch/de
+ /event/detail/8258\nReglement: https://www.turnieragenda.ch/ressources/ru
+ les/reglement_8258.pdf
+URL:https://www.turnieragenda.ch/de/event/detail/8258
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:8793-F-F1-2027-01-10-@fcf-turniere
+DTSTAMP:20261115T092145Z
+DTSTART;TZID=Europe/Zurich:20270110T110000
+DTEND;TZID=Europe/Zurich:20270110T140000
+SUMMARY:Hallenturnier F1: 11. FC Flawil Futsalcup (Flawil)
+LOCATION:Sporthalle Botsberg\, Unterstrasse 10\, 9230 Flawil
+DESCRIPTION:Team F | Kategorie F1 | 1. Stkl.\n\nZeit: So 10.01.2027\, 11:0
+ 0-14:00 (Mittag\, genaue Zeit gemäss Spielplan)\nTreffpunkt: ca. 30 Min 
+ vor Spielbeginn\n\nHalle: Sporthalle Botsberg\nAdresse: Unterstrasse 10\,
+  9230 Flawil\nAnfahrt: 30 Min / 33 km ab Frauenfeld\n\nAngemeldet für FC
+ F: FC Frauenfeld a\nStatus: ausgebucht\n\nAngemeldete Teams (10):\n- FC W
+ il 1900 Fa\n- FC Eschlikon A\n- FC Flawil\n- FC Flawil Team 2\n- FC Heris
+ au\n- FC Weinfelden-Bürglen Fa Weinfelden\n- FC Frauenfeld a\n- FC Necke
+ rtal-Degersheim\n- OL\n- FC Bütschwil Fa\n\nAusschreibung: https://www.t
+ urnieragenda.ch/de/event/detail/8793\nReglement: https://www.turnieragend
+ a.ch/ressources/rules/reglement_87932.pdf
+URL:https://www.turnieragenda.ch/de/event/detail/8793
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:8793-F-F2-2027-01-10-@fcf-turniere
+DTSTAMP:20261115T092145Z
+DTSTART;TZID=Europe/Zurich:20270110T130000
+DTEND;TZID=Europe/Zurich:20270110T170000
+SUMMARY:Hallenturnier F2: 11. FC Flawil Futsalcup (Flawil)
+LOCATION:Sporthalle Botsberg\, Unterstrasse 10\, 9230 Flawil
+DESCRIPTION:Team F | Kategorie F2 | 2. Stkl.\n\nZeit: So 10.01.2027\, 13:0
+ 0-17:00 (Nachmittag\, genaue Zeit gemäss Spielplan)\nTreffpunkt: ca. 30 
+ Min vor Spielbeginn\n\nHalle: Sporthalle Botsberg\nAdresse: Unterstrasse 
+ 10\, 9230 Flawil\nAnfahrt: 30 Min / 33 km ab Frauenfeld\n\nAngemeldet fü
+ r FCF: FC Frauenfeld b\, FC Frauenfeld c\nStatus: ausgebucht\n\nAngemelde
+ te Teams (12):\n- FC Wil 1900 F C\n- FC Eschlikon B\n- SC Brühl Dortmund
+ \n- FC Flawil\n- FC Flawil Team 2\n- FC St. Otmar F2a\n- FC St. Otmar F2b
+ \n- FC Rickenbach\n- FC Henau\n- FC Frauenfeld b\n- FC Frauenfeld c\n- FC
+  Uzwil\n\nAusschreibung: https://www.turnieragenda.ch/de/event/detail/879
+ 3\nReglement: https://www.turnieragenda.ch/ressources/rules/reglement_879
+ 32.pdf
+URL:https://www.turnieragenda.ch/de/event/detail/8793
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:8194-F-F3-2027-01-16-10151230@fcf-turniere
+DTSTAMP:20261115T092145Z
+DTSTART;TZID=Europe/Zurich:20270116T101500
+DTEND;TZID=Europe/Zurich:20270116T123000
+SUMMARY:Hallenturnier F3: 34. Freihof Gossauer Hallenturnier 2027 (Gossau)
+LOCATION:Sporthalle Buechenwald\, Seminarstrasse 10\, 9200 Gossau
+DESCRIPTION:Team F | Kategorie F3 | 3. Stkl.\n\nZeit: Sa 16.01.2027\, 10:1
+ 5-12:30\nTreffpunkt: ca. 30 Min vor Spielbeginn\n\nHalle: Sporthalle Buec
+ henwald\nAdresse: Seminarstrasse 10\, 9200 Gossau\nAnfahrt: 31 Min / 38 k
+ m ab Frauenfeld\n\nAngemeldet für FCF: FC Frauenfeld c\nStatus: offen\n\
+ nAngemeldete Teams (6):\n- FC Gossau SG Fc\n- FC Gossau SG Fc 2\n- FC Ror
+ schach-Goldach 17 Fc\n- FC Staad Fc staad F3\n- FC Frauenfeld c\n- Fc Vik
+ toria Bregenz AT\n\nAusschreibung: https://www.turnieragenda.ch/de/event/
+ detail/8194\nReglement: https://www.turnieragenda.ch/ressources/rules/reg
+ lement_5365.pdf
+URL:https://www.turnieragenda.ch/de/event/detail/8194
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:8194-F-F2-2027-01-16-08001015@fcf-turniere
+DTSTAMP:20261115T092145Z
+DTSTART;TZID=Europe/Zurich:20270116T080000
+DTEND;TZID=Europe/Zurich:20270116T101500
+SUMMARY:Hallenturnier F2: 34. Freihof Gossauer Hallenturnier 2027 (Gossau)
+LOCATION:Sporthalle Buechenwald\, Seminarstrasse 10\, 9200 Gossau
+DESCRIPTION:Team F | Kategorie F2 | 2. Stkl.\n\nZeit: Sa 16.01.2027\, 08:0
+ 0-10:15\nTreffpunkt: ca. 30 Min vor Spielbeginn\n\nHalle: Sporthalle Buec
+ henwald\nAdresse: Seminarstrasse 10\, 9200 Gossau\nAnfahrt: 31 Min / 38 k
+ m ab Frauenfeld\n\nAngemeldet für FCF: FC Frauenfeld b\nStatus: offen\n\
+ nAngemeldete Teams (5):\n- SC Brühl Fc 2018\n- FC Teufen Fc\n- FC Henau\
+ n- FC Kirchberg Fa\n- FC Frauenfeld b\n\nAusschreibung: https://www.turni
+ eragenda.ch/de/event/detail/8194\nReglement: https://www.turnieragenda.ch
+ /ressources/rules/reglement_5365.pdf
+URL:https://www.turnieragenda.ch/de/event/detail/8194
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:8217-F-F-2027-01-17-@fcf-turniere
+DTSTAMP:20261115T092145Z
+DTSTART;TZID=Europe/Zurich:20270117T080000
+DTEND;TZID=Europe/Zurich:20270117T120000
+SUMMARY:Hallenturnier F: Hallenmasters powered by Elektro Widmer (Bazenhei
+ d)
+LOCATION:Mehrzweckanlage Ifang\, Ifangstrasse 9\, 9602 Bazenheid
+DESCRIPTION:Team F | 1. Stkl.\nTurnier A\, F1\n\nZeit: So 17.01.2027\, 08:
+ 00-12:00 (Vormittag\, genaue Zeit gemäss Spielplan)\nTreffpunkt: ca. 30 
+ Min vor Spielbeginn\n\nHalle: Mehrzweckanlage Ifang\nAdresse: Ifangstrass
+ e 9\, 9602 Bazenheid\nAnfahrt: 24 Min / 25 km ab Frauenfeld\n\nAngemeldet
+  für FCF: FC Frauenfeld a\nStatus: ausgebucht\n\nAngemeldete Teams (8):\
+ n- FC Münchwilen F1\n- FC Wil 1900 Fa\n- Barcelona Academy Zurich U9 LAM
+ INE YAMAL\n- FC Weinfelden-Bürglen\n- FC Ebnat-Kappel Fa\n- FC Bazenheid
+ \n- FC Frauenfeld a\n- Sc Austria Lustenau\n\nAusschreibung: https://www.
+ turnieragenda.ch/de/event/detail/8217\nReglement: https://www.turnieragen
+ da.ch/ressources/rules/reglement_7428.pdf
+URL:https://www.turnieragenda.ch/de/event/detail/8217
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:9152-F-F1-2027-01-23-@fcf-turniere
+DTSTAMP:20261115T092145Z
+DTSTART;TZID=Europe/Zurich:20270123T130000
+DTEND;TZID=Europe/Zurich:20270123T170000
+SUMMARY:Hallenturnier F1: Hallenturnier FC Münchwilen (Münchwilen)
+LOCATION:Dreifachturnhalle Waldegg\, Weinfelderstrasse 33\, 9542 Münchwil
+ en
+DESCRIPTION:Team F | Kategorie F1 | 1. Stkl.\n1. Stärkeklasse\n\nZeit: Sa
+  23.01.2027\, 13:00-17:00 (Nachmittag\, genaue Zeit gemäss Spielplan)\nT
+ reffpunkt: ca. 30 Min vor Spielbeginn\n\nHalle: Dreifachturnhalle Waldegg
+ \nAdresse: Weinfelderstrasse 33\, 9542 Münchwilen\nAnfahrt: 17 Min / 16 
+ km ab Frauenfeld\n\nAngemeldet für FCF: FC Frauenfeld a\nStatus: offen\n
+ \nAngemeldete Teams (7):\n- FC Münchwilen F1\n- FC Münchwilen F2\n- FC 
+ Münchwilen F3\n- FC Wil 1900 Fa\n- FC Frauenfeld a\n- FC Bütschwil Fa\n
+ - FC KS-Sulgen Fa\n\nAusschreibung: https://www.turnieragenda.ch/de/event
+ /detail/9152
+URL:https://www.turnieragenda.ch/de/event/detail/9152
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:9152-F-F2-2027-01-23-@fcf-turniere
+DTSTAMP:20261115T092145Z
+DTSTART;TZID=Europe/Zurich:20270123T080000
+DTEND;TZID=Europe/Zurich:20270123T120000
+SUMMARY:Hallenturnier F2: Hallenturnier FC Münchwilen (Münchwilen)
+LOCATION:Dreifachturnhalle Waldegg\, Weinfelderstrasse 33\, 9542 Münchwil
+ en
+DESCRIPTION:Team F | Kategorie F2 | 2. Stkl. / 3. Stkl.\n2. Stärkeklasse 
+ und 3.Stärkeklasse\n\nZeit: Sa 23.01.2027\, 08:00-12:00 (Vormittag\, gen
+ aue Zeit gemäss Spielplan)\nTreffpunkt: ca. 30 Min vor Spielbeginn\n\nHa
+ lle: Dreifachturnhalle Waldegg\nAdresse: Weinfelderstrasse 33\, 9542 Mün
+ chwilen\nAnfahrt: 17 Min / 16 km ab Frauenfeld\n\nAngemeldet für FCF: FC
+  Frauenfeld b\, FC Frauenfeld c\nStatus: offen\n\nAngemeldete Teams (8):\
+ n- FC Münchwilen Fb1\n- FC Münchwilen Fb2\n- FC Münchwilen F3\n- FC Fo
+ rtuna SG Fb 1\n- FC Fortuna SG Fb 2\n- FC Kirchberg Fa\n- FC Frauenfeld b
+ \n- FC Frauenfeld c\n\nAusschreibung: https://www.turnieragenda.ch/de/eve
+ nt/detail/9152
+URL:https://www.turnieragenda.ch/de/event/detail/9152
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:8734-F-F-2027-02-13-@fcf-turniere
+DTSTAMP:20261115T092145Z
+DTSTART;TZID=Europe/Zurich:20270213T080000
+DTEND;TZID=Europe/Zurich:20270213T120000
+SUMMARY:Hallenturnier F: Hallenturnier FC Frauenfeld (Frauenfeld)
+LOCATION:Dreifachturnhalle Kantonsschule Frauenfeld\, Sternwartestr. 5\, 8
+ 500 Frauenfeld
+DESCRIPTION:Team F\nSpiele a 10 Min. pro Team (Modus 4 + 1)\n\nZeit: Sa 13
+ .02.2027\, 08:00-12:00 (Vormittag\, genaue Zeit gemäss Spielplan)\nTreff
+ punkt: ca. 30 Min vor Spielbeginn\n\nHalle: Dreifachturnhalle Kantonsschu
+ le Frauenfeld\nAdresse: Sternwartestr. 5\, 8500 Frauenfeld\nAnfahrt: 3 Mi
+ n / 1 km ab Frauenfeld\n\nAngemeldet für FCF: FC Frauenfeld a\, FC Fraue
+ nfeld b\, FC Frauenfeld c\nStatus: ausgebucht\n\nAngemeldete Teams (18):\
+ n- FC Dübendorf F-19\n- FC Münchwilen\n- FC Frauenfeld a\n- FC Frauenfe
+ ld b\n- FC Frauenfeld c\n- FR Soccer\n- FC Neftenbach\n- FC Wängi Fa\n- 
+ FC Wängi Fb\n- FC Wil 1900 FB\n- FC Amriswil Team Rot\n- FC Dübendorf F
+ -18 Orange\n- FC Pfyn Fa\n- FC Pfyn Fb\n- FC Pfyn Fc\n- FC Rorschach-Gold
+ ach 17 Fa\n- FC Weinfelden-Bürglen Fa Weinfelden\n- FC Seuzach Fa\n\nAus
+ schreibung: https://www.turnieragenda.ch/de/event/detail/8734
+URL:https://www.turnieragenda.ch/de/event/detail/8734
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:8680-F-F-2027-02-28-@fcf-turniere
+DTSTAMP:20261115T092145Z
+DTSTART;TZID=Europe/Zurich:20270228T130000
+DTEND;TZID=Europe/Zurich:20270228T170000
+SUMMARY:Hallenturnier F: ASC Soccer Cup Illnau-Effretikon (Illnau-Effretik
+ on)
+LOCATION:Sporthalle Eselriet\, Sportplatzstrasse 4\, 8307 Illnau-Effretiko
+ n
+DESCRIPTION:Team F | 1. Stkl. / 2. Stkl.\n1. / 2. Stärkeklasse\n\nZeit: S
+ o 28.02.2027\, 13:00-17:00 (Nachmittag\, genaue Zeit gemäss Spielplan)\n
+ Treffpunkt: ca. 30 Min vor Spielbeginn\n\nHalle: Sporthalle Eselriet\nAdr
+ esse: Sportplatzstrasse 4\, 8307 Illnau-Effretikon\nAnfahrt: 30 Min / 30 
+ km ab Frauenfeld\n\nAngemeldet für FCF: FC Frauenfeld a\nStatus: ausgebu
+ cht\n\nAngemeldete Teams (10):\n- Neudikids Academy\n- FC Fehraltorf\n- S
+ C Hegi Winterthur\n- FC Phönix Seen Fb\n- FC Stäfa B\n- FC Stäfa A\n- 
+ FC Frauenfeld a\n- FC Sins\n- FC Tössfeld FC Tössfeld a und FC Tössfel
+ d b\n- FC Tössfeld\n\nAusschreibung: https://www.turnieragenda.ch/de/eve
+ nt/detail/8680\nReglement: https://www.turnieragenda.ch/ressources/rules/
+ reglement_8680.pdf
+URL:https://www.turnieragenda.ch/de/event/detail/8680
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:8680-F-F-2027-02-28-@fcf-turniere
+DTSTAMP:20261115T092145Z
+DTSTART;TZID=Europe/Zurich:20270228T080000
+DTEND;TZID=Europe/Zurich:20270228T120000
+SUMMARY:Hallenturnier F: ASC Soccer Cup Illnau-Effretikon (Illnau-Effretik
+ on)
+LOCATION:Sporthalle Eselriet\, Sportplatzstrasse 4\, 8307 Illnau-Effretiko
+ n
+DESCRIPTION:Team F | 2. Stkl. / 3. Stkl.\n2. / 3. Stärkeklasse\n\nZeit: S
+ o 28.02.2027\, 08:00-12:00 (Vormittag\, genaue Zeit gemäss Spielplan)\nT
+ reffpunkt: ca. 30 Min vor Spielbeginn\n\nHalle: Sporthalle Eselriet\nAdre
+ sse: Sportplatzstrasse 4\, 8307 Illnau-Effretikon\nAnfahrt: 30 Min / 30 k
+ m ab Frauenfeld\n\nAngemeldet für FCF: FC Frauenfeld b\, FC Frauenfeld c
+ \nStatus: offen\n\nAngemeldete Teams (7):\n- FC Dübendorf\n- FC Wetzikon
+  Fb\n- FC Frauenfeld b\n- FC Frauenfeld c\n- FC Tössfeld\n- FC Uster CH\
+ n- FC Volketswil\n\nAusschreibung: https://www.turnieragenda.ch/de/event/
+ detail/8680\nReglement: https://www.turnieragenda.ch/ressources/rules/reg
+ lement_8680.pdf
+URL:https://www.turnieragenda.ch/de/event/detail/8680
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+END:VCALENDAR

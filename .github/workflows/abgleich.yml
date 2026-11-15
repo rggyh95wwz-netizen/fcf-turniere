@@ -1,0 +1,36 @@
+name: Täglicher Abgleich turnieragenda.ch
+
+on:
+  schedule:
+    - cron: "0 4 * * *"      # täglich 04:00 UTC = 05:00 Winterzeit / 06:00 Sommerzeit
+  workflow_dispatch: {}       # manuell starten: Actions → «Täglicher Abgleich» → Run workflow
+
+permissions:
+  contents: write
+
+concurrency:
+  group: abgleich
+  cancel-in-progress: false
+
+jobs:
+  abgleich:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Werkzeuge
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+      - name: Abgleich + Webseite bauen
+        env:
+          TZ: Europe/Zurich
+        run: ./pipeline/run.sh
+      - name: Änderungen speichern
+        run: |
+          git config user.name "fcf-turniere-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data docs cache/regl
+          git diff --cached --quiet || git commit -m "Abgleich $(TZ=Europe/Zurich date +%Y-%m-%d)"
+          git push

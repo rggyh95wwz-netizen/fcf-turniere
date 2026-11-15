@@ -1,0 +1,547 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#c8102e">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="FCF Turniere">
+<link rel="icon" href="__LOGO__">
+<link rel="apple-touch-icon" href="icon.gif">
+<link rel="manifest" href="manifest.webmanifest">
+<title>FCF Turniere</title>
+<style>
+__BASECSS__
+/* ---------- App-Rahmen ---------- */
+html{-webkit-text-size-adjust:100%}
+body{padding-bottom:env(safe-area-inset-bottom)}
+.wrap{max-width:1200px;margin:0 auto;padding:0 16px 60px}
+.hero{background:linear-gradient(135deg,#8f0c1f 0%,#c8102e 55%,#e5303f 100%);color:#fff;padding:calc(18px + env(safe-area-inset-top)) 0 18px}
+.hero .in{max-width:1200px;margin:0 auto;padding:0 16px;display:flex;align-items:center;gap:16px}
+.hero .logo{flex:0 0 auto;width:68px;height:68px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 4px 16px rgba(0,0,0,.25)}
+.hero .logo img{width:54px;height:54px;object-fit:contain}
+.hero h1{font-size:24px;margin:0;line-height:1.15;letter-spacing:-.01em}
+.hero p{margin:4px 0 0;font-size:13px;opacity:.9}
+.hero .tot{margin-top:8px;display:flex;flex-wrap:wrap;gap:6px}
+.hero .tot span{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);border-radius:99px;padding:2px 10px;font-size:12px;font-weight:600}
+.tabs{position:sticky;top:0;z-index:20;background:var(--bg);padding:10px 0 8px;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px;border-bottom:1px solid var(--line)}
+.tabs button{border:1px solid var(--line);background:var(--card);color:var(--fg);border-radius:12px;padding:8px 4px 7px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:1px;font:inherit;min-width:0}
+.tabs button b{font-size:17px;line-height:1.1}
+.tabs button span{font-size:11px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.tabs button i{font-style:normal;font-size:11px;font-weight:700;color:var(--ok)}
+.tabs button.on{background:var(--tc);border-color:var(--tc);color:#fff}
+.tabs button.on span,.tabs button.on i{color:rgba(255,255,255,.92)}
+.tabs .grp{grid-column:span 2}
+.fbox{margin-top:12px;background:var(--card);border:1px solid var(--line);border-radius:12px}
+.fbox>summary{cursor:pointer;padding:10px 16px;font-weight:700;list-style:none;display:flex;gap:10px;align-items:center}
+.fbox>summary::-webkit-details-marker{display:none}
+.fbox>summary::before{content:"▸";transition:transform .15s}
+.fbox[open]>summary::before{transform:rotate(90deg)}
+.fbox>summary .fa{font-weight:500;font-size:13px;color:var(--muted)}
+.filters{padding:4px 16px 14px;display:flex;flex-wrap:wrap;gap:12px 22px;align-items:center}
+.filters label{display:flex;align-items:center;gap:6px;font-size:14px;white-space:nowrap}
+.filters input[type=search]{padding:7px 10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--fg);min-width:200px;font:inherit}
+.filters select{padding:6px 8px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--fg);font:inherit}
+.filters .toggle{font-weight:600}
+.months{display:grid;gap:6px;margin-top:12px}
+.mrow{display:grid;grid-template-columns:110px minmax(0,1fr);gap:8px;align-items:center}
+.mlab{font-weight:700;font-size:14px}.mlab span{display:block;font-weight:500;font-size:11px;color:var(--muted)}
+.strip{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px;margin:0;max-width:560px}
+.calm{grid-column:1/-1;margin:14px 0 0;font-size:16px;border-bottom:2px solid var(--line);padding-bottom:4px}
+.kpi details{margin-top:6px;font-size:12px;color:var(--muted)}.kpi details summary{cursor:pointer;color:var(--accent)}
+section.team{margin-top:18px}
+.chip.typ{font-size:11px;vertical-align:1px;margin-left:6px}.chip.typ.hal{background:#e0e7ff;color:#3730a3}.chip.typ.aus{background:#dcfce7;color:#166534}@media (prefers-color-scheme:dark){.chip.typ.hal{background:#262c4f;color:#b4bcff}.chip.typ.aus{background:#173527;color:#86efac}}
+.mk{border:1px solid var(--line);background:var(--bg);color:var(--muted);border-radius:99px;font-size:11px;font-weight:600;padding:1px 8px;margin-left:4px;cursor:pointer;vertical-align:1px;font-family:inherit}
+.mk.on{background:#0f766e;border-color:#0f766e;color:#fff}
+.ev.marked,tr.main.marked td{background-image:linear-gradient(90deg,rgba(15,118,110,.10),transparent 60%)}
+.xbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;background:var(--card);border:1px solid var(--line);border-left:4px solid #0f766e;border-radius:12px;padding:10px 14px;margin-top:12px;font-size:14px}
+.xbar button{border:1px solid var(--line);background:var(--chip);color:var(--fg);border-radius:8px;padding:6px 10px;cursor:pointer;font:inherit;font-size:13px;font-weight:600}
+.xbar button.pri{background:#0f766e;border-color:#0f766e;color:#fff}
+.xbar button:disabled{opacity:.45;cursor:default}
+.xbar .small{flex-basis:100%}
+.ew{color:#1d4ed8;font-weight:700;white-space:nowrap}.ewlogo{height:15px;width:15px;border-radius:50%;object-fit:cover;vertical-align:-3px;margin-right:3px;background:#000}@media (prefers-color-scheme:dark){.ew{color:#7aa7ff}}.chip.ewb{background:#1d4ed8;color:#fff;font-size:11px;vertical-align:1px}.kpi.kew{cursor:pointer;border-color:#1d4ed8}.kpi.kew b{color:#1d4ed8}.kpi.kew:hover{background:var(--chip)}.ewl{font-weight:600}
+.ev.ewrow,tr.main.ewrow td:first-child{box-shadow:inset 4px 0 0 #1d4ed8}
+#teamhead .kpis{margin-bottom:4px}
+#sections section.team{margin-top:10px}
+.shown{margin:4px 0 0;color:var(--muted);font-size:14px}.shown b{color:var(--fg)}
+@media (max-width:760px){
+  .hero h1{font-size:20px}.hero .logo{width:54px;height:54px}.hero .logo img{width:42px;height:42px}
+  .mrow{grid-template-columns:62px minmax(0,1fr)}.mlab{font-size:13px}
+  .filters input[type=search]{min-width:0;width:100%}
+  .filters label{white-space:normal}
+  .kpis{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .kpi{padding:10px 12px}.kpi b{font-size:19px}.kpi span{font-size:12px;line-height:1.3;display:block}
+  .tabs{gap:4px}.tabs button{padding:7px 2px 6px;border-radius:10px}.tabs button b{font-size:15px}.tabs button span{display:none}.tabs button b{font-size:12.5px;white-space:nowrap;letter-spacing:-.02em}.tabs button i{font-size:10px}
+  .hero p{font-size:12px}.hero .tot span{font-size:11px}
+  section.team h2{font-size:19px}
+  .cal{grid-template-columns:1fr}
+}
+/* ---------- v2: Handy-Optimierungen ---------- */
+body{padding-bottom:calc(76px + env(safe-area-inset-bottom))}
+.hero{padding:calc(10px + env(safe-area-inset-top)) 0 10px}
+.hero .logo{width:46px;height:46px}.hero .logo img{width:36px;height:36px}
+.hero h1{font-size:19px}.hero p{font-size:12px;margin-top:2px}
+.sticky{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--line);padding-bottom:6px}
+.sticky .tabs{position:static;border-bottom:0;padding-bottom:6px}
+.qf{display:flex;gap:6px;overflow-x:auto;padding:2px 0;scrollbar-width:none}.qf::-webkit-scrollbar{display:none}
+.qf button{flex:0 0 auto;border:1px solid var(--line);background:var(--card);color:var(--fg);border-radius:99px;padding:6px 12px;font:inherit;font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:4px}
+.qf button.on{background:var(--tc,#c8102e);border-color:var(--tc,#c8102e);color:#fff}
+.qf button.fcfq.on{background:#c81e1e;border-color:#c81e1e}.qf button.ewq.on{background:#1d4ed8;border-color:#1d4ed8}
+.qf img{height:14px;width:14px;border-radius:50%;object-fit:cover}
+.qf .cnt{margin-left:auto;color:var(--muted);font-size:12px;align-self:center;white-space:nowrap;padding:0 4px}
+.fbox{margin-top:10px}
+.thead{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin-top:14px}.thead h2{margin:0;font-size:20px;display:flex;align-items:center;gap:8px}.thead .sub{margin:0;font-size:13px}
+.kpis{margin-top:10px;margin-bottom:0}
+details.morek{margin-top:6px}details.morek>summary{cursor:pointer;color:var(--accent);font-size:13px;font-weight:600;list-style:none}details.morek>summary::-webkit-details-marker{display:none}
+details.morek .kpis{margin-top:8px}
+.ev{display:block;cursor:pointer;position:relative;padding:10px 10px 10px 12px!important}
+.ev .row1{display:flex;gap:8px;align-items:flex-start}
+.ev .row1 input{margin-top:3px;width:20px;height:20px;flex:0 0 auto;cursor:pointer}
+.ev .t{font-size:15px;line-height:1.25}
+.ev .big{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;margin:6px 0 2px;font-size:13px}
+.ev .big b{font-size:15px}
+.ev .pbtn{position:absolute;top:8px;right:8px;border:1px solid var(--line);background:var(--card);color:var(--fg);border-radius:99px;padding:4px 10px;font:inherit;font-size:12px;font-weight:700;cursor:pointer}
+.ev .pbtn.on{background:var(--ok);border-color:var(--ok);color:#fff}
+.ev.has-pbtn .t{padding-right:72px}
+details.tm{margin-top:4px;font-size:12px;color:var(--muted)}details.tm>summary{cursor:pointer;list-style:none}details.tm>summary::-webkit-details-marker{display:none}details.tm>summary b{color:var(--fg)}
+details.dt{margin-top:6px;font-size:13px}details.dt>summary{cursor:pointer;color:var(--accent);font-weight:600;list-style:none}details.dt>summary::-webkit-details-marker{display:none}
+details.dt .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px 18px;margin-top:6px}
+.wk.empty-wk{min-height:0;padding:8px 12px}.wk.empty-wk h3{margin:0}.wk.empty-wk .none{font-size:12px}
+.wk.next{border-color:var(--tc,#c8102e);box-shadow:0 0 0 2px var(--tc,#c8102e) inset}
+.wk .nx{background:var(--tc,#c8102e);color:#fff;border-radius:99px;padding:1px 8px;font-size:11px;font-weight:700}
+.lcards{display:grid;gap:8px;margin-top:10px}
+.pbar{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--card);border-top:1px solid var(--line);box-shadow:0 -6px 20px rgba(0,0,0,.12);padding:10px 16px calc(10px + env(safe-area-inset-bottom))}
+.pbar .in{max-width:1200px;margin:0 auto;display:flex;gap:10px;align-items:center}
+.pbar .txt{flex:1;min-width:0;cursor:pointer}.pbar .txt b{display:block;font-size:15px}.pbar .txt span{font-size:12px;color:var(--muted)}
+.pbar button{border:0;border-radius:12px;padding:10px 14px;font:inherit;font-weight:700;cursor:pointer;background:var(--tc,#c8102e);color:#fff;white-space:nowrap}
+.pbar button.sec{background:var(--chip);color:var(--fg)}
+.pbar button:disabled{opacity:.45}
+.ppanel{max-width:1200px;margin:0 auto 10px;max-height:50vh;overflow:auto;display:none}
+.pbar.open .ppanel{display:block}
+.ppanel .pi{display:flex;gap:10px;align-items:center;border-bottom:1px solid var(--line);padding:8px 0;font-size:14px}
+.ppanel .pi .x{flex:1;min-width:0}.ppanel .pi .x b{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ppanel .pi button{background:var(--chip);color:var(--fg);padding:6px 10px;border-radius:8px}
+.ppanel .acts{display:flex;flex-wrap:wrap;gap:8px;padding-top:10px}
+@media (max-width:760px){
+  .hero p,.hero .tot{display:none}
+  .thead .sub{display:none}
+  .kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .pbar button{padding:10px 12px}
+}
+</style>
+</head>
+<body>
+<header class="hero"><div class="in">
+  <div class="logo"><img src="__LOGO__" alt="FC Frauenfeld"></div>
+  <div>
+    <h1>Turniere FC Frauenfeld</h1>
+    <p>Saison 2026/27 · Halle &amp; Aussen · Ostschweiz &amp; ZH · aktualisiert __UPDATED__</p>
+    <div class="tot" id="tot"></div>
+  </div>
+</div></header>
+<div class="wrap">
+  <div class="sticky">
+    <nav class="tabs" id="tabs"></nav>
+    <div class="qf" id="qf"></div>
+  </div>
+  <div id="teamhead"></div>
+  <details class="fbox" id="fbox">
+    <summary>Mehr Filter <span class="fa" id="fa"></span><span class="count" id="count"></span></summary>
+    <div class="filters">
+      <label class="toggle"><input type="checkbox" id="fFrei" checked> nur mit freien Plätzen</label>
+      <label><input type="checkbox" id="fPast"> vergangene &amp; entfernte Turniere anzeigen</label>
+      <label class="fcfl"><input type="checkbox" id="fFcf"> <span>nur wo <span class="fcf"><img class="fcflogo" src="__LOGO__" alt="FCF">FC Frauenfeld</span> angemeldet ist</span></label>
+      <label class="ewl" id="ewBox"><input type="checkbox" id="fEw"> <span>nur wo <span class="ew"><img class="ewlogo" src="__LOGO_EW__" alt="EW">FC Elgg Wiesendangen</span> angemeldet ist</span></label>
+      <label>Monat <select id="fMonat"></select></label>
+      <label>max. Fahrzeit <input type="range" id="fFz" min="5" max="110" step="5" value="110"> <span id="fFzV"></span></label>
+      <label>max. CHF <select id="fChf"><option value="">alle</option><option>80</option><option>100</option><option>120</option><option>140</option><option>150</option><option>160</option></select></label>
+      <span class="stkf" id="stkBox"><b>Stärkeklasse</b> <label class="stkc"><input type="checkbox" value="P"><span>Promotion/Elite</span></label><label class="stkc"><input type="checkbox" value="1"><span>1. Stkl.</span></label><label class="stkc"><input type="checkbox" value="2"><span>2. Stkl.</span></label><label class="stkc"><input type="checkbox" value="3"><span>3. Stkl.</span></label><label class="stkc"><input type="checkbox" value="V"><span>Fortgeschrittene</span></label><label class="stkc"><input type="checkbox" value="A"><span>Anfänger</span></label><label class="stkc"><input type="checkbox" value="-"><span>ohne Angabe</span></label></span>
+      <label>Halle/Aussen <select id="fTyp"><option value="">alle</option><option value="Halle">nur Halle</option><option value="Aussen">nur Aussen</option></select></label>
+      <label>Besonderheit <select id="fTag"></select></label>
+      <input type="search" id="fQ" placeholder="Suche Ort, Turnier, Verein …">
+      <button class="reset" id="reset">Filter zurücksetzen</button>
+    </div>
+  </details>
+  <div id="sections"></div>
+  <p class="foot">Turnier antippen = für dieses Wochenende in den Plan (max. 1 pro Wochenende und Team). Der Plan wird unten angezeigt und als Kalenderdatei (.ics) exportiert – die Auswahl bleibt nur in diesem Browser. Spielzeit = Spieldauer × Anzahl Spiele (wo nicht publiziert: geschätzt). Hallenzeit = Zeitfenster + 30 Min Vorlauf. Fahrzeit via OpenStreetMap ohne Verkehr. Bei FF-14/D/E/F/G nur Ausschreibungen mit freien Plätzen (plus wo FCF bzw. Elgg-Wiesendangen angemeldet ist). Startgeld FCF: Heimturniere gratis. Freie Plätze ändern sich laufend – vor Anmeldung auf turnieragenda.ch prüfen.</p>
+</div>
+<div class="pbar" id="pbar"></div>
+<script>
+const LOGO = "__LOGO__";
+const LOGO_EW = "__LOGO_EW__";
+const D_ALL = __DATA_ALL__; // alle Teams, ganze Saison (Halle + Aussen)
+const EV = __EV_ALL__;
+const STAND = "__TODAY__";                                   // Datenstand
+const TODAY = new Date(new Date().toDateString());           // echtes Heute (lokal, 00:00)
+const TODAYS = (()=>{ const d=TODAY; return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0"); })();
+const STAND_AGE = Math.round((TODAY - new Date(STAND+"T00:00:00"))/864e5);
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const fmtD = s => { const d = new Date(s); return ["So","Mo","Di","Mi","Do","Fr","Sa"][d.getDay()] + " " + d.toLocaleDateString("de-CH",{day:"2-digit",month:"2-digit",year:"2-digit"}); };
+const chf = n => n.toLocaleString("de-CH");
+const STKL = {P:"Promotion/Elite","1":"1. Stkl.","2":"2. Stkl.","3":"3. Stkl.",V:"Fortgeschrittene",A:"Anfänger","-":"Stkl. offen"};
+const MON = {"2026-11":"November","2026-12":"Dezember","2027-01":"Januar","2027-02":"Februar","2027-03":"März","2027-04":"April","2027-05":"Mai","2027-06":"Juni","2027-07":"Juli","2027-08":"August"};
+const HOL = {"2026-12-26":"Weihnachten","2027-01-02":"Neujahr/Berchtoldstag","2027-03-27":"Ostern","2027-05-08":"Auffahrt","2027-05-15":"Pfingsten"};
+const OWN = [8734]; // eigenes Turnier FC Frauenfeld = gratis
+const FEAT = {FF:[9148], J:[9091,9044,9045,9199,8786,8846,8832,9207,9213]}; // ★-Highlights pro Gruppe (FF: 30. Frauenfussballfestival Bazenheid)
+const isFeat = r => false; // Highlights auf Wunsch entfernt (15.11.2026)
+const HL = ["3-fach-Halle","Kunstrasen","Jubiläum","Special Guests","Tombola","Mädchenturnier"];
+const SHOW_BUDGET = false; // öffentliche Web-Version: keine Budgets anzeigen
+const TEAMS = [
+  {kat:"FF-14", grp:"J", title:"Team FF-14", short:"Mädchen", desc:"Juniorinnen D / FF-14 (Jg. ca. 2013–2015)", color:"#be185d", from:"2026-11-14", to:"2027-08-28", period:"Nov 2026 – Aug 2027", budget:null},
+  {kat:"FF-11", grp:"FF", title:"Team FF-11", short:"Mädchen", desc:"Juniorinnen E (Jg. ca. 2016–2018)", color:"#0b6bcb", from:"2026-11-14", to:"2027-08-28", period:"Nov 2026 – Aug 2027", budget:null},
+  {kat:"FF-09", grp:"FF", title:"Team FF-09", short:"Mädchen", desc:"Juniorinnen F (Jg. ca. 2018–2020)", color:"#c2410c", from:"2026-11-14", to:"2027-08-28", period:"Nov 2026 – Aug 2027", budget:null},
+  {kat:"D", grp:"J", stk:true, title:"Team D", short:"Junioren", desc:"Junioren D (D7 / D9, Jg. ca. 2014/15) – Teams D7, D9b, D-Promotion", color:"#b45309", from:"2026-11-14", to:"2027-08-28", period:"Nov 2026 – Aug 2027", budget:null,
+   parts:[["D7",0,(r,n)=>r.sub==="D7"],["D9b",0,(r,n)=>/frauenfeld b\b/i.test(n)],["D-Promotion",0,(r,n)=>true]], partNote:"Zuordnung: Kategorie D7 → D7 · «FC Frauenfeld B» → D9b · übrige D9/D → D-Promotion"},
+  {kat:"E", grp:"J", stk:true, title:"Team E", short:"Junioren", desc:"Junioren E (Jg. ca. 2016/17) – inkl. E1/E2/E3", color:"#0e7490", from:"2026-11-14", to:"2027-08-28", period:"Nov 2026 – Aug 2027", budget:null},
+  {kat:"F", grp:"J", stk:true, title:"Team F", short:"Junioren", desc:"Junioren F (Jg. ca. 2018/19) – inkl. F1/F2/F3", color:"#9333ea", from:"2026-11-14", to:"2027-08-28", period:"Nov 2026 – Aug 2027", budget:null},
+  {kat:"G", grp:"J", stk:true, title:"Team G", short:"Junioren", desc:"Junioren G (Jg. ca. 2020/21)", color:"#16a34a", from:"2026-11-14", to:"2027-08-28", period:"Nov 2026 – Aug 2027", budget:null},
+];
+const isFCF = n => /frauenfeld/i.test(n);
+const isEW = n => /wiesendangen|\belgg\b/i.test(n); // Gruppierung FC Elgg Wiesendangen (nur Mädchen)
+const girl = k => /^FF-/.test(k);
+// Robust: Texte escapen (Daten stammen von turnieragenda), vergangene Turniere weg, Status nach Anmeldeschluss nachführen
+const TXT = ["name","ort","verein","halle","adr","info","zeit","sub"];
+const unesc = s => String(s).replace(/&lt;/g,"<").replace(/&gt;/g,">").replace(/&quot;/g,'"').replace(/&amp;/g,"&");
+const DATA = D_ALL.filter(r=>r && r.datum && r.kat).map(r=>{
+  const o = {...r, grp:"J"};
+  TXT.forEach(k=>{ if (typeof o[k]==="string") o[k]=esc(o[k]); });
+  o.namen = (r.namen||[]).map(n=>esc(n));
+  o.tags = (r.tags||[]).map(n=>esc(n));
+  o.fz = Number.isFinite(o.fz) ? o.fz : 999; o.km = Number.isFinite(o.km) ? o.km : 0; o.kosten = Number.isFinite(o.kosten) ? o.kosten : 0;
+  o.teams = o.namen.length;
+  o.past = o.datum < TODAYS;
+  if (o.past && o.status!=="entfernt") o.status = "vorbei";
+  else if (o.status==="offen" && o.anm && o.anm < TODAYS) o.status = "Anmeldeschluss vorbei";
+  o.fcf = o.namen.some(isFCF); o.ew = girl(o.kat) && o.namen.some(isEW);
+  return o;
+});
+DATA.forEach((r,i)=>r._i=i);
+const icsA = r => `<a href="#" data-ics="${r._i}" title="Dieses Turnier als Kalenderdatei (.ics)">📅 .ics</a>`;
+const fcfN = r => r.namen.filter(isFCF).length;
+const isHome = r => OWN.includes(r.id) || /frauenfeld/i.test(r.ort);
+const fcfCost = r => isHome(r) ? 0 : fcfN(r) * (r.kosten||0);
+const teamOf = kat => TEAMS.find(t=>t.kat===kat);
+const lg = () => `<img class="fcflogo" src="${LOGO}" alt="FCF">`;
+const sk = r => !(teamOf(r.kat)||{}).stk ? "" : `<span class="chip stk${(r.stk||["-"]).includes("-")?" none":""}" title="Stärkeklasse">${(r.stk||["-"]).map(x=>STKL[x]).join(" / ")}</span>`;
+const sb = r => `<span class="chip typ ${r.typ==="Aussen"?"aus":"hal"}" title="${r.typ==="Aussen"?"Aussenturnier (Rasen/Kunstrasen)":"Hallenturnier"}">${r.typ==="Aussen"?"Aussen":"Halle"}</span>` + (r.sub && r.sub!==r.kat ? ` <span class="chip sub">${r.sub}</span>` : "");
+const lgEw = () => `<img class="ewlogo" src="${LOGO_EW}" alt="EW">`;
+const fb = r => (r.fcf ? ` <span class="chip fcfb">FC Frauenfeld angemeldet</span>` : "") + (r.ew ? ` <span class="chip ewb">FC Elgg Wiesendangen angemeldet</span>` : "");
+const tl = r => r.namen.length ? `<div class="teams"><b>Angemeldet (${r.namen.length}):</b> ${r.namen.map(n=>isFCF(n)?`<span class="fcf">${lg()}${n}</span>`:(girl(r.kat)&&isEW(n)?`<span class="ew">${lgEw()}${n}</span>`:n)).join(", ")}</div>` : `<div class="teams"><b>Angemeldet:</b> noch keine Teams</div>`;
+const tg = r => r.tags&&r.tags.length ? `<div class="tags">${r.tags.map(t=>`<span class="tag${HL.includes(t)?' hl':''}">${t}</span>`).join('')}</div>` : '';
+const star = r => isFeat(r) ? `<span class="star">★ Highlight</span>` : "";
+const pl = r => r.frei==null ? `– / ${r.teams}` : `${r.frei} / ${r.teams+r.frei}`;
+const rid = r => r.grp==="FF" ? r.id+"-"+r.kat : [r.id,r.sub,r.info,r.datum,r.zeit].join("|");
+const ev = r => (r.grp==="J" && EV[r.id]) || {};
+function wkSat(ds){ return wkKey(ds); }
+function wkKey(ds){ const d=new Date(ds+"T12:00:00"); const off={0:-1,1:-2,2:-3,3:3,4:2,5:1,6:0}[d.getDay()]; d.setDate(d.getDate()+off); return d.toISOString().slice(0,10); }
+function weekends(t){ const out=[]; const d=new Date(t.from+"T12:00:00"); while(d<=new Date(t.to+"T12:00:00")){ out.push(d.toISOString().slice(0,10)); d.setDate(d.getDate()+7);} return out; }
+const ls = (k,def) => { try { const v = JSON.parse(localStorage.getItem(k)||"null"); return (v===null || (def!==null && typeof v!==typeof def)) ? def : v; } catch(e){ return def; } };
+// Auswahl/Ansicht aus den bisherigen Einzel-Dossiers übernehmen (falls im selben Browser vorhanden)
+const picks = (()=>{ const p = ls("fcfAppPicks", null) || Object.assign({}, ls("ffPicks",{}), ls("jgfePicks",{})); const o = (p && typeof p==="object" && !Array.isArray(p)) ? p : {}; Object.keys(o).forEach(k=>{ const w=k.split("|")[1]; if (typeof o[k]!=="string" || !w) delete o[k]; }); return o; })();
+const viewState = (()=>{ const v = ls("fcfAppView", null) || Object.assign({"FF-11":"kal","FF-09":"kal",G:"kal",F:"kal",E:"kal"}, ls("ffView",{}), ls("jgfeView",{})); return (v && typeof v==="object" && !Array.isArray(v)) ? v : {}; })();
+const sortState = Object.fromEntries(TEAMS.map(t=>[t.kat,{k:"datum",d:1}]));
+let active = (location.hash||"").slice(1);
+if (!teamOf(active)) active = ls("fcfAppTab","FF-11"); if (!teamOf(active)) active = "FF-11";
+function savePicks(){ try { localStorage.setItem("fcfAppPicks", JSON.stringify(picks)); localStorage.setItem("fcfAppView", JSON.stringify(viewState)); localStorage.setItem("fcfAppTab", JSON.stringify(active)); } catch(e){} }
+const stkSel = () => [...document.querySelectorAll(".stkc input:checked")].map(c=>c.value);
+
+// Filter-Optionen
+$("fMonat").innerHTML = `<option value="">alle</option>` + Object.entries(MON).map(([k,v])=>`<option value="${k}">${v}</option>`).join("");
+(()=>{ const c={}; DATA.forEach(r=>(r.tags||[]).forEach(t=>{ if(t!=="Stärkeklassen") c[t]=(c[t]||0)+1; })); $("fTag").innerHTML = `<option value="">alle</option>` + Object.keys(c).sort((a,b)=>c[b]-c[a]).map(t=>`<option>${t}</option>`).join(""); })();
+
+function load(){ const s = ls("fcfAppFilter", null); if (!s) return; $("fFrei").checked=s.frei!==false; $("fMonat").value=s.monat||""; $("fFz").value=s.fz||110; $("fChf").value=s.chf||""; $("fQ").value=s.q||""; $("fTag").value=s.tag||""; $("fTyp").value=s.typ||""; $("fFcf").checked=!!s.fcf; $("fEw").checked=!!s.ew; $("fPast").checked=!!s.past; const ss=Array.isArray(s.stk)?s.stk:[]; document.querySelectorAll(".stkc input").forEach(c=>c.checked=ss.includes(c.value)); }
+function save(){ try { localStorage.setItem("fcfAppFilter", JSON.stringify({frei:$("fFrei").checked,monat:$("fMonat").value,fz:$("fFz").value,chf:$("fChf").value,q:$("fQ").value,tag:$("fTag").value,typ:$("fTyp").value,stk:stkSel(),fcf:$("fFcf").checked,ew:$("fEw").checked,past:$("fPast").checked})); } catch(e){} }
+function filtered(t){
+  const frei=$("fFrei").checked, mon=$("fMonat").value, fz=+$("fFz").value, chfMax=$("fChf").value, q=$("fQ").value.trim().toLowerCase(), tag=$("fTag").value, typ=$("fTyp").value, stk=t.stk?stkSel():[], fcf=$("fFcf").checked, ew=girl(t.kat)&&$("fEw").checked, past=$("fPast").checked;
+  return DATA.filter(r => r.kat===t.kat && (past || (!r.past && r.status!=="entfernt")) && (!fcf || r.fcf) && (!ew || r.ew) && (fcf || ew || !frei || r.status==="offen" || (past && (r.past || r.status==="entfernt"))) && (!mon || r.datum.startsWith(mon)) && (fz>=110 || r.fz<=fz) && (!chfMax || r.kosten<=+chfMax) && (!tag || (r.tags||[]).includes(tag)) && (!typ || r.typ===typ) && (!stk.length || (r.stk||["-"]).some(x=>stk.includes(x))) && (!q || (r.name+" "+r.ort+" "+r.verein+" "+r.halle).toLowerCase().includes(q)));
+}
+
+// ---------- v2: Plan = Export ----------
+const inPlan = r => picks[r.kat+"|"+wkKey(r.datum)]===rid(r);
+function togglePlan(r){ const k=r.kat+"|"+wkKey(r.datum); if(picks[k]===rid(r)) delete picks[k]; else picks[k]=rid(r); savePicks(); }
+const NOWWK = (()=>{ const d=new Date(); d.setHours(12,0,0,0); if(d.getDay()===0) d.setDate(d.getDate()-1); while(d.getDay()!==6) d.setDate(d.getDate()+1); return d.toISOString().slice(0,10); })();
+const stickyH = () => (document.querySelector(".sticky")||{offsetHeight:0}).offsetHeight;
+function detailHtml(r){
+  const E = ev(r), pct = (r.spielzeit && r.hallenzeit) ? Math.round(100*r.spielzeit/r.hallenzeit) : null;
+  const regl = r.fmt ? `<br>${r.fmt}` : ((E.kern||[]).length ? "<ul style='margin:4px 0 0;padding-left:18px'>"+E.kern.map(k=>"<li>"+esc(k)+"</li>").join("")+"</ul>" : "<br><span class='small'>Kein Reglement-PDF publiziert – siehe Ausschreibung.</span>");
+  return `<div class="grid">
+    <div><b>${r.typ==="Aussen"?"Platz":"Halle"}</b><br>${r.halle}<br>${r.adr}<br><a href="https://www.google.com/maps/dir/?api=1&origin=Frauenfeld&destination=${encodeURIComponent(r.adr)}" target="_blank">Route ab Frauenfeld</a></div>
+    <div><b>Spielzeit vs. Hallenzeit</b><br>${r.dauer?r.dauer+" Min/Spiel"+(r.dsrc?" ("+r.dsrc+")":""):"Spieldauer nicht publiziert"}${r.spiele?", ca. "+r.spiele+" Spiele"+(r.spiele_est?" (geschätzt)":""):""}<br>Spielzeit: ${r.spielzeit?"~"+r.spielzeit+" Min":"?"} · Vor Ort: ${r.hallenzeit?"~"+r.hallenzeit+" Min":r.zeit}${pct!==null?" · Spielanteil "+pct+"%":""}</div>
+    <div><b>Reglement / Modus</b>${regl}</div>
+    <div><b>Kosten &amp; Anmeldung</b><br>Einsatz CHF ${r.kosten} pro Team${isHome(r)?" (Heimturnier: für FCF gratis)":""}${r.anm?" · Anmeldeschluss "+fmtD(r.anm):""}${r.bem?`<br>${r.bem}`:""}<br><a href="${r.url}" target="_blank">Turnieragenda</a> · ${icsA(r)}${r.reg?` · <a href="${r.reg}" target="_blank">Anmeldung</a>`:""}${r.rg?` · <a href="${r.rg}" target="_blank">Reglement (PDF)</a>`:""}${E.web?` · <a href="${E.web}" target="_blank">Webseite</a>`:""}</div>
+  </div>${E.desc?`<details class="desc"><summary>Ausschreibung (Beschreibungstext) – mehr</summary><div>${esc(E.desc).split(String.fromCharCode(10)).join("<br>")}</div></details>`:""}${hdHtml(r)}`;
+}
+function evCard(r, withBtn){
+  const on = inPlan(r), pick = picks[r.kat+"|"+wkKey(r.datum)];
+  const el = document.createElement("div");
+  el.className = "ev"+(r.status==="offen"?(r.teams>=3?" c-green":" c-orange"):"")+(r.ew?" ewrow":"")+(on?" picked":(pick&&!withBtn?" dim":""))+(withBtn?" has-pbtn":"");
+  const special = r.namen.filter(n=>isFCF(n)||(girl(r.kat)&&isEW(n)));
+  const tags = (r.tags||[]).filter(x=>x!=="Aussen/Rasen"&&x!=="Stärkeklassen").sort((a,b)=>(HL.includes(b)?1:0)-(HL.includes(a)?1:0)).slice(0,3);
+  el.innerHTML = `<div class="row1">${withBtn?"":`<input type="checkbox" ${on?"checked":""} title="In den Plan (dieses Wochenende)">`}<div style="flex:1;min-width:0"><div class="t">${r.name}</div>
+    <div class="big">${sb(r)}${sk(r)}<span><b>${pl(r)}</b> Plätze</span><span>${withBtn?fmtD(r.datum):fmtD(r.datum).slice(0,2)} · ${r.zeit}</span><span>📍 ${r.ort} · ${r.fz} Min</span><span>CHF ${r.kosten}${isHome(r)&&r.fcf?" (FCF gratis)":""}</span>${r.status!=="offen"?` <span class="chip st-${r.status.split(' ')[0]}">${r.status}</span>`:""}</div>
+    ${r.info?`<div class="m">${r.info}</div>`:""}
+    ${r.fcf||r.ew?`<div style="margin-top:4px">${r.fcf?`<span class="chip fcfb">FC Frauenfeld angemeldet</span> `:""}${r.ew?`<span class="chip ewb">FC Elgg Wiesendangen angemeldet</span>`:""}</div>`:""}
+    ${tags.length?`<div class="tags">${tags.map(x=>`<span class="tag${HL.includes(x)?' hl':''}">${x}</span>`).join("")}</div>`:""}
+    <details class="tm"><summary><b>${r.namen.length} Teams angemeldet ▸</b>${special.length?" · "+special.map(n=>isFCF(n)?`<span class="fcf">${lg()}${n}</span>`:`<span class="ew">${lgEw()}${n}</span>`).join(", "):""}</summary>${r.namen.map(n=>isFCF(n)?`<span class="fcf">${lg()}${n}</span>`:(girl(r.kat)&&isEW(n)?`<span class="ew">${lgEw()}${n}</span>`:n)).join(", ")||"noch keine"}</details>
+    <details class="dt"><summary>Details, Reglement, Links ▸</summary>${detailHtml(r)}</details></div></div>${withBtn?`<button class="pbtn${on?" on":""}" data-plan="${r._i}">${on?"✓ im Plan":"＋ Plan"}</button>`:""}`;
+  const inp = el.querySelector(".row1 > input"); if (inp) inp.onchange = () => { togglePlan(r); const y=scrollY; render(); window.scrollTo(0,y); };
+  el.onclick = e => { if (e.target.closest("a,summary,details,button,input")) return; togglePlan(r); const y=scrollY; render(); window.scrollTo(0,y); };
+  return el;
+}
+function calHtml(t, rows){
+  const wrap = document.createElement("div");
+  const allTeam = DATA.filter(r=>r.kat===t.kat);
+  const wks = weekends(t).filter(w=>$("fPast").checked || w>=NOWWK);
+  const shown = new Set(rows.map(rid));
+  const strip = document.createElement("div"); strip.className="months";
+  const tile = w=>{ const p=picks[t.kat+"|"+w]; const inW=allTeam.filter(r=>wkKey(r.datum)===w); const n=inW.filter(r=>shown.has(rid(r))).length; const op=inW.filter(r=>r.status==='offen').length; const d=new Date(w+"T12:00:00"); return `<a href="#" data-wk="wk-${t.kat}-${w}" class="${p?'s-pick':(n?'s-opt':'s-empty')}" title="${p?'im Plan':op+' offen / '+inW.length+' gesamt'}"><b>${d.getDate()}.${d.getMonth()+1}.</b>${p?'✓':op+'/'+inW.length}</a>`; };
+  const byMon = {}; wks.forEach(w=>(byMon[w.slice(0,7)]=byMon[w.slice(0,7)]||[]).push(w));
+  strip.innerHTML = Object.entries(byMon).map(([m,ws])=>{ const nP=ws.filter(w=>picks[t.kat+"|"+w]).length; return `<div class="mrow"><div class="mlab">${MON[m]}<span>${nP?nP+" im Plan":ws.length+" WE"}</span></div><div class="strip">${ws.map(tile).join("")}</div></div>`; }).join("");
+  strip.querySelectorAll("a").forEach(a=>a.onclick=e=>{ e.preventDefault(); const el=$(a.dataset.wk); if(el) window.scrollTo({top:el.getBoundingClientRect().top+scrollY-stickyH()-8,behavior:"smooth"}); });
+  wrap.append(strip);
+  wrap.insertAdjacentHTML("beforeend", `<div class="legend"><span><i style="background:var(--ok)"></i>frei &amp; ≥ 3 Teams</span><span><i style="background:var(--warn)"></i>frei, erst 0–2 Teams</span><span><i style="background:var(--line)"></i>ausgebucht / geschlossen</span><span><i style="background:var(--accent)"></i>im Plan</span></div>`);
+  const cal = document.createElement("div"); cal.className="cal";
+  wks.forEach((w,i)=>{
+    if (i===0 || w.slice(0,7)!==wks[i-1].slice(0,7)) cal.insertAdjacentHTML("beforeend", `<h4 class="calm">${MON[w.slice(0,7)]} ${w.slice(0,4)}</h4>`);
+    const pick = picks[t.kat+"|"+w];
+    const inW = allTeam.filter(r=>wkKey(r.datum)===w);
+    const evs = inW.filter(r=>shown.has(rid(r)) || rid(r)===pick).sort((a,b)=>a.datum.localeCompare(b.datum)||a.fz-b.fz);
+    const sun = new Date(w+"T12:00:00"); sun.setDate(sun.getDate()+1);
+    const card = document.createElement("div"); card.className="wk"+(pick?" has-pick":"")+(w===NOWWK?" next":""); card.id = "wk-"+t.kat+"-"+w;
+    const hidden = inW.filter(r=>!evs.includes(r)).length;
+    card.innerHTML = `<h3><span>Sa ${new Date(w+"T12:00:00").toLocaleDateString("de-CH",{day:"2-digit",month:"2-digit"})} – So ${sun.toLocaleDateString("de-CH",{day:"2-digit",month:"2-digit"})}</span>${w===NOWWK?`<span class="nx">dieses WE</span>`:""}${HOL[w]?`<span class="hol">${HOL[w]}</span>`:""}<span class="small">${evs.length?inW.filter(r=>r.status==="offen").length+" offen":"frei"}${hidden?` · +${hidden} ausgeblendet`:""}</span></h3>`;
+    if(!evs.length) card.classList.add("empty-wk");
+    evs.forEach(r=>card.append(evCard(r,false)));
+    cal.append(card);
+  });
+  wrap.append(cal);
+  return wrap;
+}
+
+const COLS = [["datum","Datum"],["name","Turnier / Ort"],["fz","Fahrt"],["kosten","CHF"],["frei","Plätze offen / total"],["spielzeit","Spielzeit / Halle"],["anm","Anmeldeschluss"],["status","Status"]];
+function hdHtml(r){
+  const g = encodeURIComponent(r.gq||(r.halle+" "+r.adr));
+  const links = `<a href="https://www.google.com/search?tbm=isch&q=${g}" target="_blank">Hallenbilder (Google)</a> · <a href="https://www.google.com/maps/search/?api=1&query=${g}" target="_blank">Google Maps (Fotos/Street View)</a>`;
+  if(!r.hd) return `<div class="small" style="margin-top:10px">${links}</div>`;
+  const ex = (r.hd.l||[]).map(([t,u])=>`<a href="${u}" target="_blank">${t}</a>`).join(" · ");
+  return `<div class="hd"><div><b>Halle &amp; Rahmen (Online-Recherche)</b><br>${r.hd.t}<div class="small" style="margin-top:6px">${links}${ex?" · "+ex:""}</div></div>${r.hd.img?`<figure style="margin:0"><a href="${r.hd.img}" target="_blank"><img src="${r.hd.img}" alt="${r.halle}" loading="lazy" onerror="this.closest('figure').remove()"></a><figcaption class="small">${r.hd.imgcap||r.halle}</figcaption></figure>`:""}</div>`;
+}
+function rowHtml(r){
+  const days = r.anm ? Math.round((new Date(r.anm)-TODAY)/864e5) : null;
+  const anm = r.anm ? `<span class="${days!==null&&days<=21&&r.status==='offen'?'urgent':''}">${fmtD(r.anm)}</span>${days!==null&&days>=0&&r.status==='offen'?`<div class="small">in ${days} Tagen</div>`:""}` : '<span class="small">–</span>';
+  const pct = (r.spielzeit && r.hallenzeit) ? Math.round(100*r.spielzeit/r.hallenzeit) : null;
+  const E = ev(r);
+  const tr = document.createElement("tr"); tr.className="main"+(isFeat(r)?" feat":"")+(r.ew?" ewrow":"")+(inPlan(r)?" marked":"");
+  tr.innerHTML = `<td data-l="Datum">${fmtD(r.datum)}<div class="small">${r.zeit}</div></td>
+    <td data-l="Turnier"><div class="name">${star(r)}${r.name}${sb(r)} ${sk(r)}${fb(r)} <button class="mk${inPlan(r)?" on":""}" data-plan="${r._i}">${inPlan(r)?"✓ im Plan":"＋ Plan"}</button>${r.hd?`<span class="chip chk" title="Hallen-Details recherchiert">Details</span>`:""}</div><div class="small">${r.ort} (${r.kt}) · ${r.verein}${r.info?" · "+r.info:""}</div>${tg(r)}${tl(r)}</td>
+    <td data-l="Fahrt" class="num">${r.fz} Min<div class="small">${r.km} km</div></td>
+    <td data-l="CHF" class="num">${r.kosten}${isHome(r)&&r.fcf?`<div class="small">FCF gratis</div>`:""}</td>
+    <td data-l="Plätze offen/total" class="num"><b>${pl(r)}</b><div class="small">${r.teams} angemeldet${r.frei==null?" · Anm. geschlossen":""}</div></td>
+    <td data-l="Spielzeit">${r.spielzeit?"~"+r.spielzeit+" Min":"?"}${r.hallenzeit?" / ~"+r.hallenzeit+" Min":" / "+r.zeit}${pct!==null?`<div class="bar" title="${pct}% der Hallenzeit gespielt"><i style="width:${pct}%"></i></div>`:""}</td>
+    <td data-l="Anmeldeschluss">${anm}</td>
+    <td data-l="Status"><span class="chip st-${r.status.split(' ')[0]}">${r.status}</span></td>`;
+  const regl = r.fmt ? `<br>${r.fmt}` : ((E.kern||[]).length ? "<ul style='margin:4px 0 0;padding-left:18px'>"+E.kern.map(k=>"<li>"+esc(k)+"</li>").join("")+"</ul>" : "<br><span class='small'>Kein Reglement-PDF publiziert – siehe Ausschreibung.</span>");
+  const dt = document.createElement("tr"); dt.className="detail hidden";
+  dt.innerHTML = `<td colspan="8"><div class="grid">
+    <div><b>Halle</b><br>${r.halle}<br>${r.adr}<br><a href="https://www.google.com/maps/dir/?api=1&origin=Frauenfeld&destination=${encodeURIComponent(r.adr)}" target="_blank">Route ab Frauenfeld</a></div>
+    <div><b>Spielzeit vs. Hallenzeit</b><br>${r.dauer?r.dauer+" Min/Spiel"+(r.dsrc?" ("+r.dsrc+")":""):"Spieldauer nicht publiziert"}${r.spiele?", ca. "+r.spiele+" Spiele"+(r.spiele_est?" (geschätzt)":""):""}<br>Spielzeit: ${r.spielzeit?"~"+r.spielzeit+" Min":"?"} · Hallenzeit: ${r.hallenzeit?"~"+r.hallenzeit+" Min":r.zeit}${pct!==null?" · Spielanteil "+pct+"%":""}</div>
+    <div><b>Reglement / Modus</b>${regl}</div>
+    <div><b>Kosten &amp; Anmeldung</b><br>Einsatz CHF ${r.kosten} pro Team${isHome(r)?" (Heimturnier: für FCF gratis)":""}${r.anm?" · Anmeldeschluss "+fmtD(r.anm):""}${r.bem?`<br>${r.bem}`:""}<br><a href="${r.url}" target="_blank">Turnieragenda</a> · ${icsA(r)}${r.reg?` · <a href="${r.reg}" target="_blank">Anmeldung</a>`:""}${r.rg?` · <a href="${r.rg}" target="_blank">Reglement (PDF)</a>`:""}${E.web?` · <a href="${E.web}" target="_blank">Webseite</a>`:""}</div>
+  </div>${E.desc?`<details class="desc"><summary>Ausschreibung (Beschreibungstext) – mehr</summary><div>${esc(E.desc).split(String.fromCharCode(10)).join("<br>")}</div></details>`:""}${hdHtml(r)}</td>`;
+  tr.onclick = () => dt.classList.toggle("hidden");
+  return [tr, dt];
+}
+
+function kpis(t){
+  const all = DATA.filter(r=>r.kat===t.kat), off = all.filter(r=>r.status==="offen"), fc = all.filter(r=>r.fcf);
+  const nTur = new Set(off.map(r=>r.id)).size;
+  const nextAnm = off.filter(r=>r.anm && new Date(r.anm)>=TODAY).sort((a,b)=>a.anm.localeCompare(b.anm))[0];
+  const ist = fc.reduce((a,r)=>a+fcfCost(r),0), nFc = fc.reduce((a,r)=>a+fcfN(r),0);
+  const orte = [...new Set(fc.map(r=>r.ort))];
+  const partHtml = (SHOW_BUDGET && t.parts) ? (()=>{ const ist2={}; fc.forEach(r=>r.namen.filter(isFCF).forEach(n=>{ const p=t.parts.find(([,,f])=>f(r,n)); ist2[p[0]]=(ist2[p[0]]||0)+(isHome(r)?0:(r.kosten||0)); })); return `<div class="bud">${t.parts.map(([n,b])=>{ const i=ist2[n]||0, d=b-i; return `${n}: CHF ${chf(i)} / ${chf(b)} <b class="${d<0?"over":"rest"}">${d<0?"−":"+"}${chf(Math.abs(d))}</b>`; }).join("<br>")}<div style="font-size:11px;margin-top:3px">${t.partNote}</div></div>`; })() : "";
+  const bud = (SHOW_BUDGET && t.budget) ? (()=>{ const d=t.budget-ist; return `<div class="bud">Budget CHF ${chf(t.budget)} · <b class="${d<0?"over":"rest"}">${d<0?"−":"+"}CHF ${chf(Math.abs(d))} ${d<0?"über Budget":"Rest"}</b></div>`; })() : "";
+  const brk = fc.length ? `<details><summary>Aufstellung (${fc.length})</summary>${fc.slice().sort((a,b)=>a.datum.localeCompare(b.datum)).map(r=>`${fmtD(r.datum)} ${r.ort}${r.sub&&r.sub!==r.kat?" "+r.sub:""}: ${fcfN(r)} Team${fcfN(r)>1?"s":""} · ${isHome(r)?"gratis (Heimturnier)":"CHF "+chf(fcfCost(r))}`).join("<br>")}</details>` : "";
+  const ew = all.filter(r=>r.ew);
+  return `<div class="kpis">
+    <div class="kpi kfcf" title="Antippen: nur Turniere mit FCF" data-fcf><b class="fcf">${lg()}${nFc}</b><span>FCF-Anmeldungen in ${new Set(fc.map(r=>r.id)).size} Turnieren${orte.length&&orte.length<=4?" ("+orte.join(", ")+")":""}</span></div>
+    <div class="kpi kfcfc"><b class="fcf">CHF ${chf(ist)}</b><span>Startgeld FCF (Heimturnier gratis)</span>${bud}${partHtml?`<details><summary>Aufteilung pro Team</summary>${partHtml}</details>`:""}${brk}</div>
+    ${girl(t.kat)?`<div class="kpi kew" title="Antippen: nur Turniere mit Elgg-Wiesendangen" data-ew><b>${lgEw()}${ew.length}</b><span>Elgg-Wiesendangen angemeldet${ew.length?": "+ew.map(r=>`${fmtD(r.datum).slice(3,8)} ${r.ort}`).join(", "):""}</span></div>`:""}
+  </div>
+  <details class="morek"><summary>▸ Mehr Kennzahlen</summary><div class="kpis">
+    <div class="kpi"><b>${off.length} / ${all.length}</b><span>Ausschreibungen offen / gesamt (${nTur} Turniere)</span></div>
+    <div class="kpi"><b>${off.filter(r=>r.teams>=3).length}</b><span>offen &amp; ≥ 3 Teams angemeldet</span></div>
+    <div class="kpi"><b>${off.filter(r=>r.fz<=45).length}</b><span>offen &amp; ≤ 45 Min Fahrt</span></div>
+    <div class="kpi"><b>${off.filter(r=>r.typ==="Aussen").length}</b><span>offen &amp; Aussen</span></div>
+    <div class="kpi"><b>${off.length?Math.min(...off.map(r=>r.kosten))+"–"+Math.max(...off.map(r=>r.kosten)):"–"}</b><span>CHF Einsatz (offene)</span></div>
+    <div class="kpi"><b>${nextAnm?fmtD(nextAnm.anm):"–"}</b><span>nächster Anmeldeschluss${nextAnm?" ("+nextAnm.ort+")":""}</span></div>
+  </div></details>`;
+}
+
+function renderTabs(){
+  $("tabs").innerHTML = TEAMS.map(t=>{ const off=DATA.filter(r=>r.kat===t.kat&&r.status==="offen").length, np=planRows(t).length; return `<button data-k="${t.kat}" class="${t.kat===active?'on':''}" style="--tc:${t.color}"><b>${t.kat}</b><span>${t.short}</span><i>${np?"✓ "+np+" im Plan":off+" offen"}</i></button>`; }).join("");
+  $("tabs").querySelectorAll("button").forEach(b=>b.onclick=()=>{ active=b.dataset.k; try { history.replaceState(null,"","#"+active); } catch(e){} /* in Vorschau-Fenstern (sandbox) nicht erlaubt */ savePicks(); renderTabs(); render(); window.scrollTo({top:Math.min(scrollY,$("teamhead").offsetTop-stickyH()),behavior:"instant"}); });
+}
+function renderTotals(){
+  const fc = DATA.filter(r=>r.fcf);
+  $("tot").innerHTML = `<span>${fc.reduce((a,r)=>a+fcfN(r),0)} FCF-Anmeldungen</span><span>Startgeld CHF ${chf(fc.reduce((a,r)=>a+fcfCost(r),0))}</span><span>${DATA.filter(r=>r.status==="offen").length} Ausschreibungen mit freien Plätzen</span>`;
+}
+function renderQF(t, n){
+  const fz30 = +$("fFz").value<=45;
+  const b=(id,on,label,cls="")=>`<button data-q="${id}" class="${cls}${on?" on":""}">${label}</button>`;
+  $("qf").style.setProperty("--tc", t.color);
+  $("qf").innerHTML = b("frei",$("fFrei").checked,"Freie Plätze")+b("halle",$("fTyp").value==="Halle","🏟️ Halle")+b("aussen",$("fTyp").value==="Aussen","🌳 Aussen")+b("fz",fz30,"🚗 ≤ 45 Min")+b("fcf",$("fFcf").checked,`<img src="${LOGO}" alt="">FCF`,"fcfq")+(girl(t.kat)?b("ew",$("fEw").checked,`<img src="${LOGO_EW}" alt="">Elgg-W.`,"ewq"):"")+b("more",$("fbox").open,"⚙︎ Mehr")+`<span class="cnt">${n} Turniere</span>`;
+  $("qf").querySelectorAll("button").forEach(x=>x.onclick=()=>{ const q=x.dataset.q;
+    if(q==="frei") $("fFrei").checked=!$("fFrei").checked;
+    if(q==="halle") $("fTyp").value=$("fTyp").value==="Halle"?"":"Halle";
+    if(q==="aussen") $("fTyp").value=$("fTyp").value==="Aussen"?"":"Aussen";
+    if(q==="fz") $("fFz").value=fz30?110:45;
+    if(q==="fcf") $("fFcf").checked=!$("fFcf").checked;
+    if(q==="ew") $("fEw").checked=!$("fEw").checked;
+    if(q==="more"){ $("fbox").open=!$("fbox").open; if($("fbox").open) window.scrollTo({top:$("fbox").getBoundingClientRect().top+scrollY-stickyH()-6,behavior:"smooth"}); renderQF(t,n); return; }
+    render(); });
+}
+function renderPbar(t){
+  const plan = planRows(t).sort((a,b)=>a.datum.localeCompare(b.datum)), all = TEAMS.flatMap(x=>planRows(x));
+  const sum = plan.reduce((a,r)=>a+(isHome(r)?0:r.kosten),0), km = plan.reduce((a,r)=>a+2*r.km,0);
+  const pb = $("pbar"); pb.style.setProperty("--tc", t.color);
+  const open = pb.classList.contains("open");
+  pb.innerHTML = `<div class="ppanel">${plan.map(r=>`<div class="pi"><div class="x"><b>${fmtD(r.datum)} · ${r.name}</b><span class="small">${r.ort} · ${r.zeit} · ${r.fz} Min · ${isHome(r)?"gratis":"CHF "+r.kosten}${r.status!=="offen"?" · "+r.status:""}${r.anm&&r.status==="offen"?" · Anm. bis "+fmtD(r.anm):""}</span></div><button data-plan="${r._i}" title="Aus dem Plan entfernen">✕</button></div>`).join("")||`<p class="small">Noch leer – im Kalender ein Turnier antippen.</p>`}
+    <div class="acts"><button class="sec" data-x="all" ${all.length?"":"disabled"}>📅 Alle Teams exportieren (${all.length})</button><button class="sec" data-x="clear" ${plan.length?"":"disabled"}>Plan ${t.title} leeren</button></div>
+    <div class="acts" style="border-top:1px solid var(--line);margin-top:8px"><span class="small" style="flex-basis:100%">🔗 <b>Kalender-Abo</b> (SpielerPlus/SportMember, Handy-Kalender): alle Turniere mit FCF-Anmeldung, täglich aktualisiert</span>${[t.kat].concat(t.parts?t.parts.map(p=>p[0]):[]).map(k=>`<button class="sec" data-cal="${k}">Link ${k} kopieren</button>`).join("")}</div></div>
+    <div class="in"><div class="txt" data-x="tog"><b>${open?"▾":"▴"} Plan ${t.title}: ${plan.length} Turnier${plan.length===1?"":"e"}</b><span>${plan.length?`CHF ${chf(sum)}${SHOW_BUDGET&&t.budget?" · Budget "+chf(t.budget):""} · ${km} km`:"Turnier antippen, um es einzuplanen"}</span></div><button data-x="exp" ${plan.length?"":"disabled"}>📅 Export</button></div>`;
+  pb.querySelector('[data-x="tog"]').onclick = () => { pb.classList.toggle("open"); renderPbar(t); };
+  pb.querySelector('[data-x="exp"]').onclick = () => download(plan, `FCF Turniere ${t.title}`);
+  pb.querySelector('[data-x="all"]').onclick = () => download(all, "FCF Turniere alle Teams");
+  pb.querySelectorAll("[data-cal]").forEach(b=>b.onclick=()=>{ const u=new URL("kalender/"+encodeURIComponent(b.dataset.cal)+".ics", location.href).href; const done=()=>{ b.textContent="✓ kopiert"; setTimeout(()=>b.textContent="Link "+b.dataset.cal+" kopieren",2000); }; if(location.protocol!=="https:"){ alert("Der Kalender-Link funktioniert erst auf der veröffentlichten Webseite."); return; } (navigator.clipboard?navigator.clipboard.writeText(u).then(done).catch(()=>prompt("Link kopieren:",u)):prompt("Link kopieren:",u)); });
+  pb.querySelector('[data-x="clear"]').onclick = () => { Object.keys(picks).filter(k=>k.startsWith(t.kat+"|")).forEach(k=>delete picks[k]); savePicks(); render(); };
+}
+const isMobile = () => window.matchMedia("(max-width: 760px)").matches;
+function render(){
+  const t = teamOf(active);
+  document.documentElement.style.setProperty("--accent-team", t.color);
+  $("fFzV").textContent = +$("fFz").value>=110 ? "alle" : $("fFz").value+" Min";
+  $("stkBox").style.display = t.stk ? "" : "none";
+  $("ewBox").style.display = girl(t.kat) ? "" : "none";
+  const box = $("sections"); box.innerHTML = "";
+  const all = DATA.filter(r=>r.kat===t.kat);
+  const st = sortState[t.kat];
+  const rows = filtered(t).sort((a,b)=>{ let x=a[st.k], y=b[st.k]; if(x==null) return 1; if(y==null) return -1; return (x>y?1:x<y?-1:0)*st.d || a.datum.localeCompare(b.datum); });
+  $("teamhead").innerHTML = `<div class="thead"><h2><span class="dot" style="background:${t.color}"></span>${t.title}</h2><p class="sub">${t.desc}</p></div>${kpis(t)}`;
+  $("teamhead").querySelector("[data-fcf]").onclick = () => { $("fFcf").checked = !$("fFcf").checked; render(); };
+  const kew = $("teamhead").querySelector("[data-ew]"); if (kew) kew.onclick = () => { $("fEw").checked = !$("fEw").checked; render(); };
+  renderQF(t, rows.length);
+  const sec = document.createElement("section"); sec.className="team"; sec.id="sec-"+t.kat;
+  const vw = viewState[t.kat]||"kal";
+  const vb = document.createElement("div"); vb.className="views";
+  vb.innerHTML = `<button data-v="kal" class="${vw==='kal'?'on':''}">📅 Kalender</button><button data-v="list" class="${vw==='list'?'on':''}">☰ Liste</button><span class="shown" style="margin:0 0 0 auto;align-self:center"><b>${rows.length}</b> von ${all.length}</span>`;
+  vb.querySelectorAll("button").forEach(b=>b.onclick=()=>{ viewState[t.kat]=b.dataset.v; savePicks(); render(); });
+  sec.append(vb);
+  if (vw==="kal"){ sec.append(calHtml(t, rows)); }
+  else if (!rows.length){ sec.insertAdjacentHTML("beforeend", `<div class="empty">Keine Turniere mit diesen Filtern.</div>`); }
+  else if (isMobile()){
+    const lc = document.createElement("div"); lc.className="lcards"; let lastM="";
+    rows.forEach(r=>{ const m=r.datum.slice(0,7); if(st.k==="datum" && m!==lastM){ lc.insertAdjacentHTML("beforeend", `<h4 class="calm">${MON[m]||m} ${m.slice(0,4)}</h4>`); lastM=m; } lc.append(evCard(r,true)); });
+    sec.append(lc);
+  } else {
+    const tbl = document.createElement("table");
+    tbl.innerHTML = `<thead><tr>${COLS.map(([k,l])=>`<th data-k="${k}" class="${st.k===k?('sorted'+(st.d<0?' desc':'')):''}">${l}</th>`).join("")}</tr></thead><tbody></tbody>`;
+    tbl.querySelectorAll("th").forEach(th=>th.onclick=()=>{ const k=th.dataset.k; st.d = (st.k===k)? -st.d : 1; st.k=k; render(); });
+    const tb = tbl.querySelector("tbody"); rows.forEach(r=>tb.append(...rowHtml(r)));
+    sec.append(tbl);
+  }
+  box.append(sec);
+  $("count").textContent = rows.length + " Einträge";
+  const act = [];
+  if($("fMonat").value) act.push(MON[$("fMonat").value]);
+  if(+$("fFz").value<110 && +$("fFz").value!==45) act.push("≤ "+$("fFz").value+" Min");
+  if($("fChf").value) act.push("≤ CHF "+$("fChf").value);
+  if(t.stk && stkSel().length) act.push(stkSel().map(x=>STKL[x]).join("/"));
+  if($("fTag").value) act.push($("fTag").value);
+  if($("fQ").value.trim()) act.push("«"+$("fQ").value.trim()+"»");
+  $("fa").textContent = act.length ? "· "+act.join(" · ") : "";
+  renderPbar(t);
+  renderTabs();
+  save();
+}
+["fFrei","fMonat","fFz","fChf","fQ","fTag","fTyp","fFcf","fEw","fPast"].forEach(id=>$(id).addEventListener("input",render));
+document.querySelectorAll(".stkc input").forEach(c=>c.addEventListener("change",render));
+$("reset").onclick=()=>{ $("fFrei").checked=true; $("fMonat").value=""; $("fFz").value=110; $("fChf").value=""; $("fQ").value=""; $("fTag").value=""; $("fTyp").value=""; document.querySelectorAll(".stkc input").forEach(c=>c.checked=false); $("fFcf").checked=false; $("fEw").checked=false; $("fPast").checked=false; render(); };
+window.addEventListener("hashchange",()=>{ const k=location.hash.slice(1); if(teamOf(k)&&k!==active){ active=k; savePicks(); render(); } });
+let _mob = isMobile(); window.addEventListener("resize",()=>{ if(isMobile()!==_mob){ _mob=isMobile(); render(); } });
+// ---------- Kalender-Export (iCalendar / .ics) ----------
+const VTZ = ["BEGIN:VTIMEZONE","TZID:Europe/Zurich","BEGIN:DAYLIGHT","TZOFFSETFROM:+0100","TZOFFSETTO:+0200","TZNAME:CEST","DTSTART:19700329T020000","RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU","END:DAYLIGHT","BEGIN:STANDARD","TZOFFSETFROM:+0200","TZOFFSETTO:+0100","TZNAME:CET","DTSTART:19701025T030000","RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU","END:STANDARD","END:VTIMEZONE"];
+const icsEsc = v => String(v==null?"":v).replace(/\\/g,"\\\\").replace(/;/g,"\\;").replace(/,/g,"\\,").replace(/\r?\n/g,"\\n");
+function fold(line){ const out=[]; let cur="", len=0; for (const ch of line){ const b=new TextEncoder().encode(ch).length; if (len+b>74){ out.push(cur); cur=" "; len=1; } cur+=ch; len+=b; } out.push(cur); return out.join("\r\n"); }
+const ymd = d => d.replace(/-/g,"");
+function nextDay(d){ const x=new Date(d+"T12:00:00"); x.setDate(x.getDate()+1); return x.toISOString().slice(0,10); }
+function vevent(r){
+  r = Object.fromEntries(Object.entries(r).map(([k,v])=>[k, typeof v==="string" ? unesc(v) : Array.isArray(v) ? v.map(x=>typeof x==="string"?unesc(x):x) : v]));
+  const t = teamOf(r.kat), z = String(r.zeit||"");
+  // Zeitfenster: publizierte Zeit, sonst Slot (Vormittag 8–12, Mittag 11–14, Nachmittag 13–17, Abend 17–21), sonst 08:00–17:00
+  const SLOT = {Vormittag:["8","00","12","00"], Mittag:["11","00","14","00"], Nachmittag:["13","00","17","00"], Abend:["17","00","21","00"]};
+  let m = z.match(/(\d{1,2}):(\d{2})\s*[–-]\s*(\d{1,2}):(\d{2})/), est = "";
+  if (m) m = m.slice(1); else if (SLOT[z.trim()]) { m = SLOT[z.trim()]; est = z.trim(); } else if (/ab (\d{1,2}):(\d{2})/.test(z)) { const a = z.match(/ab (\d{1,2}):(\d{2})/); m = [a[1], a[2], String(+a[1]+4), a[2]]; est = z; } else { m = ["8","00","17","00"]; est = "Zeit noch offen"; }
+  const stamp = new Date().toISOString().replace(/[-:]/g,"").replace(/\.\d+Z$/,"Z");
+  const uid = [r.id, r.kat, r.sub||"", r.datum, (r.zeit||"").replace(/\D/g,"")].join("-").replace(/[^A-Za-z0-9-]/g,"") + "@fcf-hallenturniere";
+  const pad = n => String(n).padStart(2,"0");
+  const when = [`DTSTART;TZID=Europe/Zurich:${ymd(r.datum)}T${pad(m[0])}${m[1]}00`, `DTEND;TZID=Europe/Zurich:${ymd(r.datum)}T${pad(m[2])}${m[3]}00`];
+// Plain-Text-Beschreibung: kurze Zeilen, Leerzeilen zwischen Blöcken, nur ASCII-Bindestriche
+const asc = v => String(v==null?"":v).replace(/[–—]/g,"-").replace(/·/g,"|").replace(/~/g,"ca. ");
+const dlong = d => { const x=new Date(d+"T12:00:00"); return ["So","Mo","Di","Mi","Do","Fr","Sa"][x.getDay()]+" "+x.toLocaleDateString("de-CH",{day:"2-digit",month:"2-digit",year:"numeric"}); };
+const von = `${pad(m[0])}:${m[1]}-${pad(m[2])}:${m[3]}`;
+const head = [t.title, r.sub&&r.sub!==t.kat ? "Kategorie "+r.sub : "", (t.stk && r.stk && !r.stk.includes("-")) ? r.stk.map(x=>STKL[x]).join(" / ") : ""].filter(Boolean).join(" | ");
+const blocks = [
+  [head, r.info ? asc(r.info) : ""],
+  [`Zeit: ${dlong(r.datum)}, ${von}${est ? ` (${est}, genaue Zeit gemäss Spielplan)` : ""}`, "Treffpunkt: ca. 30 Min vor Spielbeginn",
+   (r.spielzeit || r.hallenzeit) ? [r.spielzeit ? `Spielzeit ca. ${r.spielzeit} Min` : "", r.hallenzeit ? `Hallenzeit ca. ${r.hallenzeit} Min` : ""].filter(Boolean).join(", ") : ""],
+  [`Halle: ${asc(r.halle)}`, `Adresse: ${asc(r.adr)}`, `Anfahrt: ${r.fz} Min / ${r.km} km ab Frauenfeld`],
+  [r.anm ? `Anmeldeschluss: ${dlong(r.anm)}` : "", r.frei!=null ? `Plätze: ${r.frei} frei von ${r.teams+r.frei} (Status: ${r.status})` : `Plätze: ${r.teams} angemeldet (Status: ${r.status})`],
+  r.namen.length ? [`Angemeldete Teams (${r.namen.length}):`, ...r.namen.map(n=>"- "+asc(n))] : ["Angemeldete Teams: noch keine"],
+  [`Ausschreibung: ${r.url}`, r.rg ? `Reglement: ${r.rg}` : ""]
+];
+const desc = blocks.map(b=>b.filter(Boolean).join("\n")).filter(Boolean).join("\n\n");
+  return ["BEGIN:VEVENT", `UID:${uid}`, `DTSTAMP:${stamp}`, ...when,
+    `SUMMARY:${icsEsc(`${r.typ==="Aussen"?"Turnier":"Hallenturnier"} ${r.sub&&r.sub!==t.kat?r.sub:t.kat}: ${r.name} (${r.ort})`.replace(/[–—]/g,"-"))}`,
+    `LOCATION:${icsEsc(`${r.halle}, ${r.adr}`.replace(/[–—]/g,"-"))}`, `DESCRIPTION:${icsEsc(desc)}`, `URL:${r.url}`,
+    `CATEGORIES:${r.typ==="Aussen"?"Turnier":"Hallenturnier"}`, `STATUS:${r.status==="offen"?"TENTATIVE":"CONFIRMED"}`, "TRANSP:OPAQUE", "END:VEVENT"];
+}
+function icsFile(rows, name){
+  const lines = ["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//FC Frauenfeld//Hallenturniere App//DE","CALSCALE:GREGORIAN","METHOD:PUBLISH",`X-WR-CALNAME:${icsEsc(name)}`,"X-WR-TIMEZONE:Europe/Zurich", ...VTZ];
+  rows.slice().sort((a,b)=>a.datum.localeCompare(b.datum)).forEach(r=>lines.push(...vevent(r)));
+  lines.push("END:VCALENDAR");
+  return lines.map(fold).join("\r\n") + "\r\n";
+}
+async function download(rows, name){
+  rows = (rows||[]).filter(Boolean); if (!rows.length) return;
+  const fname = name.replace(/[\\/:*?"<>|]/g,"-") + ".ics";
+  let txt; try { txt = icsFile(rows, name); } catch(e){ console.error(e); alert("Export fehlgeschlagen: "+e.message); return; }
+  const blob = new Blob([txt], {type:"text/calendar;charset=utf-8"});
+  try {
+    const file = new File([blob], fname, {type:"text/calendar"});
+    if (/iPhone|iPad|Android/i.test(navigator.userAgent) && navigator.canShare && navigator.canShare({files:[file]})) { await navigator.share({files:[file], title:name}); return; }
+  } catch(e){ if (e && e.name==="AbortError") return; }
+  const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = fname;
+  document.body.append(a); a.click(); setTimeout(()=>{ URL.revokeObjectURL(a.href); a.remove(); }, 1500);
+  let inFrame = true; try { inFrame = window.self !== window.top; } catch(e){}
+  if (inFrame) setTimeout(()=>alert("Hinweis: In der Vorschau (z.B. im Chat) kann der Download blockiert sein. Falls keine Datei kommt: App über den Download-Knopf speichern und direkt im Browser (Safari/Chrome) öffnen."), 300);
+}
+const planRows = t => Object.entries(picks).filter(([k])=>k.startsWith(t.kat+"|")).map(([,v])=>DATA.find(r=>r.kat===t.kat&&rid(r)===v)).filter(Boolean);
+document.addEventListener("click", e => {
+  const p = e.target.closest("[data-plan]");
+  if (p) { e.preventDefault(); e.stopPropagation(); togglePlan(DATA[+p.dataset.plan]); const y = scrollY; render(); window.scrollTo(0, y); return; }
+  const i = e.target.closest("[data-ics]");
+  if (i) { e.preventDefault(); e.stopPropagation(); const r = DATA[+i.dataset.ics]; download([r], `${r.datum} ${r.name} ${r.sub||r.kat}`); }
+}, true);
+function showErr(msg){ let b=$("errbox"); if(!b){ b=document.createElement("div"); b.id="errbox"; b.style.cssText="position:fixed;top:0;left:0;right:0;z-index:99;background:#b91c1c;color:#fff;padding:10px 16px;font-size:14px"; document.body.append(b); } b.textContent="⚠️ Fehler in der App: "+msg+" – bitte Seite neu laden. (Filter zurücksetzen hilft oft.)"; }
+window.addEventListener("error", e => showErr(e.message||"unbekannt"));
+const _render = render; render = function(){ try { _render(); } catch(e){ console.error(e); showErr(e.message); } };
+if (STAND_AGE > 7) document.querySelector(".hero .in > div").insertAdjacentHTML("beforeend", `<p style="background:rgba(0,0,0,.25);border-radius:8px;padding:4px 8px;display:block!important">⚠️ Daten vom ${new Date(STAND+"T12:00:00").toLocaleDateString("de-CH")} (vor ${STAND_AGE} Tagen) – freie Plätze bitte auf turnieragenda.ch prüfen.</p>`);
+try { load(); } catch(e){ console.error(e); }
+if ("serviceWorker" in navigator && location.protocol==="https:") { try { navigator.serviceWorker.register("sw.js").catch(()=>{}); } catch(e){} }
+renderTotals(); renderTabs(); render();
+</script>
+</body>
+</html>
