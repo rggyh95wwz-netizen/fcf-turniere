@@ -26,7 +26,7 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:8746-E-E1-2026-11-21-13001700@fcf-turniere
-DTSTAMP:20261115T092145Z
+DTSTAMP:20261115T103521Z
 DTSTART;TZID=Europe/Zurich:20261121T130000
 DTEND;TZID=Europe/Zurich:20261121T170000
 SUMMARY:Hallenturnier E1: 33. Hallenturnier FC Wiesendangen (Wiesendangen)
@@ -46,29 +46,8 @@ STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
-UID:8591-E-E1-2026-11-28-08301200@fcf-turniere
-DTSTAMP:20261115T092145Z
-DTSTART;TZID=Europe/Zurich:20261128T083000
-DTEND;TZID=Europe/Zurich:20261128T120000
-SUMMARY:Hallenturnier E1: 52. Hallenturnier FC Weinfelden-Bürglen (Weinfe
- lden)
-LOCATION:Sporthalle Güttingersreuti\, Lauligstrasse 6\, 8570 Weinfelden
-DESCRIPTION:Team E | Kategorie E1 | 1. Stkl.\nJunioren E 1. Stkl\n\nZeit: 
- Sa 28.11.2026\, 08:30-12:00\nTreffpunkt: ca. 30 Min vor Spielbeginn\n\nHa
- lle: Sporthalle Güttingersreuti\nAdresse: Lauligstrasse 6\, 8570 Weinfel
- den\nAnfahrt: 19 Min / 20 km ab Frauenfeld\n\nAngemeldet für FCF: FC Fra
- uenfeld\nStatus: geschlossen\n\nAngemeldete Teams (6):\n- FC Pfyn rot\n- 
- FC Weinfelden-Bürglen Ea\n- FC Frauenfeld\n- FC Münsterlingen Ea\n- FC 
- Herisau\n- SC Berg\n\nAusschreibung: https://www.turnieragenda.ch/de/even
- t/detail/8591\nReglement: https://www.turnieragenda.ch/ressources/rules/r
- eglement_8591.pdf
-URL:https://www.turnieragenda.ch/de/event/detail/8591
-STATUS:CONFIRMED
-TRANSP:OPAQUE
-END:VEVENT
-BEGIN:VEVENT
 UID:8746-E-E2-2026-11-28-@fcf-turniere
-DTSTAMP:20261115T092145Z
+DTSTAMP:20261115T103521Z
 DTSTART;TZID=Europe/Zurich:20261128T130000
 DTEND;TZID=Europe/Zurich:20261128T170000
 SUMMARY:Hallenturnier E2: 33. Hallenturnier FC Wiesendangen (Wiesendangen)
@@ -88,8 +67,29 @@ STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
+UID:8591-E-E1-2026-11-28-08301200@fcf-turniere
+DTSTAMP:20261115T103521Z
+DTSTART;TZID=Europe/Zurich:20261128T083000
+DTEND;TZID=Europe/Zurich:20261128T120000
+SUMMARY:Hallenturnier E1: 52. Hallenturnier FC Weinfelden-Bürglen (Weinfe
+ lden)
+LOCATION:Sporthalle Güttingersreuti\, Lauligstrasse 6\, 8570 Weinfelden
+DESCRIPTION:Team E | Kategorie E1 | 1. Stkl.\nJunioren E 1. Stkl\n\nZeit: 
+ Sa 28.11.2026\, 08:30-12:00\nTreffpunkt: ca. 30 Min vor Spielbeginn\n\nHa
+ lle: Sporthalle Güttingersreuti\nAdresse: Lauligstrasse 6\, 8570 Weinfel
+ den\nAnfahrt: 19 Min / 20 km ab Frauenfeld\n\nAngemeldet für FCF: FC Fra
+ uenfeld\nStatus: geschlossen\n\nAngemeldete Teams (6):\n- FC Pfyn rot\n- 
+ FC Weinfelden-Bürglen Ea\n- FC Frauenfeld\n- FC Münsterlingen Ea\n- FC 
+ Herisau\n- SC Berg\n\nAusschreibung: https://www.turnieragenda.ch/de/even
+ t/detail/8591\nReglement: https://www.turnieragenda.ch/ressources/rules/r
+ eglement_8591.pdf
+URL:https://www.turnieragenda.ch/de/event/detail/8591
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
 UID:8644-E-E1-2026-12-05-18002200@fcf-turniere
-DTSTAMP:20261115T092145Z
+DTSTAMP:20261115T103521Z
 DTSTART;TZID=Europe/Zurich:20261205T180000
 DTEND;TZID=Europe/Zurich:20261205T220000
 SUMMARY:Hallenturnier E1: FC Wängi - 19. Chlausturnier 2026 (Wängi)
@@ -109,7 +109,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:8644-E-E2-2026-12-05-08001215@fcf-turniere
-DTSTAMP:20261115T092145Z
+DTSTAMP:20261115T103521Z
 DTSTART;TZID=Europe/Zurich:20261205T080000
 DTEND;TZID=Europe/Zurich:20261205T121500
 SUMMARY:Hallenturnier E2: FC Wängi - 19. Chlausturnier 2026 (Wängi)
@@ -128,29 +128,8 @@ STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
-UID:8637-E-E1-2027-01-10-@fcf-turniere
-DTSTAMP:20261115T092145Z
-DTSTART;TZID=Europe/Zurich:20270110T130000
-DTEND;TZID=Europe/Zurich:20270110T170000
-SUMMARY:Hallenturnier E1: 53. Hallenturnier FC KS-Sulgen (Weinfelden)
-LOCATION:Sporthalle Güttingersreuti\, Lauligstrasse\, 8570 Weinfelden
-DESCRIPTION:Team E | Kategorie E1 | 1. Stkl.\nKein Playmore / spielst. Tea
- ms Jg. 2016 -2018\n\nZeit: So 10.01.2027\, 13:00-17:00 (Nachmittag\, gena
- ue Zeit gemäss Spielplan)\nTreffpunkt: ca. 30 Min vor Spielbeginn\n\nHal
- le: Sporthalle Güttingersreuti\nAdresse: Lauligstrasse\, 8570 Weinfelden
- \nAnfahrt: 19 Min / 20 km ab Frauenfeld\n\nAngemeldet für FCF: FC Frauen
- feld\nStatus: ausgebucht\n\nAngemeldete Teams (8):\n- FC Frauenfeld\n- FC
-  Romanshorn E1\n- FC Weinfelden-Bürglen Ea\n- FC KS-Sulgen\n- FC Wil 190
- 0 AG E11\n- FC Bischofszell E1\n- FC Tägerwilen E1\n- FC Bazenheid Ea\n\
- nAusschreibung: https://www.turnieragenda.ch/de/event/detail/8637\nReglem
- ent: https://www.turnieragenda.ch/ressources/rules/reglement_8637.pdf
-URL:https://www.turnieragenda.ch/de/event/detail/8637
-STATUS:CONFIRMED
-TRANSP:OPAQUE
-END:VEVENT
-BEGIN:VEVENT
 UID:8637-E-E-2027-01-10-@fcf-turniere
-DTSTAMP:20261115T092145Z
+DTSTAMP:20261115T103521Z
 DTSTART;TZID=Europe/Zurich:20270110T080000
 DTEND;TZID=Europe/Zurich:20270110T120000
 SUMMARY:Hallenturnier E: 53. Hallenturnier FC KS-Sulgen (Weinfelden)
@@ -170,8 +149,29 @@ STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
+UID:8637-E-E1-2027-01-10-@fcf-turniere
+DTSTAMP:20261115T103521Z
+DTSTART;TZID=Europe/Zurich:20270110T130000
+DTEND;TZID=Europe/Zurich:20270110T170000
+SUMMARY:Hallenturnier E1: 53. Hallenturnier FC KS-Sulgen (Weinfelden)
+LOCATION:Sporthalle Güttingersreuti\, Lauligstrasse\, 8570 Weinfelden
+DESCRIPTION:Team E | Kategorie E1 | 1. Stkl.\nKein Playmore / spielst. Tea
+ ms Jg. 2016 -2018\n\nZeit: So 10.01.2027\, 13:00-17:00 (Nachmittag\, gena
+ ue Zeit gemäss Spielplan)\nTreffpunkt: ca. 30 Min vor Spielbeginn\n\nHal
+ le: Sporthalle Güttingersreuti\nAdresse: Lauligstrasse\, 8570 Weinfelden
+ \nAnfahrt: 19 Min / 20 km ab Frauenfeld\n\nAngemeldet für FCF: FC Frauen
+ feld\nStatus: ausgebucht\n\nAngemeldete Teams (8):\n- FC Frauenfeld\n- FC
+  Romanshorn E1\n- FC Weinfelden-Bürglen Ea\n- FC KS-Sulgen\n- FC Wil 190
+ 0 AG E11\n- FC Bischofszell E1\n- FC Tägerwilen E1\n- FC Bazenheid Ea\n\
+ nAusschreibung: https://www.turnieragenda.ch/de/event/detail/8637\nReglem
+ ent: https://www.turnieragenda.ch/ressources/rules/reglement_8637.pdf
+URL:https://www.turnieragenda.ch/de/event/detail/8637
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
 UID:8851-E-E2-2027-02-13-08001230@fcf-turniere
-DTSTAMP:20261115T092145Z
+DTSTAMP:20261115T103521Z
 DTSTART;TZID=Europe/Zurich:20270213T080000
 DTEND;TZID=Europe/Zurich:20270213T123000
 SUMMARY:Hallenturnier E2: 19. Juniorenhallenturnier SC Berg (Berg)
@@ -192,7 +192,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:8851-E-E1-2027-02-13-13001730@fcf-turniere
-DTSTAMP:20261115T092145Z
+DTSTAMP:20261115T103521Z
 DTSTART;TZID=Europe/Zurich:20270213T130000
 DTEND;TZID=Europe/Zurich:20270213T173000
 SUMMARY:Hallenturnier E1: 19. Juniorenhallenturnier SC Berg (Berg)
@@ -213,7 +213,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:8590-E-E1-2027-02-27-@fcf-turniere
-DTSTAMP:20261115T092145Z
+DTSTAMP:20261115T103521Z
 DTSTART;TZID=Europe/Zurich:20270227T110000
 DTEND;TZID=Europe/Zurich:20270227T140000
 SUMMARY:Hallenturnier E1: 7.YOUTH STARS TROPHY *QUALITURNIER 8* (Rafz)
@@ -233,7 +233,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:8590-E-E2-2027-02-28-@fcf-turniere
-DTSTAMP:20261115T092145Z
+DTSTAMP:20261115T103521Z
 DTSTART;TZID=Europe/Zurich:20270228T080000
 DTEND;TZID=Europe/Zurich:20270228T120000
 SUMMARY:Hallenturnier E2: 7.YOUTH STARS TROPHY *QUALITURNIER 8* (Rafz)
