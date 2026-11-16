@@ -1,7 +1,7 @@
 # encoding: utf-8
 # Kalender-Abos (.ics) pro Team: alle Turniere, an denen FC Frauenfeld angemeldet ist (aus turnieragenda),
 # täglich neu erzeugt -> docs/kalender/<Team>.ics. Feste UIDs, damit Kalender-Apps Termine aktualisieren statt doppeln.
-require_relative "config"
+require_relative "config"; require_relative "trainer"
 db = jread(File.join(DATA, "db.json"), nil) or abort "db.json fehlt"
 FCF = /frauenfeld/i
 STKL = {"P"=>"Promotion/Elite", "1"=>"1. Stkl.", "2"=>"2. Stkl.", "3"=>"3. Stkl.", "V"=>"Fortgeschrittene", "A"=>"Anfänger"}
@@ -17,7 +17,9 @@ def fold(line)
   (out << cur).join("\r\n")
 end
 def dlong(d) x = Date.parse(d); %w[So Mo Di Mi Do Fr Sa][x.wday] + " " + x.strftime("%d.%m.%Y"); end
-def vevent(r, title)
+PRIOT = {1=>"Prio 1 (muss)", 2=>"Prio 2 (wenn möglich)", 3=>"Prio 3 (Option)"}
+TR = trainer_data
+def vevent(r, title, summary_prefix = nil)
   z = r["zeit"].to_s; est = nil
   if (m = z.match(/(\d{1,2}):(\d{2})\s*[–-]\s*(\d{1,2}):(\d{2})/)) then t = m.captures.map(&:to_i)
   elsif SLOT[z.strip] then t = SLOT[z.strip]; est = z.strip
@@ -33,16 +35,17 @@ def vevent(r, title)
     [head, r["info"].to_s.empty? ? nil : asc(r["info"])],
     ["Zeit: #{dlong(r['datum'])}, #{von}#{est ? " (#{est}, genaue Zeit gemäss Spielplan)" : ''}", "Treffpunkt: ca. 30 Min vor Spielbeginn"],
     ["#{r['typ'] == 'Aussen' ? 'Platz' : 'Halle'}: #{asc(r['halle'])}", "Adresse: #{asc(r['adr'])}", "Anfahrt: #{r['fz']} Min / #{r['km']} km ab Frauenfeld"],
-    ["Angemeldet für FCF: #{fcf.join(', ')}", "Status: #{r['status']}"],
+    [fcf.empty? ? "FCF noch nicht angemeldet (markiert)" : "Angemeldet für FCF: #{fcf.join(', ')}", "Status: #{r['status']}"],
+    TR ? ["Trainer: #{TR['names'][tkey(r)].empty? ? 'noch offen' : TR['names'][tkey(r)].join(', ')}", TR["prio"][tkey(r)] ? PRIOT[TR["prio"][tkey(r)]] : nil] : [],
     ["Angemeldete Teams (#{r['namen'].size}):"] + r["namen"].map { |n| "- #{asc(n)}" },
     ["Ausschreibung: #{r['url']}", r["rg"] ? "Reglement: #{r['rg']}" : nil]
   ]
   desc = blocks.map { |b| b.compact.join("\n") }.reject(&:empty?).join("\n\n")
-  uid = [r["id"], r["kat"], r["sub"], r["datum"], r["zeit"].to_s.gsub(/\D/, "")].join("-").gsub(/[^A-Za-z0-9-]/, "") + "@fcf-turniere"
+  uid = [r["id"], r["kat"], r["sub"], r["datum"], r["zeit"].to_s.gsub(/\D/, "")].join("-").gsub(/[^A-Za-z0-9-]/, "") + (summary_prefix ? "-t" : "") + "@fcf-turniere"
   cancelled = r["status"] == "entfernt"
   ["BEGIN:VEVENT", "UID:#{uid}", "DTSTAMP:#{Time.now.utc.strftime('%Y%m%dT%H%M%SZ')}",
    "DTSTART;TZID=Europe/Zurich:#{d}T#{p2.(t[0])}#{p2.(t[1])}00", "DTEND;TZID=Europe/Zurich:#{d}T#{p2.(t[2])}#{p2.(t[3])}00",
-   "SUMMARY:#{esc(asc("#{cancelled ? 'ABGESAGT? ' : ''}#{r['typ'] == 'Aussen' ? 'Turnier' : 'Hallenturnier'} #{sub || r['kat']}: #{r['name']} (#{r['ort']})"))}",
+   "SUMMARY:#{esc(asc("#{cancelled ? 'ABGESAGT? ' : ''}#{summary_prefix}#{r['typ'] == 'Aussen' ? 'Turnier' : 'Hallenturnier'} #{sub || r['kat']}: #{r['name']} (#{r['ort']})"))}",
    "LOCATION:#{esc(asc("#{r['halle']}, #{r['adr']}"))}", "DESCRIPTION:#{esc(desc)}", "URL:#{r['url']}",
    "STATUS:#{cancelled ? 'CANCELLED' : 'CONFIRMED'}", "TRANSP:OPAQUE", "END:VEVENT"]
 end
@@ -67,4 +70,18 @@ TEAMS.each do |k, title|
   end
 end
 jwrite(File.join(dir, "index.json"), index, true)
+# Kalender-Abo pro Trainer: alle Turniere, bei denen er/sie «Ich kann hier» gewählt hat -> docs/kalender/trainer/<abo>.ics
+if TR
+  tdir = File.join(dir, "trainer"); FileUtils.mkdir_p(tdir)
+  bykey = db["rows"].values.select { |r| r["datum"] >= (TODAYD - 60).to_s }.to_h { |r| [tkey(r), r] }
+  keep = []
+  TR["trainer"].each do |t|
+    rs = TR["anm"].select { |a| a["trainer_id"] == t["id"] }.map { |a| bykey[a["tkey"]] }.compact.uniq.sort_by { |r| r["datum"] }
+    f = "#{t['abo'].to_s.gsub(/[^a-z0-9]/i, '')}.ics"; next if f == ".ics"
+    File.write(File.join(tdir, f), cal("FCF Trainer #{t['name']}", rs.map { |r| vevent(r, "Team #{r['kat']}", "Trainer: ") }))
+    keep << f
+  end
+  (Dir.children(tdir) - keep).each { |f| File.delete(File.join(tdir, f)) if f.end_with?(".ics") }   # entfernte Trainer
+  puts "Trainer-Abos: #{keep.size} Trainer, #{TR['anm'].size} Anmeldungen"
+end
 puts "Kalender-Abos: " + index.map { |k, v| "#{k}=#{v}" }.join(" ")

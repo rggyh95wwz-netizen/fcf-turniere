@@ -167,6 +167,40 @@ details.dt .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px
 .menu .kpis{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;width:100%;margin:0}
 .menu .kpi{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.2);color:#fff;padding:8px 10px}.menu .kpi span{color:rgba(255,255,255,.85)}.menu .kpi b{font-size:16px}
 .tabs button .my,.tabs button span.my{display:inline!important;font-size:10px;margin-left:2px}
+/* Trainer-Anmeldung pro Turnier */
+.trs{display:flex;flex-wrap:wrap;align-items:center;gap:5px;margin-top:6px;font-size:13px}
+.trs .tlab{color:var(--muted);font-size:12px}
+.tch{border:1px solid var(--ok);background:var(--okbg);color:var(--ok);border-radius:99px;padding:1px 9px;font-size:12px;font-weight:600}
+.tch.me{background:#c81e1e;border-color:#c81e1e;color:#fff}
+.twarn{color:var(--warn);font-weight:700;font-size:12px}
+.tbtn2{border:1px solid var(--accent);background:var(--accent);color:#fff;border-radius:8px;padding:4px 10px;font:inherit;font-size:13px;font-weight:600;cursor:pointer}
+.tbtn2.on{background:var(--chip);color:var(--fg);border-color:var(--line);font-weight:500}
+.tprio{font:inherit;font-size:12px;border:1px solid var(--line);border-radius:99px;padding:2px 6px;background:var(--chip);color:var(--fg)}
+.tpr{font-size:11px;font-weight:700;padding:1px 8px;border-radius:99px;background:var(--chip);color:var(--muted)}
+.tpr.p1,.tprio.p1{background:#c81e1e;color:#fff;border-color:#c81e1e}.tpr.p2,.tprio.p2{background:var(--warnbg);color:var(--warn);border-color:var(--warn)}
+.tview{display:flex;flex-direction:column;gap:12px}
+.tview .tsme{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 14px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.tview .tsme button,.tview .tnav button{border:1px solid var(--line);background:var(--chip);color:var(--fg);border-radius:8px;padding:5px 10px;font:inherit;font-size:13px;cursor:pointer}
+.tmon{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px}
+.tnav{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}.tnav b{font-size:16px}
+.tgrid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}
+.tgrid .dw{font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);text-align:center}
+.tgrid .td{position:relative;aspect-ratio:1;border:1px solid var(--line);border-radius:9px;background:var(--card);color:var(--muted);font:inherit;font-size:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0;font-variant-numeric:tabular-nums}
+.tgrid .td.x{visibility:hidden}.tgrid .td.we{background:var(--chip)}
+.tgrid button.td{cursor:pointer;color:var(--fg);font-weight:600}
+.tgrid .td i{position:absolute;top:4px;right:5px;width:7px;height:7px;border-radius:50%;background:var(--accent)}.tgrid .td i.p1{background:#c81e1e}
+.tgrid .td small{font-size:10px;line-height:1}
+.tgrid .td.mine{background:#c81e1e;border-color:#c81e1e;color:#fff}.tgrid .td.mine i{background:#fff}
+.tgrid .td.sel{outline:2px solid var(--accent);outline-offset:1px}
+.tlist{display:flex;flex-direction:column;gap:8px}
+.tcard{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+.tcard.warn{border-color:var(--warn)}
+.tcard .l1{display:flex;justify-content:space-between;gap:8px;font-size:13px;color:var(--muted)}
+.tcard .nm{font-weight:600;margin-top:2px}
+.tslog{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px;width:100%}
+.tslog select,.tslog input{font:inherit;font-size:14px;border-radius:8px;padding:5px 8px;border:0;min-width:0}
+.tslog input{width:90px}
+@media (prefers-color-scheme:dark){.tch.me,.tpr.p1,.tprio.p1,.tgrid .td.mine{background:#e04848;border-color:#e04848}.tgrid .td i.p1{background:#ff6b6b}}
 </style>
 </head>
 <body>
@@ -179,6 +213,7 @@ details.dt .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px
 <div class="menu" id="menu" hidden>
   <div class="mi"><b>🔄 Datenstand</b><span id="ageFull"></span></div>
   <div class="mi"><b>👤 Trainer</b><span id="tinfo"></span><button class="tbtn" id="tbtn" hidden></button></div>
+  <div class="mi" id="tsmi" hidden><b>👥 Trainer-Einsatz</b><div id="tsbox" style="width:100%"></div></div>
   <div class="mi"><b>⭐ Mein Team</b><span>Beim Öffnen direkt anzeigen:</span><select id="mysel"></select></div>
   <div class="mi"><b id="mkt">📈 Team-Kennzahlen</b><div id="mkbox" style="width:100%"></div></div>
   <div class="mi"><b>📊 Saison gesamt</b><div class="tot" id="tot"></div></div>
@@ -332,11 +367,11 @@ function evCard(r, withBtn){
     <div class="big">${sb(r)}${sk(r)}<span><b>${pl(r)}</b> Plätze</span><span>${withBtn?fmtD(r.datum):fmtD(r.datum).slice(0,2)} · ${r.zeit}</span><span>📍 ${r.ort} · ${r.fz} Min</span><span>CHF ${r.kosten}${isHome(r)&&r.fcf?" (FCF gratis)":""}</span>${r.status!=="offen"?` <span class="chip st-${r.status.split(' ')[0]}">${r.status}</span>`:""}</div>
     ${r.info?`<div class="m">${r.info}</div>`:""}
     ${r.fcf||r.ew?`<div style="margin-top:4px">${r.fcf?`<span class="chip fcfb">FC Frauenfeld angemeldet</span> `:""}${r.ew?`<span class="chip ewb">FC Elgg Wiesendangen angemeldet</span>`:""}</div>`:""}
-    ${tags.length?`<div class="tags">${tags.map(x=>`<span class="tag${HL.includes(x)?' hl':''}">${x}</span>`).join("")}</div>`:""}
+    ${tags.length?`<div class="tags">${tags.map(x=>`<span class="tag${HL.includes(x)?' hl':''}">${x}</span>`).join("")}</div>`:""}${trStrip(r)}
     <details class="tm"><summary><b>${r.namen.length} Teams angemeldet ▸</b>${special.length?" · "+special.map(n=>isFCF(n)?`<span class="fcf">${lg()}${n}</span>`:`<span class="ew">${lgEw()}${n}</span>`).join(", "):""}</summary>${r.namen.map(n=>isFCF(n)?`<span class="fcf">${lg()}${n}</span>`:(girl(r.kat)&&isEW(n)?`<span class="ew">${lgEw()}${n}</span>`:n)).join(", ")||"noch keine"}</details>
     <details class="dt"><summary>Details, Reglement, Links ▸</summary>${detailHtml(r)}</details></div></div>${withBtn?`<button class="pbtn${on?" on":""}" data-plan="${r._i}">${on?"✓ im Plan":"＋ Plan"}</button>`:""}`;
   const inp = el.querySelector(".row1 > input"); if (inp) inp.onchange = () => { togglePlan(r); const y=scrollY; render(); window.scrollTo(0,y); };
-  el.onclick = e => { if (e.target.closest("a,summary,details,button,input")) return; togglePlan(r); const y=scrollY; render(); window.scrollTo(0,y); };
+  el.onclick = e => { if (e.target.closest("a,summary,details,button,input,select,.trs")) return; togglePlan(r); const y=scrollY; render(); window.scrollTo(0,y); };
   return el;
 }
 function calHtml(t, rows){
@@ -384,7 +419,7 @@ function rowHtml(r){
   const E = ev(r);
   const tr = document.createElement("tr"); tr.className="main"+(isFeat(r)?" feat":"")+(r.ew?" ewrow":"")+(inPlan(r)?" marked":"");
   tr.innerHTML = `<td data-l="Datum">${fmtD(r.datum)}<div class="small">${r.zeit}</div></td>
-    <td data-l="Turnier"><div class="name">${star(r)}${r.name}${sb(r)} ${sk(r)}${fb(r)} <button class="mk${inPlan(r)?" on":""}" data-plan="${r._i}">${inPlan(r)?"✓ im Plan":"＋ Plan"}</button>${r.hd?`<span class="chip chk" title="Hallen-Details recherchiert">Details</span>`:""}</div><div class="small">${r.ort} (${r.kt}) · ${r.verein}${r.info?" · "+r.info:""}</div>${tg(r)}${tl(r)}</td>
+    <td data-l="Turnier"><div class="name">${star(r)}${r.name}${sb(r)} ${sk(r)}${fb(r)} <button class="mk${inPlan(r)?" on":""}" data-plan="${r._i}">${inPlan(r)?"✓ im Plan":"＋ Plan"}</button>${r.hd?`<span class="chip chk" title="Hallen-Details recherchiert">Details</span>`:""}</div><div class="small">${r.ort} (${r.kt}) · ${r.verein}${r.info?" · "+r.info:""}</div>${tg(r)}${tl(r)}${trStrip(r)}</td>
     <td data-l="Fahrt" class="num">${r.fz} Min<div class="small">${r.km} km</div></td>
     <td data-l="CHF" class="num">${r.kosten}${isHome(r)&&r.fcf?`<div class="small">FCF gratis</div>`:""}</td>
     <td data-l="Plätze offen/total" class="num"><b>${pl(r)}</b><div class="small">${r.teams} angemeldet${r.frei==null?" · Anm. geschlossen":""}</div></td>
@@ -399,7 +434,7 @@ function rowHtml(r){
     <div><b>Reglement / Modus</b>${regl}</div>
     <div><b>Kosten &amp; Anmeldung</b><br>Einsatz CHF ${r.kosten} pro Team${isHome(r)?" (Heimturnier: für FCF gratis)":""}${r.anm?" · Anmeldeschluss "+fmtD(r.anm):""}${r.bem?`<br>${r.bem}`:""}<br><a href="${r.url}" target="_blank">Turnieragenda</a> · ${icsA(r)}${r.reg?` · <a href="${r.reg}" target="_blank">Anmeldung</a>`:""}${r.rg?` · <a href="${r.rg}" target="_blank">Reglement (PDF)</a>`:""}${E.web?` · <a href="${E.web}" target="_blank">Webseite</a>`:""}</div>
   </div>${E.desc?`<details class="desc"><summary>Ausschreibung (Beschreibungstext) – mehr</summary><div>${esc(E.desc).split(String.fromCharCode(10)).join("<br>")}</div></details>`:""}${hdHtml(r)}</td>`;
-  tr.onclick = () => dt.classList.toggle("hidden");
+  tr.onclick = e => { if (e.target.closest("select,button,.trs")) return; dt.classList.toggle("hidden"); };
   return [tr, dt];
 }
 
@@ -487,10 +522,11 @@ function render(){
   const sec = document.createElement("section"); sec.className="team"; sec.id="sec-"+t.kat;
   const vw = viewState[t.kat]||"kal";
   const vb = document.createElement("div"); vb.className="views";
-  vb.innerHTML = `<button data-v="kal" class="${vw==='kal'?'on':''}">📅 Kalender</button><button data-v="list" class="${vw==='list'?'on':''}">☰ Liste</button><span class="shown" style="margin:0 0 0 auto;align-self:center"><b>${rows.length}</b> von ${all.length}</span>`;
+  vb.innerHTML = `<button data-v="kal" class="${vw==='kal'?'on':''}">📅 Kalender</button><button data-v="list" class="${vw==='list'?'on':''}">☰ Liste</button>${tsOn()?`<button data-v="tr" class="${vw==='tr'?'on':''}">👥 Trainer</button>`:""}<span class="shown" style="margin:0 0 0 auto;align-self:center"><b>${rows.length}</b> von ${all.length}</span>`;
   vb.querySelectorAll("button").forEach(b=>b.onclick=()=>{ viewState[t.kat]=b.dataset.v; savePicks(); render(); });
   sec.append(vb);
-  if (vw==="kal"){ sec.append(calHtml(t, rows)); }
+  if (vw==="tr" && tsOn()){ sec.append(trView(t)); }
+  else if (vw==="kal" || vw==="tr"){ sec.append(calHtml(t, rows)); }
   else if (!rows.length){ sec.insertAdjacentHTML("beforeend", `<div class="empty">Keine Turniere mit diesen Filtern.</div>`); }
   else if (isMobile()){
     const lc = document.createElement("div"); lc.className="lcards"; let lastM="";
@@ -609,7 +645,7 @@ async function login(){
   const pw = prompt("Passwort für den Trainer-Modus:"); if (!pw) return;
   try { const raw = await deriveKey(pw); const o = await decryptWith(raw); applyIntern(o);
     try { localStorage.setItem(TKEY, JSON.stringify({k:b64e(raw), exp:Date.now()+24*3600*1000})); } catch(e){}
-    renderTrainer(); renderTotals(); render();
+    renderTrainer(); renderTotals(); render(); tsLoad();
   } catch(e){ alert("Passwort falsch."); }
 }
 function logout(){ try { localStorage.removeItem(TKEY); } catch(e){} location.reload(); }
@@ -626,8 +662,112 @@ $("mbtn").onclick = () => toggleMenu();
 document.addEventListener("click", e => { const m=$("menu"); if (!m.hidden && !e.target.closest("#hero")) toggleMenu(false); });
 function setHeroH(){ const h=$("hero"); if (h) document.documentElement.style.setProperty("--heroH", (h.querySelector(".in").offsetHeight + 12) + "px"); }
 window.addEventListener("resize", setHeroH); setHeroH();
-renderTrainer(); renderTotals(); renderTabs(); render();
-tryStored().then(ok => { if (ok) { renderTrainer(); renderTotals(); render(); } });
+// ---------- Trainer-Anmeldung pro Turnier (Supabase, nur im Trainer-Modus) ----------
+// Trainer melden sich pro Turnier mit «Ich kann hier» (mehrere pro Turnier). Möglich bei FCF-Anmeldung oder Markierung mit Prio 1–3.
+const SB = __SB__; // {url, key} aus data/supabase.json (öffentlicher Schlüssel) oder null = Funktion aus
+const TSKEY = "fcfTrainerIch";
+const TS = { data:null, me:ls(TSKEY,null), ym:"", day:"", err:"" }; // me = {token,id,name,abo}
+if (TS.me && !(TS.me.token && TS.me.id)) TS.me = null;
+const PRIO = {1:"Prio 1 · muss", 2:"Prio 2 · wenn möglich", 3:"Prio 3 · Option"};
+const tsOn = () => !!(SB && SB.url && SB.key && TRAINER);
+// gleicher Schlüssel wie die UID im Kalender-Abo (pipeline/trainer.rb: tkey)
+const tkey = r => [r.id, r.kat, unesc(r.sub||""), r.datum, String(r.zeit||"").replace(/\D/g,"")].join("-").replace(/[^A-Za-z0-9-]/g,"");
+async function sbRpc(fn, body){
+  const h = {"Content-Type":"application/json", apikey:SB.key}; if (!/^sb_/.test(SB.key)) h.Authorization = "Bearer "+SB.key;
+  const res = await fetch(SB.url.replace(/\/$/,"")+"/rest/v1/rpc/"+fn, {method:"POST", headers:h, body:JSON.stringify(body||{})});
+  if (!res.ok) throw new Error("Server antwortet nicht ("+res.status+")");
+  const j = await res.json(); if (j && j.error) throw new Error(j.error); return j;
+}
+async function tsLoad(){
+  if (!tsOn()) { renderTsMenu(); return; }
+  try { const d = await sbRpc("fcf_daten"); TS.data = {trainer:d.trainer||[], plan:d.plan||{}, anm:d.anm||[]}; TS.err = "";
+    if (TS.me && !TS.data.trainer.some(t=>t.id===TS.me.id)) tsForget(); }
+  catch(e){ TS.err = "Trainer-Daten nicht erreichbar: "+e.message; }
+  renderTsMenu(); const y = scrollY; render(); window.scrollTo(0, y);
+}
+const tsPrio = r => (TS.data && TS.data.plan[tkey(r)]) || 0;
+const tsName = id => ((TS.data && TS.data.trainer.find(t=>t.id===id)) || {}).name;
+const tsNames = r => !TS.data ? [] : TS.data.anm.filter(a=>a.k===tkey(r)).map(a=>tsName(a.t)).filter(Boolean);
+const tsMine = r => !!(TS.me && TS.data && TS.data.anm.some(a=>a.k===tkey(r) && a.t===TS.me.id));
+const tsRel = r => r.fcf || tsPrio(r) > 0;
+const tsOpen = r => !r.past && r.status!=="entfernt";
+function trStrip(r){
+  if (!tsOn() || !TS.data) return "";
+  const p = tsPrio(r), ns = tsNames(r), mine = tsMine(r), canEdit = !!TS.me && tsOpen(r);
+  if (!tsRel(r) && !canEdit) return "";
+  const prio = canEdit ? `<select class="tprio${p?" p"+p:""}" data-tprio="${r._i}" title="Für Trainer markieren (Prio)">${[0,1,2,3].map(v=>`<option value="${v}"${v===p?" selected":""}>${v?PRIO[v]:(r.fcf?"ohne Prio":"☆ für Trainer markieren")}</option>`).join("")}</select>` : (p ? `<span class="tpr p${p}">${PRIO[p]}</span>` : "");
+  if (!tsRel(r)) return `<div class="trs">${prio}</div>`;
+  const chips = ns.length ? ns.map(n=>`<span class="tch${TS.me && n===TS.me.name?" me":""}">${esc(n)}</span>`).join("") : `<span class="${p===1?"twarn":"small"}">${p===1?"⚠ ":""}noch kein Trainer</span>`;
+  const btn = canEdit ? `<button class="tbtn2${mine?" on":""}" data-tkan="${r._i}">${mine?"✗ Abmelden":"✓ Ich kann hier"}</button>` : "";
+  return `<div class="trs">${prio}<span class="tlab">👥 Trainer:</span>${chips}${btn}</div>`;
+}
+function tsFail(e){ alert("Nicht gespeichert: "+e.message); if (/neu anmelden/i.test(e.message)) tsForget(); tsLoad(); }
+async function tsToggle(r){
+  if (!TS.me || !TS.data) return;
+  const an = !tsMine(r), k = tkey(r);
+  if (an) TS.data.anm.push({k, t:TS.me.id}); else TS.data.anm = TS.data.anm.filter(a=>!(a.k===k && a.t===TS.me.id));
+  const y = scrollY; render(); window.scrollTo(0, y);
+  try { await sbRpc("fcf_anmelden", {p_token:TS.me.token, p_tkey:k, p_kat:r.kat, p_an:an}); } catch(e){ tsFail(e); }
+}
+async function tsSetPrio(r, v){
+  if (!TS.me || !TS.data) return;
+  const k = tkey(r); if (v) TS.data.plan[k] = v; else delete TS.data.plan[k];
+  const y = scrollY; render(); window.scrollTo(0, y);
+  try { await sbRpc("fcf_prio", {p_token:TS.me.token, p_tkey:k, p_kat:r.kat, p_prio:v||null}); } catch(e){ tsFail(e); }
+}
+function tsForget(){ TS.me = null; try { localStorage.removeItem(TSKEY); } catch(e){} renderTsMenu(); }
+async function tsLogout(){ const m = TS.me; tsForget(); if (m) { try { await sbRpc("fcf_logout", {p_token:m.token}); } catch(e){} } const y = scrollY; render(); window.scrollTo(0, y); }
+function copyLink(u, b){ const old = b.textContent; const done = () => { b.textContent = "✓ kopiert"; setTimeout(()=>b.textContent = old, 2000); };
+  if (location.protocol!=="https:") { alert("Der Kalender-Link funktioniert erst auf der veröffentlichten Webseite."); return; }
+  (navigator.clipboard ? navigator.clipboard.writeText(u).then(done).catch(()=>prompt("Link kopieren:", u)) : prompt("Link kopieren:", u)); }
+const aboUrl = () => new URL("kalender/trainer/"+encodeURIComponent(TS.me.abo)+".ics", location.href).href;
+function renderTsMenu(){
+  const mi = $("tsmi"), b = $("tsbox"); if (!mi || !b) return;
+  mi.hidden = !tsOn(); if (!tsOn()) return;
+  if (TS.me) { b.innerHTML = `<span>Angemeldet als <b>${esc(TS.me.name)}</b>. Im Team-Tab unter «👥 Trainer» meldest du dich pro Turnier.</span><div class="tslog"><button class="tbtn" data-tsabo>🔗 Mein Kalender-Abo kopieren</button><button class="tbtn" id="tsout">Abmelden</button></div>`; $("tsout").onclick = e => { e.stopPropagation(); tsLogout(); }; return; }
+  if (!TS.data) { b.innerHTML = `<span>${esc(TS.err || "Trainerliste wird geladen …")}</span>`; return; }
+  b.innerHTML = `<span>Wer bist du? Danach kannst du dich pro Turnier mit «Ich kann hier» melden.</span><div class="tslog"><select id="tsw"><option value="">– Name wählen –</option>${TS.data.trainer.map(t=>`<option value="${esc(t.id)}">${esc(t.name)}</option>`).join("")}</select><input id="tspin" type="password" inputmode="numeric" autocomplete="off" maxlength="8" placeholder="PIN"><button class="tbtn" id="tsgo">Anmelden</button></div><span id="tshint"></span>`;
+  $("tsw").onchange = () => { const t = TS.data.trainer.find(x=>x.id===$("tsw").value); $("tshint").textContent = t && !t.pin ? "Erster Login: wähle jetzt deine eigene PIN (4–8 Ziffern) und merke sie dir." : ""; };
+  const go = async () => { if (!$("tsw").value) { $("tshint").textContent = "Bitte zuerst deinen Namen wählen."; return; }
+    try { const o = await sbRpc("fcf_login", {p_trainer:$("tsw").value, p_pin:$("tspin").value.trim()}); TS.me = {token:o.token, id:o.id, name:o.name, abo:o.abo}; try { localStorage.setItem(TSKEY, JSON.stringify(TS.me)); } catch(x){} tsLoad(); }
+    catch(x){ $("tshint").textContent = x.message; } };
+  $("tsgo").onclick = e => { e.stopPropagation(); go(); };
+  $("tspin").onkeydown = e => { if (e.key==="Enter") go(); };
+}
+function trView(t){
+  const w = document.createElement("div"); w.className = "tview";
+  if (!TS.data) { w.innerHTML = `<div class="empty">${esc(TS.err || "Trainer-Daten werden geladen …")}</div>`; return w; }
+  const rel = DATA.filter(r=>r.kat===t.kat && tsOpen(r) && tsRel(r));
+  const months = [...new Set(rel.map(r=>r.datum.slice(0,7)))].sort();
+  if (!months.includes(TS.ym)) { TS.ym = months.find(m=>m>=TODAYS.slice(0,7)) || months[0] || TODAYS.slice(0,7); TS.day = ""; }
+  const ym = TS.ym, y = +ym.slice(0,4), m = +ym.slice(5,7)-1, mi = months.indexOf(ym);
+  const rs = rel.filter(r=>r.datum.startsWith(ym)).sort((a,b)=>a.datum.localeCompare(b.datum) || (tsPrio(a)||9)-(tsPrio(b)||9));
+  const head = TS.me ? `<div class="tsme">👤 <b>${esc(TS.me.name)}</b><button data-tsabo>🔗 Mein Kalender-Abo kopieren</button><span class="small">Turnier antippen mit «✓ Ich kann hier». Weitere Turniere im 📅 Kalender mit «☆ für Trainer markieren» aufnehmen.</span></div>`
+                     : `<div class="tsme"><span>Im Menü ☰ unter <b>👥 Trainer-Einsatz</b> deinen Namen wählen, dann kannst du dich pro Turnier melden.</span></div>`;
+  const off = (new Date(y, m, 1).getDay()+6)%7, n = new Date(y, m+1, 0).getDate();
+  let g = ["Mo","Di","Mi","Do","Fr","Sa","So"].map(d=>`<div class="dw">${d}</div>`).join("") + `<div class="td x"></div>`.repeat(off);
+  for (let d=1; d<=n; d++){
+    const ds = ym+"-"+String(d).padStart(2,"0"), dr = rs.filter(r=>r.datum===ds), wd = new Date(y, m, d).getDay(), mine = dr.some(tsMine);
+    const cls = "td"+(wd===0||wd===6?" we":"")+(mine?" mine":"")+(TS.day===ds?" sel":"");
+    g += dr.length ? `<button class="${cls}" data-tday="${ds}" title="${dr.length} Turnier${dr.length>1?"e":""}"><i class="${dr.some(r=>tsPrio(r)===1)?"p1":""}"></i>${d}<small>${mine?"✓":dr.length>1?dr.length+"×":"&nbsp;"}</small></button>` : `<div class="${cls}">${d}<small>&nbsp;</small></div>`;
+  }
+  const list = (TS.day ? rs.filter(r=>r.datum===TS.day) : rs);
+  const card = r => { const p = tsPrio(r); return `<div class="tcard${p===1 && !tsNames(r).length?" warn":""}"><div class="l1"><span><b>${fmtD(r.datum)}</b> · ${r.zeit}</span><span>${r.fcf?`<span class="fcf">${lg()}FCF angemeldet</span>`:"markiert"}</span></div><div class="nm">${r.name}${r.sub&&r.sub!==r.kat?" · "+r.sub:""}</div><div class="small">📍 ${r.ort} · ${r.fz} Min · ${r.halle}</div>${trStrip(r)}</div>`; };
+  w.innerHTML = head + `<div class="tmon"><div class="tnav"><button data-tmon="-1" ${mi>0?"":"disabled"} aria-label="Vormonat">‹</button><b>${MON[ym]||ym} ${y}</b><button data-tmon="1" ${mi>=0 && mi<months.length-1?"":"disabled"} aria-label="Nächster Monat">›</button></div><div class="tgrid">${g}</div>
+    <div class="legend"><span><i style="background:var(--accent)"></i>Turnier (FCF angemeldet oder markiert)</span><span><i style="background:#c81e1e"></i>Prio 1 / ich kann hier</span></div></div>
+    <div class="tlist"><h4 class="calm">${TS.day ? "Turniere am "+fmtD(TS.day)+` <button class="sec" data-tday="">ganzer Monat</button>` : "Turniere im "+(MON[ym]||ym)}</h4>${list.map(card).join("") || `<div class="empty">Keine angemeldeten oder markierten Turniere in diesem Monat.</div>`}</div>`;
+  return w;
+}
+document.addEventListener("click", e => {
+  const k = e.target.closest("[data-tkan]"); if (k) { e.preventDefault(); e.stopPropagation(); tsToggle(DATA[+k.dataset.tkan]); return; }
+  const a = e.target.closest("[data-tsabo]"); if (a) { e.preventDefault(); e.stopPropagation(); if (TS.me) copyLink(aboUrl(), a); return; }
+  const d = e.target.closest("[data-tday]"); if (d) { e.preventDefault(); e.stopPropagation(); TS.day = (d.dataset.tday && TS.day!==d.dataset.tday) ? d.dataset.tday : ""; const y = scrollY; render(); window.scrollTo(0, y); return; }
+  const mb = e.target.closest("[data-tmon]"); if (mb) { e.preventDefault(); e.stopPropagation(); const t = teamOf(active); const ms = [...new Set(DATA.filter(r=>r.kat===t.kat && tsOpen(r) && tsRel(r)).map(r=>r.datum.slice(0,7)))].sort(); const i = ms.indexOf(TS.ym) + (+mb.dataset.tmon); if (ms[i]) { TS.ym = ms[i]; TS.day = ""; } const y = scrollY; render(); window.scrollTo(0, y); }
+}, true);
+document.addEventListener("change", e => { const s = e.target.closest("select[data-tprio]"); if (s) tsSetPrio(DATA[+s.dataset.tprio], +s.value); });
+renderTrainer(); renderTotals(); renderTabs(); render(); renderTsMenu();
+tryStored().then(ok => { if (ok) { renderTrainer(); renderTotals(); render(); tsLoad(); } });
+document.addEventListener("visibilitychange", () => { if (document.visibilityState==="visible" && tsOn()) tsLoad(); });
 </script>
 </body>
 </html>

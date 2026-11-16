@@ -1,0 +1,52 @@
+name: Kalender-Abos aktualisieren (Trainer)
+
+# Schreibt nur die Kalender-Abos neu (Team + Trainer), ohne turnieragenda abzufragen,
+# damit neue «Ich kann hier»-Anmeldungen tagsüber innert 2 Std. in den Kalendern stehen.
+on:
+  schedule:
+    - cron: "15 5-19/2 * * *"   # alle 2 Std. von ca. 06:15 bis 20:15 (Winterzeit)
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: abgleich
+  cancel-in-progress: false
+
+jobs:
+  kalender:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Supabase eingerichtet?
+        id: chk
+        env:
+          URL: ${{ secrets.SUPABASE_URL }}
+        run: if [ -n "$URL" ]; then echo "ok=1" >> "$GITHUB_OUTPUT"; else echo "Noch kein SUPABASE_URL-Secret – nichts zu tun."; fi
+      - uses: actions/checkout@v4
+        if: steps.chk.outputs.ok == '1'
+      - uses: ruby/setup-ruby@v1
+        if: steps.chk.outputs.ok == '1'
+        with:
+          ruby-version: "3.3"
+      - name: Kalender neu schreiben
+        if: steps.chk.outputs.ok == '1'
+        env:
+          TZ: Europe/Zurich
+          LANG: en_US.UTF-8
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+        run: ruby -E UTF-8 pipeline/ics.rb
+      - name: Änderungen speichern
+        if: steps.chk.outputs.ok == '1'
+        run: |
+          git config user.name "fcf-turniere-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A docs/kalender
+          # nur echte Änderungen speichern (DTSTAMP ändert bei jedem Lauf)
+          if git diff --cached -U0 | grep -E '^[+-][^+-]' | grep -vq 'DTSTAMP'; then
+            git commit -m "Kalender-Abos $(TZ=Europe/Zurich date '+%Y-%m-%d %H:%M')" && git push
+          else
+            git reset -q; echo "Keine inhaltlichen Änderungen."
+          fi
