@@ -19,11 +19,12 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - name: Supabase eingerichtet?
+      - name: Trainer-Daten eingerichtet?
         id: chk
         env:
-          URL: ${{ secrets.SUPABASE_URL }}
-        run: if [ -n "$URL" ]; then echo "ok=1" >> "$GITHUB_OUTPUT"; else echo "Noch kein SUPABASE_URL-Secret – nichts zu tun."; fi
+          REPO: ${{ vars.TRAINER_DATEN_REPO }}
+          TOK: ${{ secrets.TRAINER_DATEN_TOKEN }}
+        run: if [ -n "$REPO" ] && [ -n "$TOK" ]; then echo "ok=1" >> "$GITHUB_OUTPUT"; else echo "Trainer-Daten-Repo noch nicht eingerichtet – nichts zu tun."; fi
       - uses: actions/checkout@v4
         if: steps.chk.outputs.ok == '1'
       - uses: ruby/setup-ruby@v1
@@ -35,8 +36,8 @@ jobs:
         env:
           TZ: Europe/Zurich
           LANG: en_US.UTF-8
-          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+          TRAINER_DATEN_REPO: ${{ vars.TRAINER_DATEN_REPO }}
+          TRAINER_DATEN_TOKEN: ${{ secrets.TRAINER_DATEN_TOKEN }}
         run: ruby -E UTF-8 pipeline/ics.rb
       - name: Änderungen speichern
         if: steps.chk.outputs.ok == '1'

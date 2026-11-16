@@ -637,7 +637,7 @@ const b64d = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
 const b64e = u => btoa(String.fromCharCode(...u));
 async function deriveKey(pw){ const base = await crypto.subtle.importKey("raw", new TextEncoder().encode(pw), "PBKDF2", false, ["deriveBits"]); return new Uint8Array(await crypto.subtle.deriveBits({name:"PBKDF2", salt:b64d(INTERN.salt), iterations:INTERN.iter, hash:"SHA-256"}, base, 256)); }
 async function decryptWith(raw){ const k = await crypto.subtle.importKey("raw", raw, {name:"AES-CBC"}, false, ["decrypt"]); const pt = await crypto.subtle.decrypt({name:"AES-CBC", iv:b64d(INTERN.iv)}, k, b64d(INTERN.ct)); const o = JSON.parse(new TextDecoder().decode(pt)); if (o.check !== "FCF") throw new Error("falsch"); return o; }
-function applyIntern(o){ TEAMS.forEach(t => { t.budget = (o.budgets||{})[t.kat] ?? null; const ps = (o.parts||{})[t.kat]; if (t.parts && ps) t.parts.forEach(p => { const f = ps.find(x => x[0]===p[0]); if (f) p[1] = f[1]; }); }); TRAINER = true; }
+function applyIntern(o){ TEAMS.forEach(t => { t.budget = (o.budgets||{})[t.kat] ?? null; const ps = (o.parts||{})[t.kat]; if (t.parts && ps) t.parts.forEach(p => { const f = ps.find(x => x[0]===p[0]); if (f) p[1] = f[1]; }); }); GH = (o.gh && o.gh.repo && o.gh.token) ? o.gh : null; TRAINER = true; }
 async function tryStored(){ try { const s = JSON.parse(localStorage.getItem(TKEY)||"null"); if (s && s.exp > Date.now() && s.k) { applyIntern(await decryptWith(b64d(s.k))); return true; } if (s) localStorage.removeItem(TKEY); } catch(e){} return false; }
 async function login(){
   if (!INTERN) return;
@@ -662,31 +662,53 @@ $("mbtn").onclick = () => toggleMenu();
 document.addEventListener("click", e => { const m=$("menu"); if (!m.hidden && !e.target.closest("#hero")) toggleMenu(false); });
 function setHeroH(){ const h=$("hero"); if (h) document.documentElement.style.setProperty("--heroH", (h.querySelector(".in").offsetHeight + 12) + "px"); }
 window.addEventListener("resize", setHeroH); setHeroH();
-// ---------- Trainer-Anmeldung pro Turnier (Supabase, nur im Trainer-Modus) ----------
+// ---------- Trainer-Anmeldung pro Turnier (Speicher: Datei daten.json in einem privaten GitHub-Repo) ----------
 // Trainer melden sich pro Turnier mit «Ich kann hier» (mehrere pro Turnier). Möglich bei FCF-Anmeldung oder Markierung mit Prio 1–3.
-const SB = __SB__; // {url, key} aus data/supabase.json (öffentlicher Schlüssel) oder null = Funktion aus
+// Zugang (Repo + Schlüssel nur für dieses Repo) steckt verschlüsselt in intern.enc.json -> nur im Trainer-Modus verfügbar.
+let GH = null; // {repo, token}
 const TSKEY = "fcfTrainerIch";
-const TS = { data:null, me:ls(TSKEY,null), ym:"", day:"", err:"" }; // me = {token,id,name,abo}
-if (TS.me && !(TS.me.token && TS.me.id)) TS.me = null;
+const TS = { data:null, sha:null, me:ls(TSKEY,null), ym:"", day:"", err:"", busy:false }; // me = {id,name,abo}
+if (TS.me && !(TS.me.id && TS.me.abo)) TS.me = null;
 const PRIO = {1:"Prio 1 · muss", 2:"Prio 2 · wenn möglich", 3:"Prio 3 · Option"};
-const tsOn = () => !!(SB && SB.url && SB.key && TRAINER);
+const tsOn = () => !!(TRAINER && GH && GH.repo && GH.token);
 // gleicher Schlüssel wie die UID im Kalender-Abo (pipeline/trainer.rb: tkey)
 const tkey = r => [r.id, r.kat, unesc(r.sub||""), r.datum, String(r.zeit||"").replace(/\D/g,"")].join("-").replace(/[^A-Za-z0-9-]/g,"");
-async function sbRpc(fn, body){
-  const h = {"Content-Type":"application/json", apikey:SB.key}; if (!/^sb_/.test(SB.key)) h.Authorization = "Bearer "+SB.key;
-  const res = await fetch(SB.url.replace(/\/$/,"")+"/rest/v1/rpc/"+fn, {method:"POST", headers:h, body:JSON.stringify(body||{})});
-  if (!res.ok) throw new Error("Server antwortet nicht ("+res.status+")");
-  const j = await res.json(); if (j && j.error) throw new Error(j.error); return j;
+const GHFILE = "daten.json";
+const b64utf8 = s => { const b = new TextEncoder().encode(s); let o = ""; for (let i=0; i<b.length; i+=0x8000) o += String.fromCharCode(...b.subarray(i, i+0x8000)); return btoa(o); };
+const utf8b64 = s => new TextDecoder().decode(Uint8Array.from(atob(s.replace(/\s/g,"")), c=>c.charCodeAt(0)));
+const ghUrl = () => "https://api.github.com/repos/"+GH.repo+"/contents/"+GHFILE;
+const ghHead = () => ({Authorization:"Bearer "+GH.token, Accept:"application/vnd.github+json", "X-GitHub-Api-Version":"2022-11-28"});
+function tsNorm(d){ d = (d && typeof d==="object") ? d : {}; return {trainer:Array.isArray(d.trainer)?d.trainer:[], plan:(d.plan && typeof d.plan==="object")?d.plan:{}, anm:Array.isArray(d.anm)?d.anm:[]}; }
+async function ghGet(){
+  const res = await fetch(ghUrl()+"?t="+Date.now(), {headers:ghHead(), cache:"no-store"});
+  if (res.status===404) return {d:tsNorm(null), sha:null};
+  if (res.status===401 || res.status===403) throw new Error("Zugang zum Daten-Repo abgelehnt (Schlüssel abgelaufen?)");
+  if (!res.ok) throw new Error("GitHub antwortet nicht ("+res.status+")");
+  const j = await res.json(); return {d:tsNorm(JSON.parse(utf8b64(j.content||"") || "{}")), sha:j.sha};
+}
+// Änderung sicher speichern: neu lesen, Änderung anwenden, mit sha schreiben; bei gleichzeitiger Änderung wiederholen
+async function ghUpdate(change, msg){
+  for (let i=0; i<4; i++){
+    const {d, sha} = await ghGet(); change(d);
+    const body = {message:msg, content:b64utf8(JSON.stringify(d, null, 1)+"\n")}; if (sha) body.sha = sha;
+    const res = await fetch(ghUrl(), {method:"PUT", headers:{...ghHead(), "Content-Type":"application/json"}, body:JSON.stringify(body)});
+    if (res.ok) { const j = await res.json(); TS.data = d; TS.sha = j.content && j.content.sha; return; }
+    if (res.status===409 || res.status===422) { await new Promise(r=>setTimeout(r, 300+Math.random()*700)); continue; }
+    if (res.status===401 || res.status===403 || res.status===404) throw new Error("Zugang zum Daten-Repo abgelehnt (Schlüssel abgelaufen oder ohne Schreibrecht?)");
+    throw new Error("GitHub antwortet nicht ("+res.status+")");
+  }
+  throw new Error("Gleichzeitige Änderung, bitte nochmals versuchen");
 }
 async function tsLoad(){
   if (!tsOn()) { renderTsMenu(); return; }
-  try { const d = await sbRpc("fcf_daten"); TS.data = {trainer:d.trainer||[], plan:d.plan||{}, anm:d.anm||[]}; TS.err = "";
-    if (TS.me && !TS.data.trainer.some(t=>t.id===TS.me.id)) tsForget(); }
+  try { const {d, sha} = await ghGet(); TS.data = d; TS.sha = sha; TS.err = "";
+    if (TS.me && !d.trainer.some(t=>t.id===TS.me.id && t.aktiv!==false)) tsForget(); }
   catch(e){ TS.err = "Trainer-Daten nicht erreichbar: "+e.message; }
   renderTsMenu(); const y = scrollY; render(); window.scrollTo(0, y);
 }
+const tsTrainer = () => !TS.data ? [] : TS.data.trainer.filter(t=>t.aktiv!==false).map(t=>({...t, name:(String(t.vorname||"")+" "+String(t.nachname||"")).trim()})).sort((a,b)=>a.name.localeCompare(b.name,"de"));
+const tsName = id => (tsTrainer().find(t=>t.id===id) || {}).name;
 const tsPrio = r => (TS.data && TS.data.plan[tkey(r)]) || 0;
-const tsName = id => ((TS.data && TS.data.trainer.find(t=>t.id===id)) || {}).name;
 const tsNames = r => !TS.data ? [] : TS.data.anm.filter(a=>a.k===tkey(r)).map(a=>tsName(a.t)).filter(Boolean);
 const tsMine = r => !!(TS.me && TS.data && TS.data.anm.some(a=>a.k===tkey(r) && a.t===TS.me.id));
 const tsRel = r => r.fcf || tsPrio(r) > 0;
@@ -701,22 +723,25 @@ function trStrip(r){
   const btn = canEdit ? `<button class="tbtn2${mine?" on":""}" data-tkan="${r._i}">${mine?"✗ Abmelden":"✓ Ich kann hier"}</button>` : "";
   return `<div class="trs">${prio}<span class="tlab">👥 Trainer:</span>${chips}${btn}</div>`;
 }
-function tsFail(e){ alert("Nicht gespeichert: "+e.message); if (/neu anmelden/i.test(e.message)) tsForget(); tsLoad(); }
+function tsFail(e){ alert("Nicht gespeichert: "+e.message); tsLoad(); }
 async function tsToggle(r){
   if (!TS.me || !TS.data) return;
-  const an = !tsMine(r), k = tkey(r);
-  if (an) TS.data.anm.push({k, t:TS.me.id}); else TS.data.anm = TS.data.anm.filter(a=>!(a.k===k && a.t===TS.me.id));
-  const y = scrollY; render(); window.scrollTo(0, y);
-  try { await sbRpc("fcf_anmelden", {p_token:TS.me.token, p_tkey:k, p_kat:r.kat, p_an:an}); } catch(e){ tsFail(e); }
+  const an = !tsMine(r), k = tkey(r), me = TS.me.id;
+  const ch = d => { d.anm = d.anm.filter(a=>!(a.k===k && a.t===me)); if (an) d.anm.push({k, t:me, kat:r.kat, z:new Date().toISOString()}); };
+  ch(TS.data); const y = scrollY; render(); window.scrollTo(0, y);
+  try { await ghUpdate(ch, (an?"Ich kann hier: ":"Abgemeldet: ")+TS.me.name+" | "+unesc(r.name)+" "+r.datum); } catch(e){ tsFail(e); }
+  const y2 = scrollY; render(); window.scrollTo(0, y2);
 }
 async function tsSetPrio(r, v){
   if (!TS.me || !TS.data) return;
-  const k = tkey(r); if (v) TS.data.plan[k] = v; else delete TS.data.plan[k];
-  const y = scrollY; render(); window.scrollTo(0, y);
-  try { await sbRpc("fcf_prio", {p_token:TS.me.token, p_tkey:k, p_kat:r.kat, p_prio:v||null}); } catch(e){ tsFail(e); }
+  const k = tkey(r); const ch = d => { if (v) d.plan[k] = v; else delete d.plan[k]; };
+  ch(TS.data); const y = scrollY; render(); window.scrollTo(0, y);
+  try { await ghUpdate(ch, (v?"Prio "+v:"Markierung entfernt")+": "+unesc(r.name)+" "+r.datum+" ("+TS.me.name+")"); } catch(e){ tsFail(e); }
 }
 function tsForget(){ TS.me = null; try { localStorage.removeItem(TSKEY); } catch(e){} renderTsMenu(); }
-async function tsLogout(){ const m = TS.me; tsForget(); if (m) { try { await sbRpc("fcf_logout", {p_token:m.token}); } catch(e){} } const y = scrollY; render(); window.scrollTo(0, y); }
+function tsLogout(){ tsForget(); const y = scrollY; render(); window.scrollTo(0, y); }
+function tsUse(t){ TS.me = {id:t.id, name:t.name, abo:t.abo}; try { localStorage.setItem(TSKEY, JSON.stringify(TS.me)); } catch(x){} renderTsMenu(); const y = scrollY; render(); window.scrollTo(0, y); }
+const rndId = n => Array.from(crypto.getRandomValues(new Uint8Array(n)), b=>b.toString(16).padStart(2,"0")).join("");
 function copyLink(u, b){ const old = b.textContent; const done = () => { b.textContent = "✓ kopiert"; setTimeout(()=>b.textContent = old, 2000); };
   if (location.protocol!=="https:") { alert("Der Kalender-Link funktioniert erst auf der veröffentlichten Webseite."); return; }
   (navigator.clipboard ? navigator.clipboard.writeText(u).then(done).catch(()=>prompt("Link kopieren:", u)) : prompt("Link kopieren:", u)); }
@@ -724,15 +749,19 @@ const aboUrl = () => new URL("kalender/trainer/"+encodeURIComponent(TS.me.abo)+"
 function renderTsMenu(){
   const mi = $("tsmi"), b = $("tsbox"); if (!mi || !b) return;
   mi.hidden = !tsOn(); if (!tsOn()) return;
-  if (TS.me) { b.innerHTML = `<span>Angemeldet als <b>${esc(TS.me.name)}</b>. Im Team-Tab unter «👥 Trainer» meldest du dich pro Turnier.</span><div class="tslog"><button class="tbtn" data-tsabo>🔗 Mein Kalender-Abo kopieren</button><button class="tbtn" id="tsout">Abmelden</button></div>`; $("tsout").onclick = e => { e.stopPropagation(); tsLogout(); }; return; }
+  if (TS.me) { b.innerHTML = `<span>Du bist <b>${esc(TS.me.name)}</b>. Im Team-Tab unter «👥 Trainer» meldest du dich pro Turnier. Dein Kalender-Abo ist nach der nächsten Aktualisierung (max. 2 Std.) bereit.</span><div class="tslog"><button class="tbtn" data-tsabo>🔗 Mein Kalender-Abo kopieren</button><button class="tbtn" id="tsout">Anderer Name</button></div>`; $("tsout").onclick = e => { e.stopPropagation(); tsLogout(); }; return; }
   if (!TS.data) { b.innerHTML = `<span>${esc(TS.err || "Trainerliste wird geladen …")}</span>`; return; }
-  b.innerHTML = `<span>Wer bist du? Danach kannst du dich pro Turnier mit «Ich kann hier» melden.</span><div class="tslog"><select id="tsw"><option value="">– Name wählen –</option>${TS.data.trainer.map(t=>`<option value="${esc(t.id)}">${esc(t.name)}</option>`).join("")}</select><input id="tspin" type="password" inputmode="numeric" autocomplete="off" maxlength="8" placeholder="PIN"><button class="tbtn" id="tsgo">Anmelden</button></div><span id="tshint"></span>`;
-  $("tsw").onchange = () => { const t = TS.data.trainer.find(x=>x.id===$("tsw").value); $("tshint").textContent = t && !t.pin ? "Erster Login: wähle jetzt deine eigene PIN (4–8 Ziffern) und merke sie dir." : ""; };
-  const go = async () => { if (!$("tsw").value) { $("tshint").textContent = "Bitte zuerst deinen Namen wählen."; return; }
-    try { const o = await sbRpc("fcf_login", {p_trainer:$("tsw").value, p_pin:$("tspin").value.trim()}); TS.me = {token:o.token, id:o.id, name:o.name, abo:o.abo}; try { localStorage.setItem(TSKEY, JSON.stringify(TS.me)); } catch(x){} tsLoad(); }
-    catch(x){ $("tshint").textContent = x.message; } };
-  $("tsgo").onclick = e => { e.stopPropagation(); go(); };
-  $("tspin").onkeydown = e => { if (e.key==="Enter") go(); };
+  const tr = tsTrainer();
+  b.innerHTML = `<span>Wer bist du? Danach kannst du dich pro Turnier mit «Ich kann hier» melden.</span><div class="tslog"><select id="tsw"><option value="">– Name wählen –</option>${tr.map(t=>`<option value="${esc(t.id)}">${esc(t.name)}</option>`).join("")}<option value="+">＋ Ich bin neu …</option></select><button class="tbtn" id="tsgo">Weiter</button></div>
+    <div class="tslog" id="tsnew" hidden><input id="tsvn" placeholder="Vorname" autocomplete="given-name"><input id="tsnn" placeholder="Nachname" autocomplete="family-name"><button class="tbtn" id="tsadd">Erfassen</button></div><span id="tshint"></span>`;
+  $("tsw").onchange = () => { $("tsnew").hidden = $("tsw").value!=="+"; $("tsgo").hidden = $("tsw").value==="+"; };
+  $("tsgo").onclick = e => { e.stopPropagation(); const t = tr.find(x=>x.id===$("tsw").value); if (t) tsUse(t); else $("tshint").textContent = "Bitte zuerst deinen Namen wählen."; };
+  $("tsadd").onclick = async e => { e.stopPropagation(); const vn = $("tsvn").value.trim(), nn = $("tsnn").value.trim();
+    if (!vn || !nn) { $("tshint").textContent = "Bitte Vor- und Nachname eingeben."; return; }
+    if (tr.some(t=>t.name.toLowerCase()===(vn+" "+nn).toLowerCase())) { $("tshint").textContent = "Diesen Namen gibt es schon, bitte aus der Liste wählen."; return; }
+    const t = {id:rndId(6), vorname:vn.slice(0,40), nachname:nn.slice(0,40), teams:[active], abo:rndId(10), aktiv:true};
+    $("tshint").textContent = "Wird gespeichert …";
+    try { await ghUpdate(d => { d.trainer.push(t); }, "Neuer Trainer: "+vn+" "+nn); tsUse({...t, name:vn+" "+nn}); } catch(x){ $("tshint").textContent = "Nicht gespeichert: "+x.message; } };
 }
 function trView(t){
   const w = document.createElement("div"); w.className = "tview";

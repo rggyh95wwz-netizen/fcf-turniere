@@ -11,7 +11,6 @@ html = File.read(File.join(T, "app.html"), encoding: "UTF-8")
 { "__BASECSS__" => File.read(File.join(T, "base.css"), encoding: "UTF-8"),
   "__DATA_ALL__" => JSON.generate(rows), "__EV_ALL__" => JSON.generate(ev),
   "__STAND__" => TODAYD.strftime("%d.%m.%Y"), "__TODAY__" => TODAYD.to_s, "__UPDATED__" => db["updated"].to_s, "__INTERN__" => (File.exist?(File.join(DATA, "intern.enc.json")) ? File.read(File.join(DATA, "intern.enc.json"), encoding: "UTF-8") : "null"),
-  "__SB__" => (lambda { c = jread(File.join(DATA, "supabase.json"), nil); c && c["url"].to_s =~ %r{\Ahttps://} && !c["key"].to_s.empty? ? JSON.generate({"url" => c["url"], "key" => c["key"]}) : "null" }).call,
   "__LOGO_EW__" => logo_ew, "__LOGO__" => logo }.each { |k, v| html = html.gsub(k) { v } }
 FileUtils.mkdir_p(DOCS)
 File.write(File.join(DOCS, "index.html"), html)

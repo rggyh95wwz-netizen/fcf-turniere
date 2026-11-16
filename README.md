@@ -21,19 +21,22 @@ Lokal: `./pipeline/run.sh` (Ruby ≥ 2.6, curl; auf Linux zusätzlich `pdftotext
 
 Hinweis: höchstens ein Abgleich pro Tag, mit Pausen zwischen den Abrufen. Freie Plätze vor der Anmeldung immer auf turnieragenda.ch prüfen.
 
-## Trainer-Anmeldung pro Turnier (Supabase)
-Im Trainer-Modus wählt jeder Trainer einmal seinen Namen und eine eigene PIN (Menü ☰ → «👥 Trainer-Einsatz»). Danach:
+## Trainer-Anmeldung pro Turnier
+Im Trainer-Modus wählt jeder Trainer einmal seinen Namen (Menü ☰ → «👥 Trainer-Einsatz»; neue Trainer erfassen sich dort selbst). Danach:
 - **Team-Tab → «👥 Trainer»:** Monatskalender mit allen Turnieren, die FCF angemeldet hat oder die markiert sind. Pro Turnier «✓ Ich kann hier» (mehrere Trainer pro Turnier).
 - **Markieren mit Prio:** im 📅 Kalender / ☰ Liste bei jedem Turnier «☆ für Trainer markieren» bzw. Prio 1 (muss), 2 (wenn möglich), 3 (Option). Prio 1 ohne Trainer zeigt ⚠.
 - **Kalender:** Team-Abos zeigen «Trainer: Vorname Nachname, …». Jeder Trainer hat ein eigenes Abo (`/kalender/trainer/<code>.ics`, Link im Menü). Aktualisierung alle 2 Std. tagsüber (`.github/workflows/kalender.yml`) und beim täglichen Abgleich.
 
-Ohne `data/supabase.json` bleibt die Funktion ausgeblendet. Einrichtung (einmalig):
-1. Auf [supabase.com](https://supabase.com) mit GitHub anmelden → **New project** (Region Europa, z.B. Zürich/Frankfurt; Gratis-Plan).
-2. **SQL Editor** → Inhalt von `supabase/schema.sql` einfügen → **Run**.
-3. **Table Editor → trainer → Insert row**: Vorname, Nachname, Teams (z.B. `{FF-11,FF-09}`). PIN leer lassen, die legt jeder beim ersten Login selbst fest.
-4. **Project Settings → API Keys**: Project URL, *publishable* (anon) Schlüssel und *secret* (service_role) Schlüssel kopieren.
-5. Im Repo die Datei `data/supabase.json` anlegen: `{"url": "https://<projekt>.supabase.co", "key": "<publishable-Schlüssel>"}` (öffentlich, darf ins Repo).
-6. GitHub → Settings → Secrets and variables → Actions → zwei Secrets: `SUPABASE_URL` und `SUPABASE_SERVICE_KEY` (= secret-Schlüssel, **nie** ins Repo).
-7. Actions → «Täglicher Abgleich» → Run workflow.
+**Speicher:** Datei `daten.json` in einem **privaten** GitHub-Repo. Die App schreibt direkt dorthin, mit einem Schlüssel, der nur für dieses eine Repo gilt. Der Schlüssel steckt verschlüsselt in `data/intern.enc.json` und ist nur mit dem Trainer-Passwort lesbar. Ohne Einrichtung bleibt die Funktion ausgeblendet.
 
-PIN vergessen: im Table Editor bei diesem Trainer `pin_hash` leeren. Trainer entfernen: `aktiv` auf false.
+Einrichtung (einmalig, alles auf github.com):
+1. **Privates Repo** anlegen: github.com/new → Name `fcf-trainer-daten` → *Private* → Create (leer lassen, die App legt `daten.json` selbst an).
+2. **Schlüssel** anlegen: Profilbild → Settings → Developer settings → Personal access tokens → **Fine-grained tokens** → Generate new token. Name «FCF Trainer-App», Ablauf möglichst lang, *Repository access: Only select repositories* → `fcf-trainer-daten`, *Permissions → Contents: Read and write*. Token kopieren.
+3. In **diesem** Repo (fcf-turniere) → Settings → Secrets and variables → Actions:
+   - Tab *Secrets* → New repository secret `TRAINER_DATEN_TOKEN` = Token aus Schritt 2
+   - Tab *Secrets* → New repository secret `TRAINER_PW` = das Trainer-Passwort der App
+   - Tab *Variables* → New repository variable `TRAINER_DATEN_REPO` = `<dein-github-name>/fcf-trainer-daten`
+4. Actions → **«Trainer-Zugang verschlüsseln»** → Run workflow. Danach ist «👥 Trainer» in der App sichtbar (nach Trainer-Login).
+
+Schlüssel abgelaufen: neuen Token erzeugen, Secret `TRAINER_DATEN_TOKEN` ersetzen, Schritt 4 wiederholen. Trainer entfernen: in `daten.json` beim Trainer `"aktiv": false` setzen.
+Hinweis: Wer das Trainer-Passwort hat, kann ins Daten-Repo schreiben (nur dort, nicht in die App).
