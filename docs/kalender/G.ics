@@ -26,7 +26,7 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:8439-G-G-2026-11-22-14001700@fcf-turniere
-DTSTAMP:20261117T045711Z
+DTSTAMP:20261117T150453Z
 DTSTART;TZID=Europe/Zurich:20261122T140000
 DTEND;TZID=Europe/Zurich:20261122T170000
 SUMMARY:Hallenturnier G: EduFoot Trophy\, Hinwil\, 1. Quali (Hinwil)
@@ -34,19 +34,20 @@ LOCATION:Sporthalle Hüssenbüel\, Walderstrasse 60\, 8340 Hinwil
 DESCRIPTION:Team G\n\nZeit: So 22.11.2026\, 14:00-17:00\nTreffpunkt: ca. 3
  0 Min vor Spielbeginn\n\nHalle: Sporthalle Hüssenbüel\nAdresse: Walders
  trasse 60\, 8340 Hinwil\nAnfahrt: 48 Min / 48 km ab Frauenfeld\n\nAngemel
- det für FCF: FC Frauenfeld\nStatus: geschlossen\n\nAngemeldete Teams (10
- ):\n- SC Zollikon\n- FC Kollbrunn-Rikon\n- FC Dielsdorf\n- FC Lachen/Alte
- ndorf a weiss\n- FC Frauenfeld\n- FC Uster TK\n- SC Veltheim\n- FC Lachen
- /Altendorf a rot\n- FC Wollerau\n- FC Rapperswil-Jona\n\nAusschreibung: h
- ttps://www.turnieragenda.ch/de/event/detail/8439\nReglement: https://www.
- turnieragenda.ch/ressources/rules/reglement_84391.pdf
+ det für FCF: FC Frauenfeld\nStatus: geschlossen\n\nTrainer: noch offen\n
+ \nAngemeldete Teams (10):\n- SC Zollikon\n- FC Kollbrunn-Rikon\n- FC Diel
+ sdorf\n- FC Lachen/Altendorf a weiss\n- FC Frauenfeld\n- FC Uster TK\n- S
+ C Veltheim\n- FC Lachen/Altendorf a rot\n- FC Wollerau\n- FC Rapperswil-J
+ ona\n\nAusschreibung: https://www.turnieragenda.ch/de/event/detail/8439\n
+ Reglement: https://www.turnieragenda.ch/ressources/rules/reglement_84391.
+ pdf
 URL:https://www.turnieragenda.ch/de/event/detail/8439
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:8591-G-G1-2026-11-29-08301130@fcf-turniere
-DTSTAMP:20261117T045711Z
+DTSTAMP:20261117T150453Z
 DTSTART;TZID=Europe/Zurich:20261129T083000
 DTEND;TZID=Europe/Zurich:20261129T113000
 SUMMARY:Hallenturnier G1: 52. Hallenturnier FC Weinfelden-Bürglen (Weinfe
@@ -56,18 +57,19 @@ DESCRIPTION:Team G | Kategorie G1 | 1. Stkl.\nJunioren G (Bambini)\n\nZeit
  : So 29.11.2026\, 08:30-11:30\nTreffpunkt: ca. 30 Min vor Spielbeginn\n\n
  Halle: Sporthalle Güttingersreuti\nAdresse: Lauligstrasse 6\, 8570 Weinf
  elden\nAnfahrt: 19 Min / 20 km ab Frauenfeld\n\nAngemeldet für FCF: FC F
- rauenfeld G1\, FC Frauenfeld G2\nStatus: geschlossen\n\nAngemeldete Teams
-  (6):\n- FC Märstetten\n- FC Frauenfeld G1\n- FC Frauenfeld G2\n- FC Wei
- nfelden-Bürglen\n- FC KS-Sulgen\n- SC Berg Bambinis\n\nAusschreibung: ht
- tps://www.turnieragenda.ch/de/event/detail/8591\nReglement: https://www.t
- urnieragenda.ch/ressources/rules/reglement_8591.pdf
+ rauenfeld G1\, FC Frauenfeld G2\nStatus: geschlossen\n\nTrainer: noch off
+ en\n\nAngemeldete Teams (6):\n- FC Märstetten\n- FC Frauenfeld G1\n- FC 
+ Frauenfeld G2\n- FC Weinfelden-Bürglen\n- FC KS-Sulgen\n- SC Berg Bambin
+ is\n\nAusschreibung: https://www.turnieragenda.ch/de/event/detail/8591\nR
+ eglement: https://www.turnieragenda.ch/ressources/rules/reglement_8591.pd
+ f
 URL:https://www.turnieragenda.ch/de/event/detail/8591
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:8644-G-G-2026-12-06-13001630@fcf-turniere
-DTSTAMP:20261117T045711Z
+DTSTAMP:20261117T150453Z
 DTSTART;TZID=Europe/Zurich:20261206T130000
 DTEND;TZID=Europe/Zurich:20261206T163000
 SUMMARY:Hallenturnier G: FC Wängi - 19. Chlausturnier 2026 (Wängi)
@@ -76,18 +78,19 @@ DESCRIPTION:Team G\nJunioren G\n\nZeit: So 06.12.2026\, 13:00-16:30\nTreff
  punkt: ca. 30 Min vor Spielbeginn\n\nHalle: Dammbühlhalle Wängi\nAdress
  e: Steinlerstrasse 22\, 9545 Wängi\nAnfahrt: 12 Min / 10 km ab Frauenfel
  d\n\nAngemeldet für FCF: FC Frauenfeld b\, FC Frauenfeld a\nStatus: gesc
- hlossen\n\nAngemeldete Teams (10):\n- FC Wängi a\n- FC Frauenfeld b\n- F
- C Wil 1900 a\n- FC Heiden\n- FC Elgg\n- FC Wängi b\n- FC Münchwilen\n- 
- FC Wil 1900 b\n- FC Frauenfeld a\n- FC Kollbrunn-Rikon\n\nAusschreibung: 
- https://www.turnieragenda.ch/de/event/detail/8644\nReglement: https://www
- .turnieragenda.ch/ressources/rules/reglement_86442.pdf
+ hlossen\n\nTrainer: noch offen\n\nAngemeldete Teams (10):\n- FC Wängi a\
+ n- FC Frauenfeld b\n- FC Wil 1900 a\n- FC Heiden\n- FC Elgg\n- FC Wängi 
+ b\n- FC Münchwilen\n- FC Wil 1900 b\n- FC Frauenfeld a\n- FC Kollbrunn-R
+ ikon\n\nAusschreibung: https://www.turnieragenda.ch/de/event/detail/8644\
+ nReglement: https://www.turnieragenda.ch/ressources/rules/reglement_86442
+ .pdf
 URL:https://www.turnieragenda.ch/de/event/detail/8644
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:8420-G-G-2026-12-12-@fcf-turniere
-DTSTAMP:20261117T045711Z
+DTSTAMP:20261117T150453Z
 DTSTART;TZID=Europe/Zurich:20261212T080000
 DTEND;TZID=Europe/Zurich:20261212T120000
 SUMMARY:Hallenturnier G: Raiffeisen Mädchen+Junioren Hallen Cup26 (Kreuzl
@@ -98,19 +101,19 @@ DESCRIPTION:Team G\nJahrgänge 2020 + 2021\, play more football\, 3vs3\, t
   genaue Zeit gemäss Spielplan)\nTreffpunkt: ca. 30 Min vor Spielbeginn\n
  \nHalle: Dreispitzhalle\nAdresse: Pestalozzistrasse 17\, 8280 Kreuzlingen
  \nAnfahrt: 21 Min / 26 km ab Frauenfeld\n\nAngemeldet für FCF: FC Frauen
- feld G1\, FC Frauenfeld G2\nStatus: ausgebucht\n\nAngemeldete Teams (8):\
- n- FC Kreuzlingen\n- FC Frauenfeld G1\n- FC Münsterlingen 2\n- FC Bischo
- fszell Team 1\n- FC Münsterlingen 1\n- FC Frauenfeld G2\n- FC Münsterli
- ngen 3\n- FC Bischofszell Team 2\n\nAusschreibung: https://www.turnierage
- nda.ch/de/event/detail/8420\nReglement: https://www.turnieragenda.ch/ress
- ources/rules/reglement_73752.pdf
+ feld G1\, FC Frauenfeld G2\nStatus: ausgebucht\n\nTrainer: noch offen\n\n
+ Angemeldete Teams (8):\n- FC Kreuzlingen\n- FC Frauenfeld G1\n- FC Münst
+ erlingen 2\n- FC Bischofszell Team 1\n- FC Münsterlingen 1\n- FC Frauenf
+ eld G2\n- FC Münsterlingen 3\n- FC Bischofszell Team 2\n\nAusschreibung:
+  https://www.turnieragenda.ch/de/event/detail/8420\nReglement: https://ww
+ w.turnieragenda.ch/ressources/rules/reglement_73752.pdf
 URL:https://www.turnieragenda.ch/de/event/detail/8420
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:8662-G-G1-2026-12-20-@fcf-turniere
-DTSTAMP:20261117T045711Z
+DTSTAMP:20261117T150453Z
 DTSTART;TZID=Europe/Zurich:20261220T080000
 DTEND;TZID=Europe/Zurich:20261220T120000
 SUMMARY:Hallenturnier G1: 7 CRS Juniorenturnier (Winterthur)
@@ -119,16 +122,16 @@ DESCRIPTION:Team G | Kategorie G1 | 1. Stkl.\n\nZeit: So 20.12.2026\, 08:0
  0-12:00 (Vormittag\, genaue Zeit gemäss Spielplan)\nTreffpunkt: ca. 30 M
  in vor Spielbeginn\n\nHalle: WIN 4 Halle\nAdresse: Grüzenfeldstrasse 38\
  , 8400 Winterthur\nAnfahrt: 18 Min / 19 km ab Frauenfeld\n\nAngemeldet f
- ür FCF: FC Frauenfeld\nStatus: offen\n\nAngemeldete Teams (3):\n- FC Wü
- lflingen\n- FC Frauenfeld\n- FC Töss\n\nAusschreibung: https://www.turni
- eragenda.ch/de/event/detail/8662
+ ür FCF: FC Frauenfeld\nStatus: offen\n\nTrainer: noch offen\n\nAngemelde
+ te Teams (3):\n- FC Wülflingen\n- FC Frauenfeld\n- FC Töss\n\nAusschrei
+ bung: https://www.turnieragenda.ch/de/event/detail/8662
 URL:https://www.turnieragenda.ch/de/event/detail/8662
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:8678-G-G-2027-01-09-@fcf-turniere
-DTSTAMP:20261117T045711Z
+DTSTAMP:20261117T150453Z
 DTSTART;TZID=Europe/Zurich:20270109T080000
 DTEND;TZID=Europe/Zurich:20270109T120000
 SUMMARY:Hallenturnier G: ASC Soccer Cup Gossau (Gossau)
@@ -137,18 +140,18 @@ DESCRIPTION:Team G | 1. Stkl. / 2. Stkl. / 3. Stkl.\nG1 / G2 / G3\n\nZeit:
   Sa 09.01.2027\, 08:00-12:00 (Vormittag\, genaue Zeit gemäss Spielplan)\
  nTreffpunkt: ca. 30 Min vor Spielbeginn\n\nHalle: AL Arena\nAdresse: Altr
  ütistrasse 3\, 8652 Gossau\nAnfahrt: 44 Min / 54 km ab Frauenfeld\n\nAng
- emeldet für FCF: FC Frauenfeld\nStatus: offen\n\nAngemeldete Teams (5):\
- n- FC Frauenfeld\n- FC Wetzikon Team 1\n- FC Wetzikon Team 2\n- FC Urdorf
- \n- FC Volketswil\n\nAusschreibung: https://www.turnieragenda.ch/de/event
- /detail/8678\nReglement: https://www.turnieragenda.ch/ressources/rules/re
- glement_8678.pdf
+ emeldet für FCF: FC Frauenfeld\nStatus: offen\n\nTrainer: noch offen\n\n
+ Angemeldete Teams (5):\n- FC Frauenfeld\n- FC Wetzikon Team 1\n- FC Wetzi
+ kon Team 2\n- FC Urdorf\n- FC Volketswil\n\nAusschreibung: https://www.tu
+ rnieragenda.ch/de/event/detail/8678\nReglement: https://www.turnieragenda
+ .ch/ressources/rules/reglement_8678.pdf
 URL:https://www.turnieragenda.ch/de/event/detail/8678
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:8748-G-G-2027-01-30-@fcf-turniere
-DTSTAMP:20261117T045711Z
+DTSTAMP:20261117T150453Z
 DTSTART;TZID=Europe/Zurich:20270130T080000
 DTEND;TZID=Europe/Zurich:20270130T120000
 SUMMARY:Hallenturnier G: Wiler Bär Cup (Wil SG)
@@ -157,19 +160,19 @@ DESCRIPTION:Team G\n\nZeit: Sa 30.01.2027\, 08:00-12:00 (Vormittag\, genau
  e Zeit gemäss Spielplan)\nTreffpunkt: ca. 30 Min vor Spielbeginn\n\nHall
  e: Lindenhof\nAdresse: Lindenhofstrasse 23\, 9500 Wil SG\nAnfahrt: 21 Min
   / 22 km ab Frauenfeld\n\nAngemeldet für FCF: FC Frauenfeld\nStatus: aus
- gebucht\n\nAngemeldete Teams (12):\n- FC Wil 1900 Gb\n- FC Wil 1900 Gc\n-
-  FC Gossau SG Ga\n- FC Heiden\n- FC Gossau SG gb\n- FC Sirnach\n- FC Rick
- enbach\n- SC Bronschhofen Team 1\n- SC Bronschhofen Team 2\n- SC Brühl K
- rönli Kids\n- FC Rotmonten SG\n- FC Frauenfeld\n\nAusschreibung: https:/
- /www.turnieragenda.ch/de/event/detail/8748\nReglement: https://www.turnie
- ragenda.ch/ressources/rules/reglement_8748.pdf
+ gebucht\n\nTrainer: noch offen\n\nAngemeldete Teams (12):\n- FC Wil 1900 
+ Gb\n- FC Wil 1900 Gc\n- FC Gossau SG Ga\n- FC Heiden\n- FC Gossau SG gb\n
+ - FC Sirnach\n- FC Rickenbach\n- SC Bronschhofen Team 1\n- SC Bronschhofe
+ n Team 2\n- SC Brühl Krönli Kids\n- FC Rotmonten SG\n- FC Frauenfeld\n\
+ nAusschreibung: https://www.turnieragenda.ch/de/event/detail/8748\nReglem
+ ent: https://www.turnieragenda.ch/ressources/rules/reglement_8748.pdf
 URL:https://www.turnieragenda.ch/de/event/detail/8748
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:8734-G-G-2027-02-13-@fcf-turniere
-DTSTAMP:20261117T045711Z
+DTSTAMP:20261117T150453Z
 DTSTART;TZID=Europe/Zurich:20270213T110000
 DTEND;TZID=Europe/Zurich:20270213T140000
 SUMMARY:Hallenturnier G: Hallenturnier FC Frauenfeld (Frauenfeld)
@@ -180,19 +183,19 @@ DESCRIPTION:Team G\nSpiele a 10 Min. pro Team (Modus 4 + 1)\n\nZeit: Sa 13
  kt: ca. 30 Min vor Spielbeginn\n\nHalle: Dreifachturnhalle Kantonsschule 
  Frauenfeld\nAdresse: Sternwartestr. 5\, 8500 Frauenfeld\nAnfahrt: 3 Min /
   1 km ab Frauenfeld\n\nAngemeldet für FCF: FC Frauenfeld\, FC Frauenfeld
-  G-c / 3. Mannschaft\, FC Frauenfeld Team G b\nStatus: offen\n\nAngemelde
- te Teams (10):\n- SC Aadorf Gc\n- FC Frauenfeld\n- FC Frauenfeld G-c / 3.
-  Mannschaft\n- FC Frauenfeld Team G b\n- FC Wil 1900 Ga\n- SC Brühl Krö
- nli Kids\n- FC Elgg\n- FC Weinfelden-Bürglen\n- FC Gossau SG FC Gossau G
- c + Fc Gossau Gd\n- FC Gossau SG Team Gd\n\nAusschreibung: https://www.tu
- rnieragenda.ch/de/event/detail/8734
+  G-c / 3. Mannschaft\, FC Frauenfeld Team G b\nStatus: offen\n\nTrainer: 
+ noch offen\n\nAngemeldete Teams (10):\n- SC Aadorf Gc\n- FC Frauenfeld\n-
+  FC Frauenfeld G-c / 3. Mannschaft\n- FC Frauenfeld Team G b\n- FC Wil 19
+ 00 Ga\n- SC Brühl Krönli Kids\n- FC Elgg\n- FC Weinfelden-Bürglen\n- F
+ C Gossau SG FC Gossau Gc + Fc Gossau Gd\n- FC Gossau SG Team Gd\n\nAussch
+ reibung: https://www.turnieragenda.ch/de/event/detail/8734
 URL:https://www.turnieragenda.ch/de/event/detail/8734
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:8680-G-G-2027-02-27-@fcf-turniere
-DTSTAMP:20261117T045711Z
+DTSTAMP:20261117T150453Z
 DTSTART;TZID=Europe/Zurich:20270227T080000
 DTEND;TZID=Europe/Zurich:20270227T120000
 SUMMARY:Hallenturnier G: ASC Soccer Cup Illnau-Effretikon (Illnau-Effretik
@@ -204,18 +207,18 @@ DESCRIPTION:Team G | 1. Stkl. / 2. Stkl. / 3. Stkl.\nG1 / G2 / G3\n\nZeit:
  nTreffpunkt: ca. 30 Min vor Spielbeginn\n\nHalle: Sporthalle Eselriet\nAd
  resse: Sportplatzstrasse 4\, 8307 Illnau-Effretikon\nAnfahrt: 30 Min / 30
   km ab Frauenfeld\n\nAngemeldet für FCF: FC Frauenfeld G1\nStatus: offen
- \n\nAngemeldete Teams (6):\n- FC Seuzach Gb (Anfänger)\n- FC Räterschen
- \n- FC Frauenfeld G1\n- FC Urdorf\n- FC Bäretswil G Junioren\n- SC Hegi 
- Winterthur\n\nAusschreibung: https://www.turnieragenda.ch/de/event/detail
- /8680\nReglement: https://www.turnieragenda.ch/ressources/rules/reglement
- _8680.pdf
+ \n\nTrainer: noch offen\n\nAngemeldete Teams (6):\n- FC Seuzach Gb (Anfä
+ nger)\n- FC Räterschen\n- FC Frauenfeld G1\n- FC Urdorf\n- FC Bäretswil
+  G Junioren\n- SC Hegi Winterthur\n\nAusschreibung: https://www.turnierag
+ enda.ch/de/event/detail/8680\nReglement: https://www.turnieragenda.ch/res
+ sources/rules/reglement_8680.pdf
 URL:https://www.turnieragenda.ch/de/event/detail/8680
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:8960-G-G-2027-03-07-@fcf-turniere
-DTSTAMP:20261117T045711Z
+DTSTAMP:20261117T150453Z
 DTSTART;TZID=Europe/Zurich:20270307T080000
 DTEND;TZID=Europe/Zurich:20270307T120000
 SUMMARY:Hallenturnier G: Alti Badi Cup 2027 (Kreuzlingen)
@@ -226,11 +229,11 @@ DESCRIPTION:Team G\n1/3 der Dreifachhalle / Handballtore\n\nZeit: So 07.03
  kt: ca. 30 Min vor Spielbeginn\n\nHalle: Dreispitz Sport- und Kulturzentr
  um\nAdresse: Pestalozzistrasse 17\, 8280 Kreuzlingen\nAnfahrt: 21 Min / 2
  6 km ab Frauenfeld\n\nAngemeldet für FCF: FC Frauenfeld G1\, FC Frauenfe
- ld G2\nStatus: offen\n\nAngemeldete Teams (8):\n- FC Tägerwilen Ga\n- FC
-  Tägerwilen Gb\n- AS Calcio Kreuzlingen G1\n- AS Calcio Kreuzlingen G2\n
- - FC Frauenfeld G1\n- FC Frauenfeld G2\n- FC Münsterlingen G1\n- FC Mün
- sterlingen G2\n\nAusschreibung: https://www.turnieragenda.ch/de/event/det
- ail/8960
+ ld G2\nStatus: offen\n\nTrainer: noch offen\n\nAngemeldete Teams (8):\n- 
+ FC Tägerwilen Ga\n- FC Tägerwilen Gb\n- AS Calcio Kreuzlingen G1\n- AS 
+ Calcio Kreuzlingen G2\n- FC Frauenfeld G1\n- FC Frauenfeld G2\n- FC Müns
+ terlingen G1\n- FC Münsterlingen G2\n\nAusschreibung: https://www.turnie
+ ragenda.ch/de/event/detail/8960
 URL:https://www.turnieragenda.ch/de/event/detail/8960
 STATUS:CONFIRMED
 TRANSP:OPAQUE

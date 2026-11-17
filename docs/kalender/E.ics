@@ -26,7 +26,7 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:8746-E-E1-2026-11-21-13001700@fcf-turniere
-DTSTAMP:20261117T045711Z
+DTSTAMP:20261117T150453Z
 DTSTART;TZID=Europe/Zurich:20261121T130000
 DTEND;TZID=Europe/Zurich:20261121T170000
 SUMMARY:Hallenturnier E1: 33. Hallenturnier FC Wiesendangen (Wiesendangen)
@@ -35,19 +35,19 @@ DESCRIPTION:Team E | Kategorie E1 | Promotion/Elite / 1. Stkl.\nPromotion
  + 1. Stkl.\n\nZeit: Sa 21.11.2026\, 13:00-17:00\nTreffpunkt: ca. 30 Min v
  or Spielbeginn\n\nHalle: Sagihalle\nAdresse: Sennhüttenstrasse 24\, 8542
   Wiesendangen\nAnfahrt: 11 Min / 11 km ab Frauenfeld\n\nAngemeldet für F
- CF: FC Frauenfeld\nStatus: geschlossen\n\nAngemeldete Teams (8):\n- FC Wi
- esendangen Ea\n- FC Phönix Seen Eb\n- FC Räterschen\n- SC Konstanz-Woll
- matingen\n- FC Wiesendangen Eb\n- FC Oberwinterthur\n- FC Frauenfeld\n- F
- C Rafzerfeld\n\nAusschreibung: https://www.turnieragenda.ch/de/event/deta
- il/8746\nReglement: https://www.turnieragenda.ch/ressources/rules/regleme
- nt_87462.pdf
+ CF: FC Frauenfeld\nStatus: geschlossen\n\nTrainer: noch offen\n\nAngemeld
+ ete Teams (8):\n- FC Wiesendangen Ea\n- FC Phönix Seen Eb\n- FC Rätersc
+ hen\n- SC Konstanz-Wollmatingen\n- FC Wiesendangen Eb\n- FC Oberwinterthu
+ r\n- FC Frauenfeld\n- FC Rafzerfeld\n\nAusschreibung: https://www.turnier
+ agenda.ch/de/event/detail/8746\nReglement: https://www.turnieragenda.ch/r
+ essources/rules/reglement_87462.pdf
 URL:https://www.turnieragenda.ch/de/event/detail/8746
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:8746-E-E2-2026-11-28-@fcf-turniere
-DTSTAMP:20261117T045711Z
+DTSTAMP:20261117T150453Z
 DTSTART;TZID=Europe/Zurich:20261128T130000
 DTEND;TZID=Europe/Zurich:20261128T170000
 SUMMARY:ABGESAGT? Hallenturnier E2: 33. Hallenturnier FC Wiesendangen (Wie
@@ -57,19 +57,19 @@ DESCRIPTION:Team E | Kategorie E2 | 3. Stkl.\n+ 3. Stkl.\n\nZeit: Sa 28.11
  .2026\, 13:00-17:00 (Nachmittag\, genaue Zeit gemäss Spielplan)\nTreffpu
  nkt: ca. 30 Min vor Spielbeginn\n\nHalle: Sagihalle\nAdresse: Sennhütten
  strasse 24\, 8542 Wiesendangen\nAnfahrt: 11 Min / 11 km ab Frauenfeld\n\n
- Angemeldet für FCF: FC Frauenfeld\nStatus: entfernt\n\nAngemeldete Teams
-  (8):\n- FC Räterschen Team 2\n- FC Wiesendangen Ed\n- FC Räterschen\n-
-  FC Wiesendangen Ec\n- FC Frauenfeld\n- FC Wülflingen Ed\n- FC Oberwinte
- rthur\n- FC Töss Ec\n\nAusschreibung: https://www.turnieragenda.ch/de/ev
- ent/detail/8746\nReglement: https://www.turnieragenda.ch/ressources/rules
- /reglement_87462.pdf
+ Angemeldet für FCF: FC Frauenfeld\nStatus: entfernt\n\nTrainer: noch off
+ en\n\nAngemeldete Teams (8):\n- FC Räterschen Team 2\n- FC Wiesendangen 
+ Ed\n- FC Räterschen\n- FC Wiesendangen Ec\n- FC Frauenfeld\n- FC Wülfli
+ ngen Ed\n- FC Oberwinterthur\n- FC Töss Ec\n\nAusschreibung: https://www
+ .turnieragenda.ch/de/event/detail/8746\nReglement: https://www.turnierage
+ nda.ch/ressources/rules/reglement_87462.pdf
 URL:https://www.turnieragenda.ch/de/event/detail/8746
 STATUS:CANCELLED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:8591-E-E1-2026-11-28-08301200@fcf-turniere
-DTSTAMP:20261117T045711Z
+DTSTAMP:20261117T150453Z
 DTSTART;TZID=Europe/Zurich:20261128T083000
 DTEND;TZID=Europe/Zurich:20261128T120000
 SUMMARY:Hallenturnier E1: 52. Hallenturnier FC Weinfelden-Bürglen (Weinfe
@@ -79,18 +79,18 @@ DESCRIPTION:Team E | Kategorie E1 | 1. Stkl.\nJunioren E 1. Stkl\n\nZeit:
  Sa 28.11.2026\, 08:30-12:00\nTreffpunkt: ca. 30 Min vor Spielbeginn\n\nHa
  lle: Sporthalle Güttingersreuti\nAdresse: Lauligstrasse 6\, 8570 Weinfel
  den\nAnfahrt: 19 Min / 20 km ab Frauenfeld\n\nAngemeldet für FCF: FC Fra
- uenfeld\nStatus: geschlossen\n\nAngemeldete Teams (6):\n- FC Pfyn rot\n- 
- FC Weinfelden-Bürglen Ea\n- FC Frauenfeld\n- FC Münsterlingen Ea\n- FC 
- Herisau\n- SC Berg\n\nAusschreibung: https://www.turnieragenda.ch/de/even
- t/detail/8591\nReglement: https://www.turnieragenda.ch/ressources/rules/r
- eglement_8591.pdf
+ uenfeld\nStatus: geschlossen\n\nTrainer: noch offen\n\nAngemeldete Teams 
+ (6):\n- FC Pfyn rot\n- FC Weinfelden-Bürglen Ea\n- FC Frauenfeld\n- FC M
+ ünsterlingen Ea\n- FC Herisau\n- SC Berg\n\nAusschreibung: https://www.t
+ urnieragenda.ch/de/event/detail/8591\nReglement: https://www.turnieragend
+ a.ch/ressources/rules/reglement_8591.pdf
 URL:https://www.turnieragenda.ch/de/event/detail/8591
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:8746-E-E2-2026-11-28-13001700@fcf-turniere
-DTSTAMP:20261117T045711Z
+DTSTAMP:20261117T150453Z
 DTSTART;TZID=Europe/Zurich:20261128T130000
 DTEND;TZID=Europe/Zurich:20261128T170000
 SUMMARY:Hallenturnier E2: 33. Hallenturnier FC Wiesendangen (Wiesendangen)
@@ -99,18 +99,19 @@ DESCRIPTION:Team E | Kategorie E2 | 3. Stkl.\n+ 3. Stkl.\n\nZeit: Sa 28.11
  .2026\, 13:00-17:00\nTreffpunkt: ca. 30 Min vor Spielbeginn\n\nHalle: Sag
  ihalle\nAdresse: Sennhüttenstrasse 24\, 8542 Wiesendangen\nAnfahrt: 11 M
  in / 11 km ab Frauenfeld\n\nAngemeldet für FCF: FC Frauenfeld\nStatus: g
- eschlossen\n\nAngemeldete Teams (8):\n- FC Räterschen Team 2\n- FC Wiese
- ndangen Ec\n- FC Wülflingen Ed\n- FC Oberwinterthur\n- FC Wiesendangen E
- d\n- FC Räterschen\n- FC Frauenfeld\n- FC Töss Ec\n\nAusschreibung: htt
- ps://www.turnieragenda.ch/de/event/detail/8746\nReglement: https://www.tu
- rnieragenda.ch/ressources/rules/reglement_87462.pdf
+ eschlossen\n\nTrainer: noch offen\n\nAngemeldete Teams (8):\n- FC Räters
+ chen Team 2\n- FC Wiesendangen Ec\n- FC Wülflingen Ed\n- FC Oberwinterth
+ ur\n- FC Wiesendangen Ed\n- FC Räterschen\n- FC Frauenfeld\n- FC Töss E
+ c\n\nAusschreibung: https://www.turnieragenda.ch/de/event/detail/8746\nRe
+ glement: https://www.turnieragenda.ch/ressources/rules/reglement_87462.pd
+ f
 URL:https://www.turnieragenda.ch/de/event/detail/8746
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:8644-E-E1-2026-12-05-18002200@fcf-turniere
-DTSTAMP:20261117T045711Z
+DTSTAMP:20261117T150453Z
 DTSTART;TZID=Europe/Zurich:20261205T180000
 DTEND;TZID=Europe/Zurich:20261205T220000
 SUMMARY:Hallenturnier E1: FC Wängi - 19. Chlausturnier 2026 (Wängi)
@@ -119,18 +120,18 @@ DESCRIPTION:Team E | Kategorie E1 | 1. Stkl.\nJunioren E 1. Stärkeklasse\
  n\nZeit: Sa 05.12.2026\, 18:00-22:00\nTreffpunkt: ca. 30 Min vor Spielbeg
  inn\n\nHalle: Dammbühlhalle Wängi\nAdresse: Steinlerstrasse 22\, 9545 W
  ängi\nAnfahrt: 12 Min / 10 km ab Frauenfeld\n\nAngemeldet für FCF: FC F
- rauenfeld\nStatus: geschlossen\n\nAngemeldete Teams (8):\n- FC Wängi a\n
- - FC Frauenfeld\n- FC Buttikon a\n- SC Konstanz-Wollmatingen\n- FC Wängi
-  b\n- SC Aadorf\n- FC Buttikon b\n- FC Romanshorn\n\nAusschreibung: https
- ://www.turnieragenda.ch/de/event/detail/8644\nReglement: https://www.turn
- ieragenda.ch/ressources/rules/reglement_86442.pdf
+ rauenfeld\nStatus: geschlossen\n\nTrainer: noch offen\n\nAngemeldete Team
+ s (8):\n- FC Wängi a\n- FC Frauenfeld\n- FC Buttikon a\n- SC Konstanz-Wo
+ llmatingen\n- FC Wängi b\n- SC Aadorf\n- FC Buttikon b\n- FC Romanshorn\
+ n\nAusschreibung: https://www.turnieragenda.ch/de/event/detail/8644\nRegl
+ ement: https://www.turnieragenda.ch/ressources/rules/reglement_86442.pdf
 URL:https://www.turnieragenda.ch/de/event/detail/8644
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:8644-E-E2-2026-12-05-08001215@fcf-turniere
-DTSTAMP:20261117T045711Z
+DTSTAMP:20261117T150453Z
 DTSTART;TZID=Europe/Zurich:20261205T080000
 DTEND;TZID=Europe/Zurich:20261205T121500
 SUMMARY:Hallenturnier E2: FC Wängi - 19. Chlausturnier 2026 (Wängi)
@@ -139,18 +140,19 @@ DESCRIPTION:Team E | Kategorie E2 | 2. Stkl.\nJunioren E 2. Stärkeklasse\
  n\nZeit: Sa 05.12.2026\, 08:00-12:15\nTreffpunkt: ca. 30 Min vor Spielbeg
  inn\n\nHalle: Dammbühlhalle Wängi\nAdresse: Steinlerstrasse 22\, 9545 W
  ängi\nAnfahrt: 12 Min / 10 km ab Frauenfeld\n\nAngemeldet für FCF: FC F
- rauenfeld a\, FC Frauenfeld b\nStatus: geschlossen\n\nAngemeldete Teams (
- 8):\n- FC Wängi\n- SC Aadorf\n- FC Frauenfeld a\n- FC Pfyn rot\n- FC Mü
- nchwilen\n- SC Bronschhofen\n- FC Frauenfeld b\n- FC Pfyn weiss\n\nAussch
- reibung: https://www.turnieragenda.ch/de/event/detail/8644\nReglement: ht
- tps://www.turnieragenda.ch/ressources/rules/reglement_86442.pdf
+ rauenfeld a\, FC Frauenfeld b\nStatus: geschlossen\n\nTrainer: noch offen
+ \n\nAngemeldete Teams (8):\n- FC Wängi\n- SC Aadorf\n- FC Frauenfeld a\n
+ - FC Pfyn rot\n- FC Münchwilen\n- SC Bronschhofen\n- FC Frauenfeld b\n- 
+ FC Pfyn weiss\n\nAusschreibung: https://www.turnieragenda.ch/de/event/det
+ ail/8644\nReglement: https://www.turnieragenda.ch/ressources/rules/reglem
+ ent_86442.pdf
 URL:https://www.turnieragenda.ch/de/event/detail/8644
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:8637-E-E-2027-01-10-@fcf-turniere
-DTSTAMP:20261117T045711Z
+DTSTAMP:20261117T150453Z
 DTSTART;TZID=Europe/Zurich:20270110T080000
 DTEND;TZID=Europe/Zurich:20270110T120000
 SUMMARY:Hallenturnier E: 53. Hallenturnier FC KS-Sulgen (Weinfelden)
@@ -160,18 +162,19 @@ DESCRIPTION:Team E\nKein Playmore Jg. 2016 - 2018\n\nZeit: So 10.01.2027\,
   30 Min vor Spielbeginn\n\nHalle: Sporthalle Güttingersreuti\nAdresse: L
  auligstrasse\, 8570 Weinfelden\nAnfahrt: 19 Min / 20 km ab Frauenfeld\n\n
  Angemeldet für FCF: FC Frauenfeld a\, FC Frauenfeld b\nStatus: ausgebuch
- t\n\nAngemeldete Teams (8):\n- FC Weinfelden-Bürglen Eb\n- FC Amriswil E
-  Grün/Blau\n- FC Weinfelden-Bürglen\n- FC Frauenfeld a\n- FC Frauenfeld
-  b\n- FC Eschlikon A\n- FC Eschlikon B\n- FC Münsterlingen Ea\n\nAusschr
- eibung: https://www.turnieragenda.ch/de/event/detail/8637\nReglement: htt
- ps://www.turnieragenda.ch/ressources/rules/reglement_8637.pdf
+ t\n\nTrainer: noch offen\n\nAngemeldete Teams (8):\n- FC Weinfelden-Bürg
+ len Eb\n- FC Amriswil E Grün/Blau\n- FC Weinfelden-Bürglen\n- FC Frauen
+ feld a\n- FC Frauenfeld b\n- FC Eschlikon A\n- FC Eschlikon B\n- FC Müns
+ terlingen Ea\n\nAusschreibung: https://www.turnieragenda.ch/de/event/deta
+ il/8637\nReglement: https://www.turnieragenda.ch/ressources/rules/regleme
+ nt_8637.pdf
 URL:https://www.turnieragenda.ch/de/event/detail/8637
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:8637-E-E1-2027-01-10-@fcf-turniere
-DTSTAMP:20261117T045711Z
+DTSTAMP:20261117T150453Z
 DTSTART;TZID=Europe/Zurich:20270110T130000
 DTEND;TZID=Europe/Zurich:20270110T170000
 SUMMARY:Hallenturnier E1: 53. Hallenturnier FC KS-Sulgen (Weinfelden)
@@ -181,18 +184,19 @@ DESCRIPTION:Team E | Kategorie E1 | 1. Stkl.\nKein Playmore / spielst. Tea
  ue Zeit gemäss Spielplan)\nTreffpunkt: ca. 30 Min vor Spielbeginn\n\nHal
  le: Sporthalle Güttingersreuti\nAdresse: Lauligstrasse\, 8570 Weinfelden
  \nAnfahrt: 19 Min / 20 km ab Frauenfeld\n\nAngemeldet für FCF: FC Frauen
- feld\nStatus: ausgebucht\n\nAngemeldete Teams (8):\n- FC Frauenfeld\n- FC
-  Romanshorn E1\n- FC Weinfelden-Bürglen Ea\n- FC KS-Sulgen\n- FC Wil 190
- 0 AG E11\n- FC Bischofszell E1\n- FC Tägerwilen E1\n- FC Bazenheid Ea\n\
- nAusschreibung: https://www.turnieragenda.ch/de/event/detail/8637\nReglem
- ent: https://www.turnieragenda.ch/ressources/rules/reglement_8637.pdf
+ feld\nStatus: ausgebucht\n\nTrainer: noch offen\n\nAngemeldete Teams (8):
+ \n- FC Frauenfeld\n- FC Romanshorn E1\n- FC Weinfelden-Bürglen Ea\n- FC 
+ KS-Sulgen\n- FC Wil 1900 AG E11\n- FC Bischofszell E1\n- FC Tägerwilen E
+ 1\n- FC Bazenheid Ea\n\nAusschreibung: https://www.turnieragenda.ch/de/ev
+ ent/detail/8637\nReglement: https://www.turnieragenda.ch/ressources/rules
+ /reglement_8637.pdf
 URL:https://www.turnieragenda.ch/de/event/detail/8637
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:8851-E-E2-2027-02-13-08001230@fcf-turniere
-DTSTAMP:20261117T045711Z
+DTSTAMP:20261117T150453Z
 DTSTART;TZID=Europe/Zurich:20270213T080000
 DTEND;TZID=Europe/Zurich:20270213T123000
 SUMMARY:Hallenturnier E2: 19. Juniorenhallenturnier SC Berg (Berg)
@@ -201,19 +205,19 @@ DESCRIPTION:Team E | Kategorie E2 | 2. Stkl.\n\nZeit: Sa 13.02.2027\, 08:0
  0-12:30\nTreffpunkt: ca. 30 Min vor Spielbeginn\n\nHalle: Mehrzweckhalle 
  Berg\nAdresse: Anhauserstrasse 19\, 8572 Berg\nAnfahrt: 26 Min / 25 km ab
   Frauenfeld\n\nAngemeldet für FCF: FC Frauenfeld\nStatus: ausgebucht\n\n
- Angemeldete Teams (10):\n- FC Tägerwilen FC Tägerwilen Eb\n- FC Tägerw
- ilen FC Tägerwilen Ec\n- FC Neckertal-Degersheim Eb\n- FC Dussnang\n- FC
-  Pfyn rot\n- FC Pfyn weiss\n- FC Rorschach-Goldach 17 Eb\n- SC Brühl EC\
- n- SC Berg\n- FC Frauenfeld\n\nAusschreibung: https://www.turnieragenda.c
- h/de/event/detail/8851\nReglement: https://www.turnieragenda.ch/ressource
- s/rules/reglement_8851.pdf
+ Trainer: noch offen\n\nAngemeldete Teams (10):\n- FC Tägerwilen FC Täge
+ rwilen Eb\n- FC Tägerwilen FC Tägerwilen Ec\n- FC Neckertal-Degersheim 
+ Eb\n- FC Dussnang\n- FC Pfyn rot\n- FC Pfyn weiss\n- FC Rorschach-Goldach
+  17 Eb\n- SC Brühl EC\n- SC Berg\n- FC Frauenfeld\n\nAusschreibung: http
+ s://www.turnieragenda.ch/de/event/detail/8851\nReglement: https://www.tur
+ nieragenda.ch/ressources/rules/reglement_8851.pdf
 URL:https://www.turnieragenda.ch/de/event/detail/8851
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:8851-E-E1-2027-02-13-13001730@fcf-turniere
-DTSTAMP:20261117T045711Z
+DTSTAMP:20261117T150453Z
 DTSTART;TZID=Europe/Zurich:20270213T130000
 DTEND;TZID=Europe/Zurich:20270213T173000
 SUMMARY:Hallenturnier E1: 19. Juniorenhallenturnier SC Berg (Berg)
@@ -222,19 +226,19 @@ DESCRIPTION:Team E | Kategorie E1 | 1. Stkl.\n\nZeit: Sa 13.02.2027\, 13:0
  0-17:30\nTreffpunkt: ca. 30 Min vor Spielbeginn\n\nHalle: Mehrzweckhalle 
  Berg\nAdresse: Anhauserstrasse 19\, 8572 Berg\nAnfahrt: 26 Min / 25 km ab
   Frauenfeld\n\nAngemeldet für FCF: FC Frauenfeld a\, FC Frauenfeld b\nSt
- atus: ausgebucht\n\nAngemeldete Teams (10):\n- SC Konstanz-Wollmatingen\n
- - FC Amriswil rot\n- FC Tägerwilen E1\n- FC Wängi Ea\n- FC Wängi Ea1\n
- - FC Bischofszell E1\n- FC Frauenfeld a\n- FC Frauenfeld b\n- SC Berg\n- 
- FC Weinfelden-Bürglen Ea\n\nAusschreibung: https://www.turnieragenda.ch/
- de/event/detail/8851\nReglement: https://www.turnieragenda.ch/ressources/
- rules/reglement_8851.pdf
+ atus: ausgebucht\n\nTrainer: noch offen\n\nAngemeldete Teams (10):\n- SC 
+ Konstanz-Wollmatingen\n- FC Amriswil rot\n- FC Tägerwilen E1\n- FC Wäng
+ i Ea\n- FC Wängi Ea1\n- FC Bischofszell E1\n- FC Frauenfeld a\n- FC Frau
+ enfeld b\n- SC Berg\n- FC Weinfelden-Bürglen Ea\n\nAusschreibung: https:
+ //www.turnieragenda.ch/de/event/detail/8851\nReglement: https://www.turni
+ eragenda.ch/ressources/rules/reglement_8851.pdf
 URL:https://www.turnieragenda.ch/de/event/detail/8851
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:8590-E-E1-2027-02-27-@fcf-turniere
-DTSTAMP:20261117T045711Z
+DTSTAMP:20261117T150453Z
 DTSTART;TZID=Europe/Zurich:20270227T110000
 DTEND;TZID=Europe/Zurich:20270227T140000
 SUMMARY:Hallenturnier E1: 7.YOUTH STARS TROPHY *QUALITURNIER 8* (Rafz)
@@ -244,17 +248,18 @@ DESCRIPTION:Team E | Kategorie E1 | Promotion/Elite / 1. Stkl.\n1.Stkl.&h
  emäss Spielplan)\nTreffpunkt: ca. 30 Min vor Spielbeginn\n\nHalle: Saals
  porthalle Schalmenacker\nAdresse: Schalmenacker\, 8197 Rafz\nAnfahrt: 36 
  Min / 35 km ab Frauenfeld\n\nAngemeldet für FCF: FC Frauenfeld\nStatus: 
- offen\n\nAngemeldete Teams (6):\n- FC Schwamendingen\n- FC Frauenfeld\n- 
- FC Neftenbach\n- FC Lohn\n- TSGV Albershausen (D)\n- FC Glattbrugg\n\nAus
- schreibung: https://www.turnieragenda.ch/de/event/detail/8590\nReglement:
-  https://www.turnieragenda.ch/ressources/rules/reglement_8590.pdf
+ offen\n\nTrainer: noch offen\n\nAngemeldete Teams (6):\n- FC Schwamending
+ en\n- FC Frauenfeld\n- FC Neftenbach\n- FC Lohn\n- TSGV Albershausen (D)\
+ n- FC Glattbrugg\n\nAusschreibung: https://www.turnieragenda.ch/de/event/
+ detail/8590\nReglement: https://www.turnieragenda.ch/ressources/rules/reg
+ lement_8590.pdf
 URL:https://www.turnieragenda.ch/de/event/detail/8590
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:8590-E-E2-2027-02-28-@fcf-turniere
-DTSTAMP:20261117T045711Z
+DTSTAMP:20261117T150453Z
 DTSTART;TZID=Europe/Zurich:20270228T080000
 DTEND;TZID=Europe/Zurich:20270228T120000
 SUMMARY:Hallenturnier E2: 7.YOUTH STARS TROPHY *QUALITURNIER 8* (Rafz)
@@ -264,11 +269,11 @@ DESCRIPTION:Team E | Kategorie E2 | 2. Stkl. / 3. Stkl.\n2.&3.Stkl. | 6vs6
  ielplan)\nTreffpunkt: ca. 30 Min vor Spielbeginn\n\nHalle: Saalsporthalle
   Schalmenacker\nAdresse: Schalmenacker\, 8197 Rafz\nAnfahrt: 36 Min / 35 
  km ab Frauenfeld\n\nAngemeldet für FCF: FC Frauenfeld\nStatus: offen\n\n
- Angemeldete Teams (8):\n- FC Wülflingen\n- FC Frauenfeld\n- FC Neftenbac
- h\n- Young Lions\n- FC Oberwinterthur E Pool\n- FC Red-Star ZH Eb\n- SC Z
- urzach / FC Koblenz\n- FC Kempttal\n\nAusschreibung: https://www.turniera
- genda.ch/de/event/detail/8590\nReglement: https://www.turnieragenda.ch/re
- ssources/rules/reglement_8590.pdf
+ Trainer: noch offen\n\nAngemeldete Teams (8):\n- FC Wülflingen\n- FC Fra
+ uenfeld\n- FC Neftenbach\n- Young Lions\n- FC Oberwinterthur E Pool\n- FC
+  Red-Star ZH Eb\n- SC Zurzach / FC Koblenz\n- FC Kempttal\n\nAusschreibun
+ g: https://www.turnieragenda.ch/de/event/detail/8590\nReglement: https://
+ www.turnieragenda.ch/ressources/rules/reglement_8590.pdf
 URL:https://www.turnieragenda.ch/de/event/detail/8590
 STATUS:CONFIRMED
 TRANSP:OPAQUE

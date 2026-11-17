@@ -26,7 +26,7 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:8909-D-D-2026-12-12-13151730@fcf-turniere
-DTSTAMP:20261117T045711Z
+DTSTAMP:20261117T150453Z
 DTSTART;TZID=Europe/Zurich:20261212T131500
 DTEND;TZID=Europe/Zurich:20261212T173000
 SUMMARY:Hallenturnier D: 38. Adventsturnier SC Veltheim 2026 (Winterthur)
@@ -37,19 +37,19 @@ DESCRIPTION:Team D9b | 1. Stkl. / 2. Stkl.\n1. und 2. Stärkeklasse / und
  n vor Spielbeginn\n\nHalle: Dreifachhalle Kantonsschule Rychenberg\nAdres
  se: Rychenbergstrasse 110\, 8400 Winterthur\nAnfahrt: 18 Min / 19 km ab F
  rauenfeld\n\nAngemeldet für FCF: FC Frauenfeld\, FC Frauenfeld B\nStatus
- : ausgebucht\n\nAngemeldete Teams (10):\n- SC Veltheim D9b\n- SC Veltheim
-  D9c\n- FC Phönix Seen D9c\n- SC Veltheim SCV C Juniorinnen\n- FC Oberwi
- nterthur Db\n- FC Frauenfeld\n- FC Frauenfeld B\n- SC Veltheim Junioren D
- -7\n- Zürich City SC\n- FR BLACK U12\n\nAusschreibung: https://www.turni
- eragenda.ch/de/event/detail/8909\nReglement: https://www.turnieragenda.ch
- /ressources/rules/reglement_7825.pdf
+ : ausgebucht\n\nTrainer: noch offen\n\nAngemeldete Teams (10):\n- SC Velt
+ heim D9b\n- SC Veltheim D9c\n- FC Phönix Seen D9c\n- SC Veltheim SCV C J
+ uniorinnen\n- FC Oberwinterthur Db\n- FC Frauenfeld\n- FC Frauenfeld B\n-
+  SC Veltheim Junioren D-7\n- Zürich City SC\n- FR BLACK U12\n\nAusschrei
+ bung: https://www.turnieragenda.ch/de/event/detail/8909\nReglement: https
+ ://www.turnieragenda.ch/ressources/rules/reglement_7825.pdf
 URL:https://www.turnieragenda.ch/de/event/detail/8909
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:9153-D-D9-2027-02-28-@fcf-turniere
-DTSTAMP:20261117T045711Z
+DTSTAMP:20261117T150453Z
 DTSTART;TZID=Europe/Zurich:20270228T110000
 DTEND;TZID=Europe/Zurich:20270228T140000
 SUMMARY:Hallenturnier D9: Hallenturnier FC Münchwilen (Münchwilen)
@@ -60,12 +60,12 @@ DESCRIPTION:Team D9b | Kategorie D9 | 1. Stkl. / 2. Stkl.\n1. Stärkeklass
  Mittag\, genaue Zeit gemäss Spielplan)\nTreffpunkt: ca. 30 Min vor Spiel
  beginn\n\nHalle: Dreifachturnhalle Waldegg\nAdresse: Weinfelderstrasse 33
  \, 9542 Münchwilen\nAnfahrt: 17 Min / 16 km ab Frauenfeld\n\nAngemeldet 
- für FCF: FC Frauenfeld\, FC Frauenfeld B\nStatus: ausgebucht\n\nAngemeld
- ete Teams (8):\n- FC Wil 1900 De 2Stkl\n- FC Münchwilen Fc Münchwilen D
- 9a\n- FC Münchwilen Fc Münchwilen D9b\n- FC Flawil\n- FC Frauenfeld\n- 
- FC Frauenfeld B\n- FC Henau Db1\n- FC Henau Db2\n\nAusschreibung: https:/
- /www.turnieragenda.ch/de/event/detail/9153\nReglement: https://www.turnie
- ragenda.ch/ressources/rules/reglement_9153.pdf
+ für FCF: FC Frauenfeld\, FC Frauenfeld B\nStatus: ausgebucht\n\nTrainer:
+  noch offen\n\nAngemeldete Teams (8):\n- FC Wil 1900 De 2Stkl\n- FC Münc
+ hwilen Fc Münchwilen D9a\n- FC Münchwilen Fc Münchwilen D9b\n- FC Flaw
+ il\n- FC Frauenfeld\n- FC Frauenfeld B\n- FC Henau Db1\n- FC Henau Db2\n\
+ nAusschreibung: https://www.turnieragenda.ch/de/event/detail/9153\nReglem
+ ent: https://www.turnieragenda.ch/ressources/rules/reglement_9153.pdf
 URL:https://www.turnieragenda.ch/de/event/detail/9153
 STATUS:CONFIRMED
 TRANSP:OPAQUE

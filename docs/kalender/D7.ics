@@ -26,7 +26,7 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:9079-D-D7-2027-01-16-17002000@fcf-turniere
-DTSTAMP:20261117T045711Z
+DTSTAMP:20261117T150453Z
 DTSTART;TZID=Europe/Zurich:20270116T170000
 DTEND;TZID=Europe/Zurich:20270116T200000
 SUMMARY:Hallenturnier D7: Hallenmaster 2027 (Müllheim)
@@ -36,10 +36,10 @@ DESCRIPTION:Team D7 | Kategorie D7\n5+1\n\nZeit: Sa 16.01.2027\, 17:00-20:
  00\nTreffpunkt: ca. 30 Min vor Spielbeginn\n\nHalle: Sport- und Schulanla
  ge Rietwies\nAdresse: Gashausstrasse 6\, 8555 Müllheim\nAnfahrt: 10 Min 
  / 12 km ab Frauenfeld\n\nAngemeldet für FCF: FC Frauenfeld\nStatus: offe
- n\n\nAngemeldete Teams (7):\n- FC Steckborn D1\n- FC Steckborn D2\n- SC B
- rühl D7\n- SC Berg D7 2. Stärkeklasse\n- FC Zuzwil FC Zuzwil D7b\n- FC 
- Bütschwil D7\n- FC Frauenfeld\n\nAusschreibung: https://www.turnieragend
- a.ch/de/event/detail/9079
+ n\n\nTrainer: noch offen\n\nAngemeldete Teams (7):\n- FC Steckborn D1\n- 
+ FC Steckborn D2\n- SC Brühl D7\n- SC Berg D7 2. Stärkeklasse\n- FC Zuzw
+ il FC Zuzwil D7b\n- FC Bütschwil D7\n- FC Frauenfeld\n\nAusschreibung: h
+ ttps://www.turnieragenda.ch/de/event/detail/9079
 URL:https://www.turnieragenda.ch/de/event/detail/9079
 STATUS:CONFIRMED
 TRANSP:OPAQUE

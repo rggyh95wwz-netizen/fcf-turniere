@@ -26,7 +26,7 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:8591-D-D-2026-11-29-16151945@fcf-turniere
-DTSTAMP:20261117T045711Z
+DTSTAMP:20261117T150453Z
 DTSTART;TZID=Europe/Zurich:20261129T161500
 DTEND;TZID=Europe/Zurich:20261129T194500
 SUMMARY:Hallenturnier D: 52. Hallenturnier FC Weinfelden-Bürglen (Weinfel
@@ -36,19 +36,19 @@ DESCRIPTION:Team D-Promotion | Promotion/Elite / 1. Stkl.\nKategorie D 9 -
   Elite und 1. Stkl\n\nZeit: So 29.11.2026\, 16:15-19:45\nTreffpunkt: ca. 
  30 Min vor Spielbeginn\n\nHalle: Sporthalle Güttingersreuti\nAdresse: La
  uligstrasse 6\, 8570 Weinfelden\nAnfahrt: 19 Min / 20 km ab Frauenfeld\n\
- nAngemeldet für FCF: FC Frauenfeld\nStatus: geschlossen\n\nAngemeldete T
- eams (6):\n- FC Märstetten\n- FC Weinfelden-Bürglen D9 Promotion\n- FC 
- Frauenfeld\n- FC Wil 1900 FC Wil 1900 \n- FC Flawil\n- FC Weinfelden-Bür
- glen\n\nAusschreibung: https://www.turnieragenda.ch/de/event/detail/8591\
- nReglement: https://www.turnieragenda.ch/ressources/rules/reglement_8591.
- pdf
+ nAngemeldet für FCF: FC Frauenfeld\nStatus: geschlossen\n\nTrainer: noch
+  offen\n\nAngemeldete Teams (6):\n- FC Märstetten\n- FC Weinfelden-Bürg
+ len D9 Promotion\n- FC Frauenfeld\n- FC Wil 1900 FC Wil 1900 \n- FC Flawi
+ l\n- FC Weinfelden-Bürglen\n\nAusschreibung: https://www.turnieragenda.c
+ h/de/event/detail/8591\nReglement: https://www.turnieragenda.ch/ressource
+ s/rules/reglement_8591.pdf
 URL:https://www.turnieragenda.ch/de/event/detail/8591
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:8909-D-D-2026-12-12-13151730@fcf-turniere
-DTSTAMP:20261117T045711Z
+DTSTAMP:20261117T150453Z
 DTSTART;TZID=Europe/Zurich:20261212T131500
 DTEND;TZID=Europe/Zurich:20261212T173000
 SUMMARY:Hallenturnier D: 38. Adventsturnier SC Veltheim 2026 (Winterthur)
@@ -59,19 +59,19 @@ DESCRIPTION:Team D-Promotion | 1. Stkl. / 2. Stkl.\n1. und 2. Stärkeklass
  a. 30 Min vor Spielbeginn\n\nHalle: Dreifachhalle Kantonsschule Rychenber
  g\nAdresse: Rychenbergstrasse 110\, 8400 Winterthur\nAnfahrt: 18 Min / 19
   km ab Frauenfeld\n\nAngemeldet für FCF: FC Frauenfeld\, FC Frauenfeld B
- \nStatus: ausgebucht\n\nAngemeldete Teams (10):\n- SC Veltheim D9b\n- SC 
- Veltheim D9c\n- FC Phönix Seen D9c\n- SC Veltheim SCV C Juniorinnen\n- F
- C Oberwinterthur Db\n- FC Frauenfeld\n- FC Frauenfeld B\n- SC Veltheim Ju
- nioren D-7\n- Zürich City SC\n- FR BLACK U12\n\nAusschreibung: https://w
- ww.turnieragenda.ch/de/event/detail/8909\nReglement: https://www.turniera
- genda.ch/ressources/rules/reglement_7825.pdf
+ \nStatus: ausgebucht\n\nTrainer: noch offen\n\nAngemeldete Teams (10):\n-
+  SC Veltheim D9b\n- SC Veltheim D9c\n- FC Phönix Seen D9c\n- SC Veltheim
+  SCV C Juniorinnen\n- FC Oberwinterthur Db\n- FC Frauenfeld\n- FC Frauenf
+ eld B\n- SC Veltheim Junioren D-7\n- Zürich City SC\n- FR BLACK U12\n\nA
+ usschreibung: https://www.turnieragenda.ch/de/event/detail/8909\nReglemen
+ t: https://www.turnieragenda.ch/ressources/rules/reglement_7825.pdf
 URL:https://www.turnieragenda.ch/de/event/detail/8909
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:8462-D-D9-2026-12-13-@fcf-turniere
-DTSTAMP:20261117T045711Z
+DTSTAMP:20261117T150453Z
 DTSTART;TZID=Europe/Zurich:20261213T080000
 DTEND;TZID=Europe/Zurich:20261213T170000
 SUMMARY:Hallenturnier D9: RAIFFEISEN Futsal Juniors CUP (Amriswil)
@@ -81,19 +81,19 @@ DESCRIPTION:Team D-Promotion | Kategorie D9 | 1. Stkl.\n1. Stkl.\n\nZeit:
  lan)\nTreffpunkt: ca. 30 Min vor Spielbeginn\n\nHalle: Sportanlage Tellen
  feld\nAdresse: Untere Grenzstrasse 10\, 8580 Amriswil\nAnfahrt: 36 Min / 
  34 km ab Frauenfeld\n\nAngemeldet für FCF: FC Frauenfeld\nStatus: ausgeb
- ucht\n\nAngemeldete Teams (12):\n- FC Weinfelden-Bürglen D9 Promotion\n-
-  FC Amriswil D9a\n- Blum FC Höchst U14 / Vorarlberg\n- FC Frauenfeld\n- 
- FC Gossau SG D9\n- FC Rorschach-Goldach 17 Da\n- FC Herisau D 9 Promo\n- 
- FC Romanshorn Dc\n- FC Romanshorn\n- FC Flawil Da\n- FC Weinfelden-Bürgl
- en\n- Kickers United (Aut)\n\nAusschreibung: https://www.turnieragenda.ch
- /de/event/detail/8462
+ ucht\n\nTrainer: noch offen\n\nAngemeldete Teams (12):\n- FC Weinfelden-B
+ ürglen D9 Promotion\n- FC Amriswil D9a\n- Blum FC Höchst U14 / Vorarlbe
+ rg\n- FC Frauenfeld\n- FC Gossau SG D9\n- FC Rorschach-Goldach 17 Da\n- F
+ C Herisau D 9 Promo\n- FC Romanshorn Dc\n- FC Romanshorn\n- FC Flawil Da\
+ n- FC Weinfelden-Bürglen\n- Kickers United (Aut)\n\nAusschreibung: https
+ ://www.turnieragenda.ch/de/event/detail/8462
 URL:https://www.turnieragenda.ch/de/event/detail/8462
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:8217-D-D9-2027-01-10-@fcf-turniere
-DTSTAMP:20261117T045711Z
+DTSTAMP:20261117T150453Z
 DTSTART;TZID=Europe/Zurich:20270110T130000
 DTEND;TZID=Europe/Zurich:20270110T170000
 SUMMARY:Hallenturnier D9: Hallenmasters powered by Elektro Widmer (Bazenhe
@@ -104,19 +104,20 @@ DESCRIPTION:Team D-Promotion | Kategorie D9 | Promotion/Elite / 1. Stkl.\n
  tag\, genaue Zeit gemäss Spielplan)\nTreffpunkt: ca. 30 Min vor Spielbeg
  inn\n\nHalle: Mehrzweckanlage Ifang\nAdresse: Ifangstrasse 9\, 9602 Bazen
  heid\nAnfahrt: 24 Min / 25 km ab Frauenfeld\n\nAngemeldet für FCF: FC Fr
- auenfeld\nStatus: ausgebucht\n\nAngemeldete Teams (10):\n- FC Bazenheid D
- a 1\n- FC Bazenheid Da 2\n- FC Kirchberg\n- FC Uzwil\n- FC Dussnang Da\n-
-  SC Bronschhofen\n- FC Bütschwil\n- FC Münchwilen Fc Münchwilen D9a\n-
-  SC Bronschhofen Db 1. Stärkenklasse\n- FC Frauenfeld\n\nAusschreibung: 
- https://www.turnieragenda.ch/de/event/detail/8217\nReglement: https://www
- .turnieragenda.ch/ressources/rules/reglement_7428.pdf
+ auenfeld\nStatus: ausgebucht\n\nTrainer: noch offen\n\nAngemeldete Teams 
+ (10):\n- FC Bazenheid Da 1\n- FC Bazenheid Da 2\n- FC Kirchberg\n- FC Uzw
+ il\n- FC Dussnang Da\n- SC Bronschhofen\n- FC Bütschwil\n- FC Münchwile
+ n Fc Münchwilen D9a\n- SC Bronschhofen Db 1. Stärkenklasse\n- FC Frauen
+ feld\n\nAusschreibung: https://www.turnieragenda.ch/de/event/detail/8217\
+ nReglement: https://www.turnieragenda.ch/ressources/rules/reglement_7428.
+ pdf
 URL:https://www.turnieragenda.ch/de/event/detail/8217
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:8748-D-D9-2027-01-31-@fcf-turniere
-DTSTAMP:20261117T045711Z
+DTSTAMP:20261117T150453Z
 DTSTART;TZID=Europe/Zurich:20270131T080000
 DTEND;TZID=Europe/Zurich:20270131T120000
 SUMMARY:Hallenturnier D9: Wiler Bär Cup (Wil SG)
@@ -125,20 +126,20 @@ DESCRIPTION:Team D-Promotion | Kategorie D9 | Promotion/Elite\nPromotion\n
  \nZeit: So 31.01.2027\, 08:00-12:00 (Vormittag\, genaue Zeit gemäss Spie
  lplan)\nTreffpunkt: ca. 30 Min vor Spielbeginn\n\nHalle: Lindenhof\nAdres
  se: Lindenhofstrasse 23\, 9500 Wil SG\nAnfahrt: 21 Min / 22 km ab Frauenf
- eld\n\nAngemeldet für FCF: FC Frauenfeld\nStatus: ausgebucht\n\nAngemeld
- ete Teams (10):\n- FC Wil 1900 Da\n- FC Herisau D 9 Promo\n- FC Bazenheid
-  D1a\n- FC Bazenheid D1b\n- SC Brühl\n- FC Weinfelden-Bürglen D9 Promot
- ion\n- FC Frauenfeld\n- FC Winkeln SG\n- BC Albisrieden\n- FC Freienbach 
- D9 Promotion\n\nAusschreibung: https://www.turnieragenda.ch/de/event/deta
- il/8748\nReglement: https://www.turnieragenda.ch/ressources/rules/regleme
- nt_8748.pdf
+ eld\n\nAngemeldet für FCF: FC Frauenfeld\nStatus: ausgebucht\n\nTrainer:
+  noch offen\n\nAngemeldete Teams (10):\n- FC Wil 1900 Da\n- FC Herisau D 
+ 9 Promo\n- FC Bazenheid D1a\n- FC Bazenheid D1b\n- SC Brühl\n- FC Weinfe
+ lden-Bürglen D9 Promotion\n- FC Frauenfeld\n- FC Winkeln SG\n- BC Albisr
+ ieden\n- FC Freienbach D9 Promotion\n\nAusschreibung: https://www.turnier
+ agenda.ch/de/event/detail/8748\nReglement: https://www.turnieragenda.ch/r
+ essources/rules/reglement_8748.pdf
 URL:https://www.turnieragenda.ch/de/event/detail/8748
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:9153-D-D9-2027-02-28-@fcf-turniere
-DTSTAMP:20261117T045711Z
+DTSTAMP:20261117T150453Z
 DTSTART;TZID=Europe/Zurich:20270228T110000
 DTEND;TZID=Europe/Zurich:20270228T140000
 SUMMARY:Hallenturnier D9: Hallenturnier FC Münchwilen (Münchwilen)
@@ -150,11 +151,12 @@ DESCRIPTION:Team D-Promotion | Kategorie D9 | 1. Stkl. / 2. Stkl.\n1. Stä
  or Spielbeginn\n\nHalle: Dreifachturnhalle Waldegg\nAdresse: Weinfelderst
  rasse 33\, 9542 Münchwilen\nAnfahrt: 17 Min / 16 km ab Frauenfeld\n\nAng
  emeldet für FCF: FC Frauenfeld\, FC Frauenfeld B\nStatus: ausgebucht\n\n
- Angemeldete Teams (8):\n- FC Wil 1900 De 2Stkl\n- FC Münchwilen Fc Münc
- hwilen D9a\n- FC Münchwilen Fc Münchwilen D9b\n- FC Flawil\n- FC Frauen
- feld\n- FC Frauenfeld B\n- FC Henau Db1\n- FC Henau Db2\n\nAusschreibung:
-  https://www.turnieragenda.ch/de/event/detail/9153\nReglement: https://ww
- w.turnieragenda.ch/ressources/rules/reglement_9153.pdf
+ Trainer: noch offen\n\nAngemeldete Teams (8):\n- FC Wil 1900 De 2Stkl\n- 
+ FC Münchwilen Fc Münchwilen D9a\n- FC Münchwilen Fc Münchwilen D9b\n-
+  FC Flawil\n- FC Frauenfeld\n- FC Frauenfeld B\n- FC Henau Db1\n- FC Hena
+ u Db2\n\nAusschreibung: https://www.turnieragenda.ch/de/event/detail/9153
+ \nReglement: https://www.turnieragenda.ch/ressources/rules/reglement_9153
+ .pdf
 URL:https://www.turnieragenda.ch/de/event/detail/9153
 STATUS:CONFIRMED
 TRANSP:OPAQUE
