@@ -26,6 +26,8 @@ jobs:
       - name: Abgleich + Webseite bauen
         env:
           TZ: Europe/Zurich
+          TRAINER_DATEN_REPO: ${{ vars.TRAINER_DATEN_REPO }}          # Trainer-Anmeldungen (optional)
+          TRAINER_DATEN_TOKEN: ${{ secrets.TRAINER_DATEN_TOKEN }}
         run: ./pipeline/run.sh
       - name: Änderungen speichern
         run: |

@@ -1,0 +1,42 @@
+name: Trainer-Zugang verschlüsseln
+
+# Einmalig (und wenn der Schlüssel erneuert wurde) von Hand starten: Actions → «Trainer-Zugang verschlüsseln» → Run workflow.
+# Packt Budgets + Zugang zum privaten Trainer-Daten-Repo verschlüsselt in data/intern.enc.json (entschlüsselbar nur mit dem Trainer-Passwort).
+# Braucht: Secret TRAINER_PW (Trainer-Passwort), Secret TRAINER_DATEN_TOKEN, Variable TRAINER_DATEN_REPO.
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: abgleich
+  cancel-in-progress: false
+
+jobs:
+  intern:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+      - name: Verschlüsseln + Webseite bauen
+        env:
+          TZ: Europe/Zurich
+          LANG: en_US.UTF-8
+          TRAINER_PW: ${{ secrets.TRAINER_PW }}
+          TRAINER_DATEN_REPO: ${{ vars.TRAINER_DATEN_REPO }}
+          TRAINER_DATEN_TOKEN: ${{ secrets.TRAINER_DATEN_TOKEN }}
+        run: |
+          if [ -z "$TRAINER_PW" ]; then echo "::error::Secret TRAINER_PW fehlt"; exit 1; fi
+          ruby -E UTF-8 pipeline/intern_encrypt.rb
+          ruby -E UTF-8 pipeline/build.rb
+          ruby -E UTF-8 pipeline/ics.rb
+      - name: Speichern
+        run: |
+          git config user.name "fcf-turniere-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/intern.enc.json docs
+          git diff --cached --quiet || (git commit -m "Trainer-Zugang neu verschlüsselt" && git push)
