@@ -140,10 +140,22 @@ details.dt .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px
 .hero .ht{flex:1;min-width:0}
 .hero h1{font-size:17px!important;margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .hero .hsub{font-size:11.5px;opacity:.92;display:flex;align-items:center;gap:6px;white-space:nowrap;overflow:hidden}
-@media (max-width:359px){.hero .hsub{font-size:10.5px;gap:4px}}
+@media (max-width:440px){.hero .hsub .sx{display:none}}
+@media (max-width:359px){.hero .hsub{font-size:10.5px;gap:4px}.teambtn{padding:8px 7px;font-size:14px}.hero .in{gap:7px!important}}
 .adot{width:8px;height:8px;border-radius:50%;background:#4ade80;flex:0 0 auto;box-shadow:0 0 0 2px rgba(255,255,255,.35)}.adot.old{background:#fbbf24}
 .mbtn,.tbadge{flex:0 0 auto;border:1px solid rgba(255,255,255,.45);background:rgba(255,255,255,.14);color:#fff;border-radius:10px;font:inherit;font-size:18px;line-height:1;padding:8px 11px;cursor:pointer}
 .tbadge{font-size:14px;padding:8px 9px;background:#15803d;border-color:#15803d}
+.hero .in{position:relative}
+.teambtn{flex:0 0 auto;border:0;background:#fff;color:var(--tc,#c8102e);border-radius:10px;font:inherit;font-weight:800;font-size:15px;line-height:1;padding:9px 10px;cursor:pointer;white-space:nowrap}
+.teambtn small{font-size:11px;margin-left:3px}
+.teampop{position:absolute;top:calc(100% + 6px);right:16px;z-index:60;background:var(--card);color:var(--fg);border:1px solid var(--line);border-radius:14px;box-shadow:0 12px 32px rgba(0,0,0,.28);padding:6px;min-width:220px;display:flex;flex-direction:column;gap:2px}
+.teampop[hidden]{display:none}
+.teampop button{display:flex;align-items:center;gap:10px;border:0;background:none;color:inherit;font:inherit;text-align:left;padding:9px 10px;border-radius:9px;cursor:pointer}
+.teampop button i{width:10px;height:10px;border-radius:50%;background:var(--tc);flex:0 0 auto}
+.teampop button b{min-width:48px}
+.teampop button span{color:var(--muted);font-size:13px;flex:1}
+.teampop button.on{background:var(--chip)}
+.teampop button.on b{color:var(--tc)}
 .menu{max-width:1200px;margin:6px auto 0;padding:4px 16px 10px;color:#fff;display:grid;gap:8px}
 .menu[hidden]{display:none}
 .menu .mi{background:rgba(0,0,0,.18);border-radius:12px;padding:8px 12px;font-size:13px;display:flex;flex-wrap:wrap;gap:4px 10px;align-items:center}
@@ -213,7 +225,9 @@ a.hq{display:inline-flex;align-items:center;justify-content:center;min-width:28p
   <div class="logo"><img src="__LOGO__" alt="FC Frauenfeld"></div>
   <div class="ht"><h1>Turnierplaner</h1><div class="hsub"><span class="adot" id="adot"></span><span id="age"></span></div></div>
   <button class="tbadge" id="tbadge" hidden title="Trainer-Modus aktiv">🔓</button>
+  <button class="teambtn" id="teambtn" aria-haspopup="true" aria-expanded="false" aria-label="Team wechseln"></button>
   <button class="mbtn" id="mbtn" aria-label="Menü" aria-expanded="false">☰</button>
+  <div class="teampop" id="teampop" role="menu" hidden></div>
 </div>
 <div class="menu" id="menu" hidden>
   <div class="mi"><b>❓ Hilfe</b><span>Anleitung in einfachen Schritten, mit Bildern.</span><a class="hlink" href="hilfe.html">Hilfe öffnen</a></div>
@@ -228,7 +242,6 @@ a.hq{display:inline-flex;align-items:center;justify-content:center;min-width:28p
 </div></header>
 <div class="wrap">
   <div class="sticky">
-    <nav class="tabs" id="tabs"></nav>
     <div class="qf" id="qf"></div>
   </div>
   <div id="teamhead"></div>
@@ -469,10 +482,17 @@ function kpis(t){
   </div></details>`;
 }
 
+function setTeam(k){ active=k; try { history.replaceState(null,"","#"+active); } catch(e){} /* in Vorschau-Fenstern (sandbox) nicht erlaubt */ savePicks(); toggleTeams(false); renderTabs(); render(); window.scrollTo({top:0,behavior:"instant"}); }
+function toggleTeams(force){ const p=$("teampop"), b=$("teambtn"); const open = force!==undefined ? force : p.hidden; if (open) toggleMenu(false); p.hidden=!open; b.setAttribute("aria-expanded", open); }
 function renderTabs(){
-  $("tabs").innerHTML = TEAMS.map(t=>{ const off=DATA.filter(r=>r.kat===t.kat&&r.status==="offen").length, np=planRows(t).length; return `<button data-k="${t.kat}" class="${t.kat===active?'on':''}" style="--tc:${t.color}"><b>${t.kat}${t.kat===MY?'<span class="my">⭐</span>':""}</b><span>${t.short}</span><i>${np?"✓ "+np+" im Plan":off+" offen"}</i></button>`; }).join("");
-  $("tabs").querySelectorAll("button").forEach(b=>b.onclick=()=>{ active=b.dataset.k; try { history.replaceState(null,"","#"+active); } catch(e){} /* in Vorschau-Fenstern (sandbox) nicht erlaubt */ savePicks(); renderTabs(); render(); window.scrollTo({top:Math.min(scrollY,$("teamhead").offsetTop-stickyH()),behavior:"instant"}); });
+  const t = teamOf(active), b = $("teambtn");
+  b.style.setProperty("--tc", t.color); b.innerHTML = `${t.kat}${t.kat===MY?" ⭐":""}<small>▾</small>`;
+  $("teampop").innerHTML = TEAMS.map(x=>{ const np=planRows(x).length; return `<button role="menuitem" data-k="${x.kat}" class="${x.kat===active?'on':''}" style="--tc:${x.color}"><i></i><b>${x.kat}</b><span>${x.short}${np?" · ✓ "+np+" im Plan":""}</span>${x.kat===MY?"⭐":""}</button>`; }).join("");
+  $("teampop").querySelectorAll("button").forEach(e=>e.onclick=()=>setTeam(e.dataset.k));
 }
+$("teambtn").onclick = e => { e.stopPropagation(); toggleTeams(); };
+document.addEventListener("click", e => { if (!$("teampop").hidden && !e.target.closest("#teampop")) toggleTeams(false); });
+document.addEventListener("keydown", e => { if (e.key==="Escape") toggleTeams(false); });
 function renderTotals(){
   const fc = DATA.filter(r=>r.fcf);
   $("tot").innerHTML = `<span>${fc.reduce((a,r)=>a+fcfN(r),0)} FCF-Anmeldungen</span>${TRAINER?`<span>Startgeld CHF ${chf(fc.reduce((a,r)=>a+fcfCost(r),0))}</span>`:""}<span>${DATA.filter(r=>r.status==="offen").length} Ausschreibungen mit freien Plätzen</span>`;
@@ -631,7 +651,7 @@ document.addEventListener("click", e => {
 function showErr(msg){ let b=$("errbox"); if(!b){ b=document.createElement("div"); b.id="errbox"; b.style.cssText="position:fixed;top:0;left:0;right:0;z-index:99;background:#b91c1c;color:#fff;padding:10px 16px;font-size:14px"; document.body.append(b); } b.textContent="⚠️ Fehler in der App: "+msg+" – bitte Seite neu laden. (Filter zurücksetzen hilft oft.)"; }
 window.addEventListener("error", e => showErr(e.message||"unbekannt"));
 const _render = render; render = function(){ try { _render(); } catch(e){ console.error(e); showErr(e.message); } };
-function showAge(){ const el=$("age"); if(!el) return; const t=new Date(UPDATED.replace(" ","T")); if(isNaN(t)){ el.style.display="none"; return; } const h=(Date.now()-t)/36e5; const txt = h<1 ? "vor "+Math.max(1,Math.round(h*60))+" Min." : h<48 ? "vor "+Math.round(h)+" Std." : "vor "+Math.round(h/24)+" Tagen"; el.textContent="Sync aus Turnieragenda "+txt; const fl=$("ageFull"); if(fl) fl.textContent="Turniere vor "+txt.replace("vor ","")+" aus turnieragenda geladen ("+t.toLocaleString("de-CH",{weekday:"short",day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit"})+")"+(h>36?" – Abgleich überfällig, Plätze auf turnieragenda prüfen":""); const dot=$("adot"); if(dot) dot.classList.toggle("old", h>36); el.title="Letzter Abgleich: "+t.toLocaleString("de-CH",{weekday:"short",day:"2-digit",month:"2-digit",year:"numeric",hour:"2-digit",minute:"2-digit"}); }
+function showAge(){ const el=$("age"); if(!el) return; const t=new Date(UPDATED.replace(" ","T")); if(isNaN(t)){ el.style.display="none"; return; } const h=(Date.now()-t)/36e5; const txt = h<1 ? "vor "+Math.max(1,Math.round(h*60))+" Min." : h<48 ? "vor "+Math.round(h)+" Std." : "vor "+Math.round(h/24)+" Tagen"; el.innerHTML="<span class=\"sx\">Sync aus </span>Turnieragenda "+txt; const fl=$("ageFull"); if(fl) fl.textContent="Turniere vor "+txt.replace("vor ","")+" aus turnieragenda geladen ("+t.toLocaleString("de-CH",{weekday:"short",day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit"})+")"+(h>36?" – Abgleich überfällig, Plätze auf turnieragenda prüfen":""); const dot=$("adot"); if(dot) dot.classList.toggle("old", h>36); el.title="Letzter Abgleich: "+t.toLocaleString("de-CH",{weekday:"short",day:"2-digit",month:"2-digit",year:"numeric",hour:"2-digit",minute:"2-digit"}); }
 showAge(); setInterval(showAge, 60000);
 if (STAND_AGE > 7) document.querySelector(".hero .ht").insertAdjacentHTML("beforeend", `<p style="background:rgba(0,0,0,.25);border-radius:8px;padding:4px 8px;display:block!important">⚠️ Daten vom ${new Date(STAND+"T12:00:00").toLocaleDateString("de-CH")} (vor ${STAND_AGE} Tagen) – freie Plätze bitte auf turnieragenda.ch prüfen.</p>`);
 try { load(); } catch(e){ console.error(e); }
@@ -663,7 +683,7 @@ $("fshade").onclick = () => openFilter(false); $("fdone").onclick = () => openFi
 $("mysel").innerHTML = `<option value="">– keins –</option>` + TEAMS.map(t=>`<option value="${t.kat}">${t.title}</option>`).join("");
 $("mysel").value = MY; $("mysel").onchange = e => { MY = e.target.value; try { localStorage.setItem(MYKEY, JSON.stringify(MY)); } catch(x){} if (MY) { active = MY; savePicks(); } render(); };
 let _lastY = scrollY; window.addEventListener("scroll", () => { const y = scrollY, q = $("qf"); if (y > _lastY + 8 && y > 220) q.classList.add("hid"); else if (y < _lastY - 8 || y < 120) q.classList.remove("hid"); _lastY = y; }, {passive:true});
-function toggleMenu(force){ const m=$("menu"), b=$("mbtn"); const open = force!==undefined ? force : m.hidden; m.hidden = !open; b.textContent = open ? "✕" : "☰"; b.setAttribute("aria-expanded", open); setHeroH(); }
+function toggleMenu(force){ const m=$("menu"), b=$("mbtn"); const open = force!==undefined ? force : m.hidden; if (open && $("teampop")) { $("teampop").hidden=true; $("teambtn").setAttribute("aria-expanded", false); } m.hidden = !open; b.textContent = open ? "✕" : "☰"; b.setAttribute("aria-expanded", open); setHeroH(); }
 $("mbtn").onclick = () => toggleMenu();
 document.addEventListener("click", e => { const m=$("menu"); if (!m.hidden && !e.target.closest("#hero")) toggleMenu(false); });
 function setHeroH(){ const h=$("hero"); if (h) document.documentElement.style.setProperty("--heroH", (h.querySelector(".in").offsetHeight + 12) + "px"); }
