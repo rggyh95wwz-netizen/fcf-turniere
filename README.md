@@ -1,4 +1,4 @@
-# FCF Turniere
+# Turnierplaner
 
 Turnierplanung FC Frauenfeld (Kinderfussball): Turniere aus turnieragenda.ch für die Teams FF-14, FF-11, FF-09, D, E, F, G – Halle und Aussen, Ostschweiz und Kanton Zürich (Ausnahme: Swiss Girls Cup Bern für die Mädchen).
 

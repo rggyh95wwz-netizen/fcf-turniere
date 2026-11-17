@@ -51,7 +51,7 @@ def vevent(r, title, summary_prefix = nil)
 end
 VTZ = ["BEGIN:VTIMEZONE", "TZID:Europe/Zurich", "BEGIN:DAYLIGHT", "TZOFFSETFROM:+0100", "TZOFFSETTO:+0200", "TZNAME:CEST", "DTSTART:19700329T020000", "RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU", "END:DAYLIGHT", "BEGIN:STANDARD", "TZOFFSETFROM:+0200", "TZOFFSETTO:+0100", "TZNAME:CET", "DTSTART:19701025T030000", "RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU", "END:STANDARD", "END:VTIMEZONE"]
 def cal(name, events)
-  lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//FC Frauenfeld//Turniere//DE", "CALSCALE:GREGORIAN", "METHOD:PUBLISH",
+  lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//FC Frauenfeld//Turnierplaner//DE", "CALSCALE:GREGORIAN", "METHOD:PUBLISH",
            "X-WR-CALNAME:#{esc(name)}", "X-WR-TIMEZONE:Europe/Zurich", "REFRESH-INTERVAL;VALUE=DURATION:PT12H", "X-PUBLISHED-TTL:PT12H"] + VTZ
   events.each { |e| lines.concat(e) }
   lines << "END:VCALENDAR"
@@ -62,11 +62,11 @@ rows = db["rows"].values.select { |r| r["namen"].any? { |n| n =~ FCF } && r["dat
 index = {}
 TEAMS.each do |k, title|
   rs = rows.select { |r| r["kat"] == k }
-  File.write(File.join(dir, "#{k}.ics"), cal("FCF Turniere #{title}", rs.map { |r| vevent(r, title) })); index[k] = rs.size
+  File.write(File.join(dir, "#{k}.ics"), cal("Turnierplaner #{title}", rs.map { |r| vevent(r, title) })); index[k] = rs.size
   next unless k == "D"
   DSPLIT.each do |part, f|
     ev = rs.select { |r| r["namen"].grep(FCF).any? { |n| f.(r, n) } }
-    File.write(File.join(dir, "#{part}.ics"), cal("FCF Turniere #{part}", ev.map { |r| vevent(r, "Team #{part}") })); index[part] = ev.size
+    File.write(File.join(dir, "#{part}.ics"), cal("Turnierplaner #{part}", ev.map { |r| vevent(r, "Team #{part}") })); index[part] = ev.size
   end
 end
 jwrite(File.join(dir, "index.json"), index, true)
