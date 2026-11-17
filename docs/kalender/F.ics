@@ -26,7 +26,7 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:8654-F-F1-2026-11-15-08001100@fcf-turniere
-DTSTAMP:20261116T053135Z
+DTSTAMP:20261117T045711Z
 DTSTART;TZID=Europe/Zurich:20261115T080000
 DTEND;TZID=Europe/Zurich:20261115T110000
 SUMMARY:Hallenturnier F1: 6. Tobi-Öpfel-Cup 2026 (Neukirch-Egnach)
@@ -48,7 +48,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:8654-F-F2-2026-11-15-11001400@fcf-turniere
-DTSTAMP:20261116T053135Z
+DTSTAMP:20261117T045711Z
 DTSTART;TZID=Europe/Zurich:20261115T110000
 DTEND;TZID=Europe/Zurich:20261115T140000
 SUMMARY:Hallenturnier F2: 6. Tobi-Öpfel-Cup 2026 (Neukirch-Egnach)
@@ -70,7 +70,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:8706-F-F2-2026-11-28-@fcf-turniere
-DTSTAMP:20261116T053135Z
+DTSTAMP:20261117T045711Z
 DTSTART;TZID=Europe/Zurich:20261128T130000
 DTEND;TZID=Europe/Zurich:20261128T170000
 SUMMARY:Hallenturnier F2: FCA Chlausturnier (Amriswil)
@@ -86,14 +86,15 @@ DESCRIPTION:Team F | Kategorie F2 | 2. Stkl.\nüber eine Hallenlänge (Jah
  ägerwilen Fa \n- FC Münsterlingen Fb1\n- FC Frauenfeld b\n- FC Amriswil
   Weiss 1\n- FC Frauenfeld c\n- FC KS-Sulgen Team b\n- FC Tägerwilen Fb \
  n- FC Sirnach Fb\n\nAusschreibung: https://www.turnieragenda.ch/de/event/
- detail/8706
+ detail/8706\nReglement: https://www.turnieragenda.ch/ressources/rules/reg
+ lement_87061.pdf
 URL:https://www.turnieragenda.ch/de/event/detail/8706
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:8706-F-F1-2026-11-28-@fcf-turniere
-DTSTAMP:20261116T053135Z
+DTSTAMP:20261117T045711Z
 DTSTART;TZID=Europe/Zurich:20261128T080000
 DTEND;TZID=Europe/Zurich:20261128T120000
 SUMMARY:Hallenturnier F1: FCA Chlausturnier (Amriswil)
@@ -108,14 +109,15 @@ DESCRIPTION:Team F | Kategorie F1 | 1. Stkl.\nüber eine Hallenlänge (Jah
  n- FC Amriswil Team Rot 1\n- FC Neukirch-Egnach\n- FC Münsterlingen\n- F
  C Sirnach Fa\n- FC Wil 1900 Fa\n- FC Amriswil Team Rot 2\n- FC Neukirch-E
  gnach Fa2\n- FC Tägerwilen\n- FC Frauenfeld a\n- FC Rickenbach\n\nAussch
- reibung: https://www.turnieragenda.ch/de/event/detail/8706
+ reibung: https://www.turnieragenda.ch/de/event/detail/8706\nReglement: ht
+ tps://www.turnieragenda.ch/ressources/rules/reglement_87061.pdf
 URL:https://www.turnieragenda.ch/de/event/detail/8706
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:8644-F-F1-2026-12-05-13001700@fcf-turniere
-DTSTAMP:20261116T053135Z
+DTSTAMP:20261117T045711Z
 DTSTART;TZID=Europe/Zurich:20261205T130000
 DTEND;TZID=Europe/Zurich:20261205T170000
 SUMMARY:Hallenturnier F1: FC Wängi - 19. Chlausturnier 2026 (Wängi)
@@ -135,7 +137,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:8258-F-F2-2026-12-05-@fcf-turniere
-DTSTAMP:20261116T053135Z
+DTSTAMP:20261117T045711Z
 DTSTART;TZID=Europe/Zurich:20261205T130000
 DTEND;TZID=Europe/Zurich:20261205T170000
 SUMMARY:Hallenturnier F2: 2. FC Märstetten -LIGNOX 2026 (Märstetten)
@@ -157,7 +159,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:8793-F-F1-2027-01-10-@fcf-turniere
-DTSTAMP:20261116T053135Z
+DTSTAMP:20261117T045711Z
 DTSTART;TZID=Europe/Zurich:20270110T110000
 DTEND;TZID=Europe/Zurich:20270110T140000
 SUMMARY:Hallenturnier F1: 11. FC Flawil Futsalcup (Flawil)
@@ -178,7 +180,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:8793-F-F2-2027-01-10-@fcf-turniere
-DTSTAMP:20261116T053135Z
+DTSTAMP:20261117T045711Z
 DTSTART;TZID=Europe/Zurich:20270110T130000
 DTEND;TZID=Europe/Zurich:20270110T170000
 SUMMARY:Hallenturnier F2: 11. FC Flawil Futsalcup (Flawil)
@@ -200,7 +202,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:8194-F-F3-2027-01-16-10151230@fcf-turniere
-DTSTAMP:20261116T053135Z
+DTSTAMP:20261117T045711Z
 DTSTART;TZID=Europe/Zurich:20270116T101500
 DTEND;TZID=Europe/Zurich:20270116T123000
 SUMMARY:Hallenturnier F3: 34. Freihof Gossauer Hallenturnier 2027 (Gossau)
@@ -220,7 +222,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:8194-F-F2-2027-01-16-08001015@fcf-turniere
-DTSTAMP:20261116T053135Z
+DTSTAMP:20261117T045711Z
 DTSTART;TZID=Europe/Zurich:20270116T080000
 DTEND;TZID=Europe/Zurich:20270116T101500
 SUMMARY:Hallenturnier F2: 34. Freihof Gossauer Hallenturnier 2027 (Gossau)
@@ -229,17 +231,17 @@ DESCRIPTION:Team F | Kategorie F2 | 2. Stkl.\n\nZeit: Sa 16.01.2027\, 08:0
  0-10:15\nTreffpunkt: ca. 30 Min vor Spielbeginn\n\nHalle: Sporthalle Buec
  henwald\nAdresse: Seminarstrasse 10\, 9200 Gossau\nAnfahrt: 31 Min / 38 k
  m ab Frauenfeld\n\nAngemeldet für FCF: FC Frauenfeld b\nStatus: offen\n\
- nAngemeldete Teams (5):\n- SC Brühl Fc 2018\n- FC Teufen Fc\n- FC Henau\
- n- FC Kirchberg Fa\n- FC Frauenfeld b\n\nAusschreibung: https://www.turni
- eragenda.ch/de/event/detail/8194\nReglement: https://www.turnieragenda.ch
- /ressources/rules/reglement_5365.pdf
+ nAngemeldete Teams (6):\n- SC Brühl Fc 2018\n- FC Teufen Fc\n- FC Henau\
+ n- FC Kirchberg Fa\n- FC Frauenfeld b\n- FC Waldkirch-Bernhardzell 1997\n
+ \nAusschreibung: https://www.turnieragenda.ch/de/event/detail/8194\nRegle
+ ment: https://www.turnieragenda.ch/ressources/rules/reglement_5365.pdf
 URL:https://www.turnieragenda.ch/de/event/detail/8194
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:8217-F-F-2027-01-17-@fcf-turniere
-DTSTAMP:20261116T053135Z
+DTSTAMP:20261117T045711Z
 DTSTART;TZID=Europe/Zurich:20270117T080000
 DTEND;TZID=Europe/Zurich:20270117T120000
 SUMMARY:Hallenturnier F: Hallenmasters powered by Elektro Widmer (Bazenhei
@@ -261,7 +263,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:9152-F-F1-2027-01-23-@fcf-turniere
-DTSTAMP:20261116T053135Z
+DTSTAMP:20261117T045711Z
 DTSTART;TZID=Europe/Zurich:20270123T130000
 DTEND;TZID=Europe/Zurich:20270123T170000
 SUMMARY:Hallenturnier F1: Hallenturnier FC Münchwilen (Münchwilen)
@@ -282,7 +284,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:9152-F-F2-2027-01-23-@fcf-turniere
-DTSTAMP:20261116T053135Z
+DTSTAMP:20261117T045711Z
 DTSTART;TZID=Europe/Zurich:20270123T080000
 DTEND;TZID=Europe/Zurich:20270123T120000
 SUMMARY:Hallenturnier F2: Hallenturnier FC Münchwilen (Münchwilen)
@@ -304,7 +306,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:8734-F-F-2027-02-13-@fcf-turniere
-DTSTAMP:20261116T053135Z
+DTSTAMP:20261117T045711Z
 DTSTART;TZID=Europe/Zurich:20270213T080000
 DTEND;TZID=Europe/Zurich:20270213T120000
 SUMMARY:Hallenturnier F: Hallenturnier FC Frauenfeld (Frauenfeld)
@@ -328,7 +330,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:8680-F-F-2027-02-28-@fcf-turniere
-DTSTAMP:20261116T053135Z
+DTSTAMP:20261117T045711Z
 DTSTART;TZID=Europe/Zurich:20270228T130000
 DTEND;TZID=Europe/Zurich:20270228T170000
 SUMMARY:Hallenturnier F: ASC Soccer Cup Illnau-Effretikon (Illnau-Effretik
@@ -352,7 +354,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:8680-F-F-2027-02-28-@fcf-turniere
-DTSTAMP:20261116T053135Z
+DTSTAMP:20261117T045711Z
 DTSTART;TZID=Europe/Zurich:20270228T080000
 DTEND;TZID=Europe/Zurich:20270228T120000
 SUMMARY:Hallenturnier F: ASC Soccer Cup Illnau-Effretikon (Illnau-Effretik
@@ -364,11 +366,11 @@ DESCRIPTION:Team F | 2. Stkl. / 3. Stkl.\n2. / 3. Stärkeklasse\n\nZeit: S
  reffpunkt: ca. 30 Min vor Spielbeginn\n\nHalle: Sporthalle Eselriet\nAdre
  sse: Sportplatzstrasse 4\, 8307 Illnau-Effretikon\nAnfahrt: 30 Min / 30 k
  m ab Frauenfeld\n\nAngemeldet für FCF: FC Frauenfeld b\, FC Frauenfeld c
- \nStatus: offen\n\nAngemeldete Teams (7):\n- FC Dübendorf\n- FC Wetzikon
+ \nStatus: offen\n\nAngemeldete Teams (8):\n- FC Dübendorf\n- FC Wetzikon
   Fb\n- FC Frauenfeld b\n- FC Frauenfeld c\n- FC Tössfeld\n- FC Uster CH\
- n- FC Volketswil\n\nAusschreibung: https://www.turnieragenda.ch/de/event/
- detail/8680\nReglement: https://www.turnieragenda.ch/ressources/rules/reg
- lement_8680.pdf
+ n- FC Volketswil\n- FC Kollbrunn-Rikon Fc\n\nAusschreibung: https://www.t
+ urnieragenda.ch/de/event/detail/8680\nReglement: https://www.turnieragend
+ a.ch/ressources/rules/reglement_8680.pdf
 URL:https://www.turnieragenda.ch/de/event/detail/8680
 STATUS:CONFIRMED
 TRANSP:OPAQUE
