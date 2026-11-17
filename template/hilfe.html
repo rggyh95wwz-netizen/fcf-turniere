@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Hilfe · Turniere FC Frauenfeld</title>
+<meta name="theme-color" content="#c8102e">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-180.png">
+<style>
+/* Hilfe-Seite: eine Spalte, Schritte mit Bild. Farben wie die App. */
+:root{--bg:#f6f7f9;--card:#fff;--fg:#1c2330;--muted:#5d6878;--line:#e2e6ec;--accent:#0b6bcb;--red:#c81e1e;--chip:#eef1f5;--tip:#fff8e1;--tipfg:#6b5000}
+@media (prefers-color-scheme:dark){:root{--bg:#12161c;--card:#1b2129;--fg:#e6eaf0;--muted:#9aa5b4;--line:#2c3540;--accent:#5aa7ff;--red:#e04848;--chip:#262e38;--tip:#2e2711;--tipfg:#f0d48a}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+header{position:sticky;top:0;z-index:5;background:linear-gradient(135deg,#a50f24,#c8102e);color:#fff;padding:calc(10px + env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) 10px max(16px,env(safe-area-inset-left,0px));display:flex;align-items:center;gap:12px}
+header img{height:38px;width:auto}
+header h1{font-size:19px;margin:0;flex:1;line-height:1.2}
+header a{color:#fff;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.4);border-radius:99px;padding:6px 14px;text-decoration:none;font-weight:700;font-size:15px;white-space:nowrap}
+main{max-width:640px;margin:0 auto;padding:16px max(16px,env(safe-area-inset-right,0px)) 60px max(16px,env(safe-area-inset-left,0px));display:flex;flex-direction:column;gap:22px}
+h2{font-size:23px;margin:0 0 4px;text-wrap:balance}
+h3{font-size:18px;margin:14px 0 4px}
+p{margin:6px 0}
+.box{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px}
+.quick{border:2px solid var(--red)}
+.quick ol{margin:8px 0 0;padding-left:22px}.quick li{margin:4px 0}
+.toc{display:grid;grid-template-columns:1fr;gap:8px}
+.toc a{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;color:var(--fg);text-decoration:none;font-weight:600}
+.toc a span{font-size:24px;width:30px;text-align:center}
+.toc a:active{background:var(--chip)}
+.steps{list-style:none;margin:10px 0 0;padding:0;display:flex;flex-direction:column;gap:14px;counter-reset:s}
+.steps>li{counter-increment:s;position:relative;padding-left:44px}
+.steps>li::before{content:counter(s);position:absolute;left:0;top:0;width:32px;height:32px;border-radius:50%;background:var(--red);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center}
+.shot{display:block;max-width:100%;width:100%;border-radius:12px;border:1px solid var(--line);margin-top:8px;box-shadow:0 2px 10px rgba(0,0,0,.08)}
+.shot.half{max-width:360px}
+.tip{background:var(--tip);color:var(--tipfg);border-radius:12px;padding:10px 14px;font-size:15px;margin-top:10px}
+.tag{display:inline-block;border-radius:99px;padding:1px 9px;font-size:14px;font-weight:700;white-space:nowrap}
+.t-red{background:var(--red);color:#fff}.t-blue{background:var(--accent);color:#fff}.t-grey{background:var(--chip);color:var(--fg);border:1px solid var(--line)}
+.os{display:grid;grid-template-columns:1fr;gap:12px}
+@media (min-width:560px){.os{grid-template-columns:1fr 1fr}}
+.os .box{padding:12px 14px}
+.os h3{margin-top:0}
+.os ol{margin:4px 0 0;padding-left:20px}.os li{margin:3px 0}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+details+details{margin-top:8px}
+summary{font-weight:700;cursor:pointer}
+.top{text-align:right;font-size:14px}.top a{color:var(--muted)}
+a{color:var(--accent)}
+.foot{color:var(--muted);font-size:14px;text-align:center}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header><img src="__LOGO__" alt="FC Frauenfeld"><h1>Hilfe<br><span style="font-weight:400;font-size:14px;opacity:.9">Turniere FC Frauenfeld</span></h1><a href="./">← Zur App</a></header>
+<main>
+
+<section class="box quick" id="kurz">
+  <h2>Das Wichtigste in 30 Sekunden</h2>
+  <ol>
+    <li>Die App zeigt alle <b>Turniere</b> für unsere Teams. Oben wählst du dein Team.</li>
+    <li>Als Trainer tippst du im Menü <b>☰</b> auf <b>Trainer-Login</b> und gibst das Passwort ein.</li>
+    <li>Dann wählst du deinen Namen und tippst bei einem Turnier auf <span class="tag t-blue">✓ Ich kann hier</span>. Fertig.</li>
+  </ol>
+</section>
+
+<nav class="toc" aria-label="Inhalt">
+  <a href="#handy"><span>📱</span>Ich will die App auf mein Handy</a>
+  <a href="#anschauen"><span>🔎</span>Ich will Turniere anschauen</a>
+  <a href="#trainer"><span>👤</span>Ich will mich als Trainer anmelden</a>
+  <a href="#melden"><span>✓</span>Ich will sagen: «Ich kann hier»</a>
+  <a href="#prio"><span>⭐</span>Ich will ein Turnier markieren (Prio)</a>
+  <a href="#kalender"><span>📅</span>Ich will die Turniere in meinem Kalender</a>
+  <a href="#probleme"><span>🛟</span>Es klappt etwas nicht</a>
+</nav>
+
+<section class="box" id="handy">
+  <h2>📱 Die App auf dein Handy</h2>
+  <p>So hast du die App wie ein normales App-Symbol auf dem Handy.</p>
+  <div class="os">
+    <div class="box"><h3>iPhone</h3><ol>
+      <li>Öffne die Seite in <b>Safari</b>.</li>
+      <li>Tippe unten auf <b>Teilen</b> (Viereck mit Pfeil nach oben).</li>
+      <li>Tippe auf <b>Zum Home-Bildschirm</b> und dann auf <b>Hinzufügen</b>.</li>
+    </ol></div>
+    <div class="box"><h3>Android</h3><ol>
+      <li>Öffne die Seite in <b>Chrome</b>.</li>
+      <li>Tippe oben rechts auf <b>⋮</b>.</li>
+      <li>Tippe auf <b>Zum Startbildschirm hinzufügen</b> oder <b>App installieren</b>.</li>
+    </ol></div>
+  </div>
+  <p class="top"><a href="#kurz">↑ nach oben</a></p>
+</section>
+
+<section class="box" id="anschauen">
+  <h2>🔎 Turniere anschauen</h2>
+  <ol class="steps">
+    <li>Oben wählst du dein <b>Team</b>, zum Beispiel <b>FF-11</b>. Darunter kannst du filtern, zum Beispiel nur <b>Halle</b> oder nur <b>≤ 45 Min</b> Fahrzeit.
+      <img class="shot" src="hilfe/01-start.jpg" alt="Startseite mit Team-Auswahl" loading="lazy"></li>
+    <li>Tipp: Im Menü <b>☰</b> bei <b>Mein Team</b> stellst du ein, welches Team beim Öffnen gleich erscheint.
+      <img class="shot half" src="hilfe/02-menu.jpg" alt="Menü mit Mein Team" loading="lazy"></li>
+    <li>Im <b>📅 Kalender</b> siehst du jedes Wochenende mit seinen Turnieren. Die Zahlen <b>12 / 14</b> heissen: 12 Plätze sind noch frei, von 14.
+      <img class="shot" src="hilfe/03-wochenende.jpg" alt="Ein Wochenende mit einem Turnier" loading="lazy"></li>
+    <li>Tippe auf <b>Details, Reglement, Links</b>. Dort stehen Halle, Spielzeit, Kosten und der Link zur Anmeldung.
+      <img class="shot half" src="hilfe/04-details.jpg" alt="Details zu einem Turnier" loading="lazy"></li>
+  </ol>
+  <p class="top"><a href="#kurz">↑ nach oben</a></p>
+</section>
+
+<section class="box" id="trainer">
+  <h2>👤 Als Trainer anmelden</h2>
+  <ol class="steps">
+    <li>Tippe oben rechts auf <b>☰</b>. Tippe bei <b>Trainer</b> auf <b>Trainer-Login</b> und gib das Trainer-Passwort ein.
+      <img class="shot" src="hilfe/05-login.jpg" alt="Knopf Trainer-Login im Menü" loading="lazy">
+      <div class="tip">Das Passwort bekommst du vom Trainer-Verantwortlichen. Das Login gilt 24 Stunden.</div></li>
+    <li>Jetzt erscheint <b>Trainer-Einsatz</b>. Wähle deinen Namen und tippe auf <b>Weiter</b>.
+      <img class="shot" src="hilfe/07-name.jpg" alt="Namen wählen" loading="lazy"></li>
+    <li>Dein Name fehlt? Wähle <b>＋ Ich bin neu …</b>, schreibe Vor- und Nachname und tippe auf <b>Erfassen</b>. Das machst du nur einmal.
+      <img class="shot" src="hilfe/06-neu.jpg" alt="Neu erfassen mit Vor- und Nachname" loading="lazy"></li>
+  </ol>
+  <p class="top"><a href="#kurz">↑ nach oben</a></p>
+</section>
+
+<section class="box" id="melden">
+  <h2>✓ «Ich kann hier» sagen</h2>
+  <ol class="steps">
+    <li>Wähle oben dein Team und tippe auf <b>👥 Trainer</b>.
+      <img class="shot" src="hilfe/08b-trainer-kopf.jpg" alt="Ansicht Trainer mit deinem Namen" loading="lazy"></li>
+    <li>Der Kalender zeigt alle Turniere des Monats. Ein <b>Punkt</b> heisst: Hier ist ein Turnier. Ein <b style="color:var(--red)">roter Punkt</b> heisst: Prio 1, hier brauchen wir sicher jemanden. Tippe auf einen Tag, um nur diesen Tag zu sehen. Mit <b>‹ ›</b> wechselst du den Monat.
+      <img class="shot half" src="hilfe/08-trainer-kalender.jpg" alt="Monatskalender" loading="lazy"></li>
+    <li>Unter dem Kalender stehen die Turniere. Tippe auf <span class="tag t-blue">✓ Ich kann hier</span>.
+      <img class="shot" src="hilfe/09a-ichkann.jpg" alt="Turnier mit Knopf Ich kann hier" loading="lazy"></li>
+    <li>Jetzt steht dein Name <span class="tag t-red">rot</span> beim Turnier, und der Tag ist im Kalender rot. Die anderen Trainer sehen das auch. Kannst du doch nicht? Tippe auf <span class="tag t-grey">✗ Abmelden</span>.
+      <img class="shot" src="hilfe/09b-dabei.jpg" alt="Du bist beim Turnier eingetragen" loading="lazy"></li>
+  </ol>
+  <div class="tip">Es dürfen sich mehrere Trainer für das gleiche Turnier melden.</div>
+  <p class="top"><a href="#kurz">↑ nach oben</a></p>
+</section>
+
+<section class="box" id="prio">
+  <h2>⭐ Ein Turnier markieren (Prio)</h2>
+  <p>Ein Turnier, für das der FCF noch nicht angemeldet ist, erscheint erst bei <b>👥 Trainer</b>, wenn jemand es markiert.</p>
+  <ol class="steps">
+    <li>Geh in den <b>📅 Kalender</b> oder die <b>☰ Liste</b>. Bei jedem Turnier gibt es das Feld <b>☆ für Trainer markieren</b>.</li>
+    <li>Wähle eine Prio:<br>
+      <span class="tag t-red">Prio 1 · muss</span> da gehen wir sicher hin<br>
+      <span class="tag t-grey">Prio 2 · wenn möglich</span> gerne, wenn genug Trainer können<br>
+      <span class="tag t-grey">Prio 3 · Option</span> nur falls es passt
+      <img class="shot" src="hilfe/10-prio.jpg" alt="Prio bei einem Turnier wählen" loading="lazy"></li>
+  </ol>
+  <div class="tip">Bei Prio 1 ohne Trainer erscheint ein ⚠. Dann sollte sich jemand melden.</div>
+  <p class="top"><a href="#kurz">↑ nach oben</a></p>
+</section>
+
+<section class="box" id="kalender">
+  <h2>📅 Die Turniere in deinem Kalender</h2>
+  <p>Dein persönlicher Kalender zeigt alle Turniere, bei denen du «Ich kann hier» getippt hast. Er aktualisiert sich von selbst.</p>
+  <ol class="steps">
+    <li>Menü <b>☰</b> → <b>Trainer-Einsatz</b> → <b>Mein Kalender-Abo kopieren</b>.
+      <img class="shot" src="hilfe/11-abo.jpg" alt="Knopf Mein Kalender-Abo kopieren" loading="lazy"></li>
+    <li>Füge den Link so in deinen Kalender ein:</li>
+  </ol>
+  <div class="os">
+    <div class="box"><h3>iPhone</h3><ol>
+      <li>Öffne <b>Einstellungen</b> → <b>Kalender</b> (bei neueren iPhones: <b>Apps</b> → <b>Kalender</b>).</li>
+      <li><b>Accounts</b> → <b>Account hinzufügen</b> → <b>Andere</b>.</li>
+      <li><b>Kalenderabo hinzufügen</b> → Link einfügen → <b>Weiter</b> → <b>Sichern</b>.</li>
+    </ol></div>
+    <div class="box"><h3>Android / Google Kalender</h3><ol>
+      <li>Öffne am Computer <b>calendar.google.com</b>.</li>
+      <li>Links bei <b>Weitere Kalender</b> auf <b>+</b> → <b>Per URL</b>.</li>
+      <li>Link einfügen → <b>Kalender hinzufügen</b>. Danach erscheint er auch auf dem Handy.</li>
+    </ol></div>
+  </div>
+  <div class="tip">Neue Anmeldungen kommen innert etwa 2 Stunden in den Kalender. Google Kalender braucht manchmal bis zu einem Tag.</div>
+  <p>Für <b>SpielerPlus</b> oder den Team-Kalender gibt es im Trainer-Modus unten beim <b>Plan</b> den Knopf <b>Link … kopieren</b>. Dort stehen alle Turniere, bei denen der FCF angemeldet ist, mit den Trainern.</p>
+  <p class="top"><a href="#kurz">↑ nach oben</a></p>
+</section>
+
+<section id="probleme">
+  <h2>🛟 Es klappt etwas nicht</h2>
+  <details><summary>Ich sehe «👥 Trainer» nicht.</summary><p>Zuerst im Menü <b>☰</b> auf <b>Trainer-Login</b> tippen und das Passwort eingeben. Nach 24 Stunden musst du dich neu einloggen.</p></details>
+  <details><summary>Ich habe den falschen Namen gewählt.</summary><p>Menü <b>☰</b> → <b>Trainer-Einsatz</b> → <b>Anderer Name</b>. Dann den richtigen Namen wählen.</p></details>
+  <details><summary>Mein Name steht doppelt oder ist falsch geschrieben.</summary><p>Melde dich beim Trainer-Verantwortlichen, dort wird es korrigiert.</p></details>
+  <details><summary>Es kommt «Nicht gespeichert».</summary><p>Prüfe das Internet. Lade die Seite neu und tippe nochmals. Hilft das nicht: Trainer-Verantwortlichen informieren.</p></details>
+  <details><summary>Mein Kalender zeigt nichts oder ist alt.</summary><p>Warte etwa 2 Stunden, bei Google Kalender bis zu einem Tag. Hast du bei mindestens einem Turnier «Ich kann hier» getippt?</p></details>
+  <details><summary>Die App sieht anders aus als hier.</summary><p>App ganz schliessen und neu öffnen, oder die Seite neu laden. Dann hast du die neuste Version.</p></details>
+  <p class="top"><a href="#kurz">↑ nach oben</a></p>
+</section>
+
+<p class="foot">Bilder mit Beispiel-Namen. <a href="./">← Zurück zur App</a></p>
+</main>
+</body>
+</html>

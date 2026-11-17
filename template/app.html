@@ -167,6 +167,9 @@ details.dt .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px
 .menu .kpis{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;width:100%;margin:0}
 .menu .kpi{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.2);color:#fff;padding:8px 10px}.menu .kpi span{color:rgba(255,255,255,.85)}.menu .kpi b{font-size:16px}
 .tabs button .my,.tabs button span.my{display:inline!important;font-size:10px;margin-left:2px}
+/* Hilfe */
+a.hq{display:inline-flex;align-items:center;justify-content:center;min-width:28px;height:28px;padding:0 9px;border-radius:99px;border:1px solid var(--line);background:var(--card);color:var(--accent);font-weight:700;font-size:13px;text-decoration:none;white-space:nowrap}
+.menu a.hlink{display:inline-block;background:#fff;color:#c81e1e;font-weight:700;border-radius:99px;padding:5px 14px;text-decoration:none}
 /* Trainer-Anmeldung pro Turnier */
 .trs{display:flex;flex-wrap:wrap;align-items:center;gap:5px;margin-top:6px;font-size:13px}
 .trs .tlab{color:var(--muted);font-size:12px}
@@ -200,6 +203,7 @@ details.dt .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px
 .tslog{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px;width:100%}
 .tslog select,.tslog input{font:inherit;font-size:14px;border-radius:8px;padding:5px 8px;border:0;min-width:0}
 .tslog input{width:90px}
+.tslog[hidden],.menu .mi[hidden]{display:none}
 @media (prefers-color-scheme:dark){.tch.me,.tpr.p1,.tprio.p1,.tgrid .td.mine{background:#e04848;border-color:#e04848}.tgrid .td i.p1{background:#ff6b6b}}
 </style>
 </head>
@@ -211,6 +215,7 @@ details.dt .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px
   <button class="mbtn" id="mbtn" aria-label="Menü" aria-expanded="false">☰</button>
 </div>
 <div class="menu" id="menu" hidden>
+  <div class="mi"><b>❓ Hilfe</b><span>Anleitung in einfachen Schritten, mit Bildern.</span><a class="hlink" href="hilfe.html">Hilfe öffnen</a></div>
   <div class="mi"><b>🔄 Datenstand</b><span id="ageFull"></span></div>
   <div class="mi"><b>👤 Trainer</b><span id="tinfo"></span><button class="tbtn" id="tbtn" hidden></button></div>
   <div class="mi" id="tsmi" hidden><b>👥 Trainer-Einsatz</b><div id="tsbox" style="width:100%"></div></div>
@@ -493,7 +498,7 @@ function renderPbar(t){
   const open = pb.classList.contains("open");
   pb.innerHTML = `<div class="ppanel">${plan.map(r=>`<div class="pi"><div class="x"><b>${fmtD(r.datum)} · ${r.name}</b><span class="small">${r.ort} · ${r.zeit} · ${r.fz} Min · ${isHome(r)?"gratis":"CHF "+r.kosten}${r.status!=="offen"?" · "+r.status:""}${r.anm&&r.status==="offen"?" · Anm. bis "+fmtD(r.anm):""}</span></div><button data-plan="${r._i}" title="Aus dem Plan entfernen">✕</button></div>`).join("")||`<p class="small">Noch leer – im Kalender ein Turnier antippen.</p>`}
     <div class="acts">${TRAINER?`<button class="sec" data-x="all" ${all.length?"":"disabled"}>📅 Alle Teams exportieren (${all.length})</button>`:""}<button class="sec" data-x="clear" ${plan.length?"":"disabled"}>Plan ${t.title} leeren</button></div>
-    ${!TRAINER?(INTERN?`<div class="acts" style="border-top:1px solid var(--line);margin-top:8px"><span class="lockx">🔒 Kalender-Export und Kalender-Abo-Links im Trainer-Modus.</span> <button class="sec" onclick="login()">Trainer-Modus</button></div>`:""):`<div class="acts" style="border-top:1px solid var(--line);margin-top:8px"><span class="small" style="flex-basis:100%">🔗 <b>Kalender-Abo</b> (SpielerPlus/SportMember, Handy-Kalender): alle Turniere mit FCF-Anmeldung, täglich aktualisiert</span>${[t.kat].concat(t.parts?t.parts.map(p=>p[0]):[]).map(k=>`<button class="sec" data-cal="${k}">Link ${k} kopieren</button>`).join("")}</div>`}</div>
+    ${!TRAINER?(INTERN?`<div class="acts" style="border-top:1px solid var(--line);margin-top:8px"><span class="lockx">🔒 Kalender-Export und Kalender-Abo-Links im Trainer-Modus.</span> <button class="sec" onclick="login()">Trainer-Modus</button></div>`:""):`<div class="acts" style="border-top:1px solid var(--line);margin-top:8px"><span class="small" style="flex-basis:100%">🔗 <b>Kalender-Abo</b> (SpielerPlus/SportMember, Handy-Kalender): alle Turniere mit FCF-Anmeldung, täglich aktualisiert · <a href="hilfe.html#kalender">Hilfe</a></span>${[t.kat].concat(t.parts?t.parts.map(p=>p[0]):[]).map(k=>`<button class="sec" data-cal="${k}">Link ${k} kopieren</button>`).join("")}</div>`}</div>
     <div class="in"><div class="txt" data-x="tog"><b>${open?"▾":"▴"} Plan ${t.title}: ${plan.length} Turnier${plan.length===1?"":"e"}</b><span>${plan.length?`CHF ${chf(sum)}${TRAINER&&t.budget?" · Budget "+chf(t.budget):""} · ${km} km`:"Turnier antippen, um es einzuplanen"}</span></div>${TRAINER?`<button data-x="exp" ${plan.length?"":"disabled"}>📅 Export</button>`:`<button class="sec" data-x="lock" title="Export im Trainer-Modus">🔒 Export</button>`}</div>`;
   pb.querySelector('[data-x="tog"]').onclick = () => { pb.classList.toggle("open"); renderPbar(t); };
   const qx = k => pb.querySelector('[data-x="'+k+'"]');
@@ -522,7 +527,7 @@ function render(){
   const sec = document.createElement("section"); sec.className="team"; sec.id="sec-"+t.kat;
   const vw = viewState[t.kat]||"kal";
   const vb = document.createElement("div"); vb.className="views";
-  vb.innerHTML = `<button data-v="kal" class="${vw==='kal'?'on':''}">📅 Kalender</button><button data-v="list" class="${vw==='list'?'on':''}">☰ Liste</button>${tsOn()?`<button data-v="tr" class="${vw==='tr'?'on':''}">👥 Trainer</button>`:""}<span class="shown" style="margin:0 0 0 auto;align-self:center"><b>${rows.length}</b> von ${all.length}</span>`;
+  vb.innerHTML = `<button data-v="kal" class="${vw==='kal'?'on':''}">📅 Kalender</button><button data-v="list" class="${vw==='list'?'on':''}">☰ Liste</button>${tsOn()?`<button data-v="tr" class="${vw==='tr'?'on':''}">👥 Trainer</button>`:""}<span class="shown" style="margin:0 0 0 auto;align-self:center"><b>${rows.length}</b> von ${all.length}</span><a class="hq" href="hilfe.html#${vw==="tr"?"melden":"anschauen"}" title="Hilfe">?</a>`;
   vb.querySelectorAll("button").forEach(b=>b.onclick=()=>{ viewState[t.kat]=b.dataset.v; savePicks(); render(); });
   sec.append(vb);
   if (vw==="tr" && tsOn()){ sec.append(trView(t)); }
@@ -749,10 +754,10 @@ const aboUrl = () => new URL("kalender/trainer/"+encodeURIComponent(TS.me.abo)+"
 function renderTsMenu(){
   const mi = $("tsmi"), b = $("tsbox"); if (!mi || !b) return;
   mi.hidden = !tsOn(); if (!tsOn()) return;
-  if (TS.me) { b.innerHTML = `<span>Du bist <b>${esc(TS.me.name)}</b>. Im Team-Tab unter «👥 Trainer» meldest du dich pro Turnier. Dein Kalender-Abo ist nach der nächsten Aktualisierung (max. 2 Std.) bereit.</span><div class="tslog"><button class="tbtn" data-tsabo>🔗 Mein Kalender-Abo kopieren</button><button class="tbtn" id="tsout">Anderer Name</button></div>`; $("tsout").onclick = e => { e.stopPropagation(); tsLogout(); }; return; }
+  if (TS.me) { b.innerHTML = `<span>Du bist <b>${esc(TS.me.name)}</b>. Im Team-Tab unter «👥 Trainer» meldest du dich pro Turnier. Dein Kalender-Abo ist nach der nächsten Aktualisierung (max. 2 Std.) bereit.</span><div class="tslog"><button class="tbtn" data-tsabo>🔗 Mein Kalender-Abo kopieren</button><button class="tbtn" id="tsout">Anderer Name</button></div><span><a href="hilfe.html#kalender">So kommt das Abo aufs Handy</a></span>`; $("tsout").onclick = e => { e.stopPropagation(); tsLogout(); }; return; }
   if (!TS.data) { b.innerHTML = `<span>${esc(TS.err || "Trainerliste wird geladen …")}</span>`; return; }
   const tr = tsTrainer();
-  b.innerHTML = `<span>Wer bist du? Danach kannst du dich pro Turnier mit «Ich kann hier» melden.</span><div class="tslog"><select id="tsw"><option value="">– Name wählen –</option>${tr.map(t=>`<option value="${esc(t.id)}">${esc(t.name)}</option>`).join("")}<option value="+">＋ Ich bin neu …</option></select><button class="tbtn" id="tsgo">Weiter</button></div>
+  b.innerHTML = `<span>Wer bist du? Danach kannst du dich pro Turnier mit «Ich kann hier» melden. <a href="hilfe.html#trainer">Hilfe</a></span><div class="tslog"><select id="tsw"><option value="">– Name wählen –</option>${tr.map(t=>`<option value="${esc(t.id)}">${esc(t.name)}</option>`).join("")}<option value="+">＋ Ich bin neu …</option></select><button class="tbtn" id="tsgo">Weiter</button></div>
     <div class="tslog" id="tsnew" hidden><input id="tsvn" placeholder="Vorname" autocomplete="given-name"><input id="tsnn" placeholder="Nachname" autocomplete="family-name"><button class="tbtn" id="tsadd">Erfassen</button></div><span id="tshint"></span>`;
   $("tsw").onchange = () => { $("tsnew").hidden = $("tsw").value!=="+"; $("tsgo").hidden = $("tsw").value==="+"; };
   $("tsgo").onclick = e => { e.stopPropagation(); const t = tr.find(x=>x.id===$("tsw").value); if (t) tsUse(t); else $("tshint").textContent = "Bitte zuerst deinen Namen wählen."; };
@@ -771,8 +776,8 @@ function trView(t){
   if (!months.includes(TS.ym)) { TS.ym = months.find(m=>m>=TODAYS.slice(0,7)) || months[0] || TODAYS.slice(0,7); TS.day = ""; }
   const ym = TS.ym, y = +ym.slice(0,4), m = +ym.slice(5,7)-1, mi = months.indexOf(ym);
   const rs = rel.filter(r=>r.datum.startsWith(ym)).sort((a,b)=>a.datum.localeCompare(b.datum) || (tsPrio(a)||9)-(tsPrio(b)||9));
-  const head = TS.me ? `<div class="tsme">👤 <b>${esc(TS.me.name)}</b><button data-tsabo>🔗 Mein Kalender-Abo kopieren</button><span class="small">Turnier antippen mit «✓ Ich kann hier». Weitere Turniere im 📅 Kalender mit «☆ für Trainer markieren» aufnehmen.</span></div>`
-                     : `<div class="tsme"><span>Im Menü ☰ unter <b>👥 Trainer-Einsatz</b> deinen Namen wählen, dann kannst du dich pro Turnier melden.</span></div>`;
+  const head = TS.me ? `<div class="tsme">👤 <b>${esc(TS.me.name)}</b><button data-tsabo>🔗 Mein Kalender-Abo kopieren</button><span class="small">Turnier antippen mit «✓ Ich kann hier». Weitere Turniere im 📅 Kalender mit «☆ für Trainer markieren» aufnehmen.</span><a class="hq" href="hilfe.html#melden">? Hilfe</a></div>`
+                     : `<div class="tsme"><span>Im Menü ☰ unter <b>👥 Trainer-Einsatz</b> deinen Namen wählen, dann kannst du dich pro Turnier melden.</span><a class="hq" href="hilfe.html#trainer">? Hilfe</a></div>`;
   const off = (new Date(y, m, 1).getDay()+6)%7, n = new Date(y, m+1, 0).getDate();
   let g = ["Mo","Di","Mi","Do","Fr","Sa","So"].map(d=>`<div class="dw">${d}</div>`).join("") + `<div class="td x"></div>`.repeat(off);
   for (let d=1; d<=n; d++){
