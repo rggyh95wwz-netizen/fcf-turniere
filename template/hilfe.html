@@ -55,22 +55,36 @@ a{color:var(--accent)}
 <header><img src="__LOGO__" alt="FC Frauenfeld"><h1>Hilfe<br><span style="font-weight:400;font-size:14px;opacity:.9">Turnierplaner</span></h1><a href="./">← Zur App</a></header>
 <main>
 
+<section class="box" id="worum">
+  <h2>💡 Worum geht es?</h2>
+  <p>Die Turniere für Kinderfussball stehen auf <b>turnieragenda.ch</b>. Dort muss man jedes Turnier einzeln anklicken. Der <b>Turnierplaner</b> holt diese Daten jeden Tag automatisch ab und zeigt sie für unsere Teams übersichtlich an.</p>
+  <ul>
+    <li><b>Alles auf einen Blick:</b> Datum, Zeit, Halle oder Platz, Adresse, Fahrzeit ab Frauenfeld, freie Plätze, Kategorie, Reglement und alle angemeldeten Teams.</li>
+    <li><b>Wo wir angemeldet sind:</b> Unsere angemeldeten Teams sind rot und fett hervorgehoben. So sieht jeder sofort, wo wir spielen.</li>
+    <li><b>Wer als Trainer dabei ist:</b> Trainer tippen «Ich kann hier». Alle sehen, wo noch ein Trainer fehlt.</li>
+    <li><b>Automatisch in SpielerPlus, SportMember und ins Handy:</b> Jedes Team hat einen Kalender-Link. Alle Turniere mit FCF-Anmeldung kommen von selbst mit allen Angaben in den Kalender, ohne Abtippen.</li>
+  </ul>
+  <p class="top"><a href="#kurz">↑ nach oben</a></p>
+</section>
+
 <section class="box quick" id="kurz">
   <h2>Das Wichtigste in 30 Sekunden</h2>
   <ol>
-    <li>Der <b>Turnierplaner</b> zeigt alle <b>Turniere</b> für unsere Teams. Oben wählst du dein Team.</li>
+    <li>Der <b>Turnierplaner</b> zeigt alle <b>Turniere</b> für unsere Teams. Oben rechts beim Team-Knopf (zum Beispiel <b>FF-11 ▾</b>) wechselst du das Team.</li>
     <li>Als Trainer tippst du im Menü <b>☰</b> auf <b>Trainer-Login</b> und gibst das Passwort ein.</li>
     <li>Dann wählst du deinen Namen und tippst bei einem Turnier auf <span class="tag t-blue">✓ Ich kann hier</span>. Fertig.</li>
   </ol>
 </section>
 
 <nav class="toc" aria-label="Inhalt">
+  <a href="#worum"><span>💡</span>Worum geht es?</a>
   <a href="#handy"><span>📱</span>Ich will die App auf mein Handy</a>
   <a href="#anschauen"><span>🔎</span>Ich will Turniere anschauen</a>
   <a href="#trainer"><span>👤</span>Ich will mich als Trainer anmelden</a>
   <a href="#melden"><span>✓</span>Ich will sagen: «Ich kann hier»</a>
   <a href="#prio"><span>⭐</span>Ich will ein Turnier markieren (Prio)</a>
   <a href="#kalender"><span>📅</span>Ich will die Turniere in meinem Kalender</a>
+  <a href="#spielerplus"><span>🔗</span>Ich will die Turniere in SpielerPlus oder SportMember</a>
   <a href="#probleme"><span>🛟</span>Es klappt etwas nicht</a>
 </nav>
 
@@ -95,8 +109,8 @@ a{color:var(--accent)}
 <section class="box" id="anschauen">
   <h2>🔎 Turniere anschauen</h2>
   <ol class="steps">
-    <li>Oben wählst du dein <b>Team</b>, zum Beispiel <b>FF-11</b>. Darunter kannst du filtern, zum Beispiel nur <b>Halle</b> oder nur <b>≤ 45 Min</b> Fahrzeit.
-      <img class="shot" src="hilfe/01-start.jpg" alt="Startseite mit Team-Auswahl" loading="lazy"></li>
+    <li>Oben rechts tippst du auf den <b>Team-Knopf</b> (zum Beispiel <b>FF-11 ▾</b>) und wählst dein Team. Darunter kannst du filtern, zum Beispiel nur <b>Halle</b> oder nur <b>≤ 45 Min</b> Fahrzeit.
+      <img class="shot" src="hilfe/01-start.jpg" alt="Startseite mit offenem Team-Knopf" loading="lazy"></li>
     <li>Tipp: Im Menü <b>☰</b> bei <b>Mein Team</b> stellst du ein, welches Team beim Öffnen gleich erscheint.
       <img class="shot half" src="hilfe/02-menu.jpg" alt="Menü mit Mein Team" loading="lazy"></li>
     <li>Im <b>📅 Kalender</b> siehst du jedes Wochenende mit seinen Turnieren. Die Zahlen <b>12 / 14</b> heissen: 12 Plätze sind noch frei, von 14.
@@ -124,7 +138,7 @@ a{color:var(--accent)}
 <section class="box" id="melden">
   <h2>✓ «Ich kann hier» sagen</h2>
   <ol class="steps">
-    <li>Wähle oben dein Team und tippe auf <b>👥 Trainer</b>.
+    <li>Wähle oben rechts beim Team-Knopf dein Team und tippe auf <b>👥 Trainer</b>.
       <img class="shot" src="hilfe/08b-trainer-kopf.jpg" alt="Ansicht Trainer mit deinem Namen" loading="lazy"></li>
     <li>Der Kalender zeigt alle Turniere des Monats. Ein <b>Punkt</b> heisst: Hier ist ein Turnier. Ein <b style="color:var(--red)">roter Punkt</b> heisst: Prio 1, hier brauchen wir sicher jemanden. Tippe auf einen Tag, um nur diesen Tag zu sehen. Mit <b>‹ ›</b> wechselst du den Monat.
       <img class="shot half" src="hilfe/08-trainer-kalender.jpg" alt="Monatskalender" loading="lazy"></li>
@@ -173,7 +187,29 @@ a{color:var(--accent)}
     </ol></div>
   </div>
   <div class="tip">Neue Anmeldungen kommen innert etwa 2 Stunden in den Kalender. Google Kalender braucht manchmal bis zu einem Tag.</div>
-  <p>Für <b>SpielerPlus</b> oder den Team-Kalender gibt es im Trainer-Modus unten beim <b>Plan</b> den Knopf <b>Link … kopieren</b>. Dort stehen alle Turniere, bei denen der FCF angemeldet ist, mit den Trainern.</p>
+  <p>Für das ganze Team (SpielerPlus, SportMember) siehe <a href="#spielerplus">nächster Abschnitt</a>.</p>
+  <p class="top"><a href="#kurz">↑ nach oben</a></p>
+</section>
+
+<section class="box" id="spielerplus">
+  <h2>🔗 Turniere automatisch in SpielerPlus oder SportMember</h2>
+  <p>Jedes Team hat einen eigenen <b>Kalender-Link</b>. Darin sind alle Turniere, bei denen der FCF angemeldet ist. Neue Anmeldungen und Änderungen kommen von selbst dazu. Niemand muss etwas abtippen.</p>
+  <ol class="steps">
+    <li>Trainer-Login machen (Menü <b>☰</b> → <b>Trainer-Login</b>) und oben rechts beim Team-Knopf dein Team wählen.</li>
+    <li>Ganz unten beim <b>Plan</b> auf <b>Link … kopieren</b> tippen (zum Beispiel «Link FF-11 kopieren»).</li>
+    <li>In SpielerPlus oder SportMember den Kalender-Import bzw. das Kalender-Abo öffnen (meist heisst es <b>iCal</b>, <b>ICS</b> oder <b>Kalender abonnieren</b>) und den Link einfügen.</li>
+  </ol>
+  <h3>Das steht bei jedem Termin</h3>
+  <ul>
+    <li>Turniername, Ort und Kategorie</li>
+    <li>Datum und Zeitfenster, Treffpunkt ca. 30 Min. vorher</li>
+    <li>Halle oder Platz mit Adresse, Fahrzeit und Kilometer ab Frauenfeld</li>
+    <li>Welche FCF-Teams angemeldet sind, und der Status</li>
+    <li>Welche Trainer dabei sind und die Prio</li>
+    <li>Alle angemeldeten Teams</li>
+    <li>Link zur Ausschreibung und zum Reglement</li>
+  </ul>
+  <div class="tip">Der Link wird mehrmals am Tag aktualisiert. Wie schnell SpielerPlus oder SportMember die Änderungen holt, bestimmt die jeweilige App.</div>
   <p class="top"><a href="#kurz">↑ nach oben</a></p>
 </section>
 
