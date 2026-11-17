@@ -20,7 +20,7 @@ File.write(File.join(DOCS, "hilfe.html"), File.read(File.join(T, "hilfe.html"), 
 FileUtils.mkdir_p(File.join(DOCS, "hilfe")); Dir[File.join(T, "hilfe", "*.jpg")].each { |f| FileUtils.cp(f, File.join(DOCS, "hilfe")) }
 FileUtils.rm_f(File.join(DOCS, "icon.gif"))
 File.write(File.join(DOCS, "manifest.webmanifest"), JSON.pretty_generate({
-  name: "FCF Turniere", short_name: "FCF Turniere", start_url: "./", scope: "./", display: "standalone",
+  name: "Turnierplaner", short_name: "Turnierplaner", start_url: "./", scope: "./", display: "standalone",
   background_color: "#f6f7f9", theme_color: "#c8102e", icons: [{src: "icon-192.png", sizes: "192x192", type: "image/png"}, {src: "icon-512.png", sizes: "512x512", type: "image/png", purpose: "any maskable"}]}))
 File.write(File.join(DOCS, "sw.js"), <<~JS)
   // Offline-Cache: zuerst Netz (immer aktuelle Daten), sonst letzte gespeicherte Version

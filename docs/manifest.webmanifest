@@ -1,6 +1,6 @@
 {
-  "name": "FCF Turniere",
-  "short_name": "FCF Turniere",
+  "name": "Turnierplaner",
+  "short_name": "Turnierplaner",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
