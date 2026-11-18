@@ -26,7 +26,7 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:8734-FF-11-FF-11-2027-02-13-@fcf-turniere
-DTSTAMP:20261117T160737Z
+DTSTAMP:20261118T050126Z
 DTSTART;TZID=Europe/Zurich:20270213T130000
 DTEND;TZID=Europe/Zurich:20270213T170000
 SUMMARY:Hallenturnier FF-11: Hallenturnier FC Frauenfeld (Frauenfeld)
@@ -37,10 +37,10 @@ DESCRIPTION:Team FF-11\nSpiele a 10 Min. pro Team (Modus 4 + 1)\n\nZeit: S
  Treffpunkt: ca. 30 Min vor Spielbeginn\n\nHalle: Dreifachturnhalle Kanton
  sschule Frauenfeld\nAdresse: Sternwartestr. 5\, 8500 Frauenfeld\nAnfahrt:
   3 Min / 1 km ab Frauenfeld\n\nAngemeldet für FCF: FC Frauenfeld FF11\nS
- tatus: offen\n\nTrainer: noch offen\n\nAngemeldete Teams (6):\n- FC Fraue
- nfeld FF11\n- KF Dardania St. Gallen FF11\n- FC St. Margrethen\n- FC Wil 
- 1900 FC Wil a\n- FC Wil 1900 FC Wil Team b\n- FC Seuzach\n\nAusschreibung
- : https://www.turnieragenda.ch/de/event/detail/8734
+ tatus: ausgebucht\n\nTrainer: noch offen\n\nAngemeldete Teams (6):\n- FC 
+ Frauenfeld FF11\n- KF Dardania St. Gallen FF11\n- FC St. Margrethen\n- FC
+  Wil 1900 FC Wil a\n- FC Wil 1900 FC Wil Team b\n- FC Seuzach\n\nAusschre
+ ibung: https://www.turnieragenda.ch/de/event/detail/8734
 URL:https://www.turnieragenda.ch/de/event/detail/8734
 STATUS:CONFIRMED
 TRANSP:OPAQUE

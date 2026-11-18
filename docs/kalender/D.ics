@@ -26,7 +26,7 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:8591-D-D-2026-11-29-16151945@fcf-turniere
-DTSTAMP:20261117T160737Z
+DTSTAMP:20261118T050126Z
 DTSTART;TZID=Europe/Zurich:20261129T161500
 DTEND;TZID=Europe/Zurich:20261129T194500
 SUMMARY:Hallenturnier D: 52. Hallenturnier FC Weinfelden-Bürglen (Weinfel
@@ -38,17 +38,17 @@ DESCRIPTION:Team D | Promotion/Elite / 1. Stkl.\nKategorie D 9 - Elite und
  e 6\, 8570 Weinfelden\nAnfahrt: 19 Min / 20 km ab Frauenfeld\n\nAngemelde
  t für FCF: FC Frauenfeld\nStatus: geschlossen\n\nTrainer: noch offen\n\n
  Angemeldete Teams (6):\n- FC Märstetten\n- FC Weinfelden-Bürglen D9 Pro
- motion\n- FC Frauenfeld\n- FC Wil 1900 FC Wil 1900 \n- FC Flawil\n- FC We
- infelden-Bürglen\n\nAusschreibung: https://www.turnieragenda.ch/de/event
- /detail/8591\nReglement: https://www.turnieragenda.ch/ressources/rules/re
- glement_8591.pdf
+ motion\n- FC Frauenfeld\n- FC Wil 1900\n- FC Flawil\n- FC Weinfelden-Bür
+ glen\n\nAusschreibung: https://www.turnieragenda.ch/de/event/detail/8591\
+ nReglement: https://www.turnieragenda.ch/ressources/rules/reglement_8591.
+ pdf
 URL:https://www.turnieragenda.ch/de/event/detail/8591
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:8909-D-D-2026-12-12-13151730@fcf-turniere
-DTSTAMP:20261117T160737Z
+DTSTAMP:20261118T050126Z
 DTSTART;TZID=Europe/Zurich:20261212T131500
 DTEND;TZID=Europe/Zurich:20261212T173000
 SUMMARY:Hallenturnier D: 38. Adventsturnier SC Veltheim 2026 (Winterthur)
@@ -71,7 +71,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:8462-D-D9-2026-12-13-@fcf-turniere
-DTSTAMP:20261117T160737Z
+DTSTAMP:20261118T050126Z
 DTSTART;TZID=Europe/Zurich:20261213T080000
 DTEND;TZID=Europe/Zurich:20261213T170000
 SUMMARY:Hallenturnier D9: RAIFFEISEN Futsal Juniors CUP (Amriswil)
@@ -93,7 +93,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:8217-D-D9-2027-01-10-@fcf-turniere
-DTSTAMP:20261117T160737Z
+DTSTAMP:20261118T050126Z
 DTSTART;TZID=Europe/Zurich:20270110T130000
 DTEND;TZID=Europe/Zurich:20270110T170000
 SUMMARY:Hallenturnier D9: Hallenmasters powered by Elektro Widmer (Bazenhe
@@ -116,7 +116,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:9079-D-D7-2027-01-16-17002000@fcf-turniere
-DTSTAMP:20261117T160737Z
+DTSTAMP:20261118T050126Z
 DTSTART;TZID=Europe/Zurich:20270116T170000
 DTEND;TZID=Europe/Zurich:20270116T200000
 SUMMARY:Hallenturnier D7: Hallenmaster 2027 (Müllheim)
@@ -136,7 +136,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:8748-D-D9-2027-01-31-@fcf-turniere
-DTSTAMP:20261117T160737Z
+DTSTAMP:20261118T050126Z
 DTSTART;TZID=Europe/Zurich:20270131T080000
 DTEND;TZID=Europe/Zurich:20270131T120000
 SUMMARY:Hallenturnier D9: Wiler Bär Cup (Wil SG)
@@ -158,7 +158,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:9153-D-D9-2027-02-28-@fcf-turniere
-DTSTAMP:20261117T160737Z
+DTSTAMP:20261118T050126Z
 DTSTART;TZID=Europe/Zurich:20270228T110000
 DTEND;TZID=Europe/Zurich:20270228T140000
 SUMMARY:Hallenturnier D9: Hallenturnier FC Münchwilen (Münchwilen)
